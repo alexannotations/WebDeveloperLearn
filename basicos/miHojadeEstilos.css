@@ -23,17 +23,29 @@ header{
 }
 
 #navegacion{
-    background-color: bisque;
+    background-color: red;
 }
 
 #BarraLateral{
     background-color: grey;
+    float: left;/* cambia el flujo u orden de aparicion del elemento*/
+    height: 750px; /* cambia el tamaño de la barra lateral */
 }
 
 #contenidoPrincipal{
     background-color: cadetblue;
+    margin-left: 210px; /* establece un margen desde el borde de la pagina*/
+    padding-left: 15px; /* margen interior izquierdo de la caja, distancia entre el borde y el texto */
 }
 
 #piePrincipal{
     background-color: yellowgreen;
+    clear: both;
+    margin-top: 20px;
+}
+
+li{
+    background-color: yellow;
+    display: inline;    /* convierte la etiqueta block en inline, por lo que ocupara solo el ancho del texto */
+    
 }

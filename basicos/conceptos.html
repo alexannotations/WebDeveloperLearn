@@ -10,6 +10,18 @@
     <title>Pagina de prueba para aprendizaje</title>
     <link rel="stylesheet" href="miHojadeEstilos.css"/>
 
+    <!--
+        <style type="text/css"> -- codigo antiguo
+        Estilo CSS en cabecera solo para este documento
+        sobreescribe el archivo miHojadeEstilos.css
+        donde se indicaba gray color
+    -->
+    <style>
+        #BarraLateral{
+            background-color: brown;
+        }
+    </style>
+
 </head>
 <body>
     <header id="CabeceraWeb">
@@ -55,7 +67,7 @@
         </article>
 
         <article>
-            <header>
+            <header style="background-color: green;">   <!--Estilo CCS inline, solo modifica esta etiqueta -->
                 <hgroup><h3>Titulo noticia 2</h3><h4>Subtitulo n2</h4></hgroup>
                 <time datetime="2014/01/31" pubdate>Publicada el 31/oct/1990</time> 
             </header>
