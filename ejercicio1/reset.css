@@ -14,4 +14,19 @@ ul { padding-left: 1.4em; list-style:square; }
 q:before, q:after { content:''; }
 /* fin del reset CSS*/
 
+body{
+    font-size: 62.5%;
+}
 
+h1{
+    font: normal 2.4em Verdana, Geneva, sans-serif;
+    background-image: linear-gradient(to bottom, #00F, #0CF);
+    width: 35%;     /* ancho del cuadro */
+    border-radius: 10px;
+    margin: 25px auto;  /* centra el cuadro */
+    text-align: center;
+    padding: 15px;/* estable la distancia del borde del box al contenido (margen interno)*/
+    color: #FFF; /* fuente */
+    box-shadow: #00F, 5px, 5px, 10px;/* sombra difuminada */
+    text-shadow: #FFF,2px,2px,3px;
+}
