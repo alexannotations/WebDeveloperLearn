@@ -1,0 +1,39 @@
+/*
+El codigo CSS puede colocarse en:
+    Un archivo independiente con extension css
+    Dentro de la etiqueta head en la cabecera del documento html
+    Estilo inline dentro de la etiqueta
+
+    selector {atributos con comentarios sobre codigo antiguo}
+*/
+@charset "utf-8";
+
+body {
+    background-color: #f5f5dc;  /* <body bgcolor="#f5f5dc">*/
+}
+
+/* selector de etiqueta*/
+header{
+    background-color: aquamarine;
+}
+
+/*selector de id*/
+#CabeceraWeb{
+    background-color: burlywood;
+}
+
+#navegacion{
+    background-color: bisque;
+}
+
+#BarraLateral{
+    background-color: grey;
+}
+
+#contenidoPrincipal{
+    background-color: cadetblue;
+}
+
+#piePrincipal{
+    background-color: yellowgreen;
+}
