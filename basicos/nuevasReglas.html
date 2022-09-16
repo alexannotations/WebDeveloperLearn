@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevas reglas en CSS3</title>
+    
+    <style>
+        /* Selectores CSS*/
+        p[name^="mis"]{           color: #F00;        }
+        p[name$="os"]{            color: #0F0;        }
+        p[name*="ss"]{            color: #00F;        }
+
+        /* Pseudoclases CSS*/
+        p:nth-child(4){    color:#AA0}
+        /* Sobreescriben a los estilos anteriores */
+        p:nth-child(even){    color:#0AA}
+        p:nth-child(odd){    color:#A0A}
+
+        p:last-child{color:blueviolet}
+        p:only-child{color:orange}
+    </style>
+</head>
+<body>
+    <p name="misElementos">Hola</p>
+    <p name="misSaludo">Adios</p>
+    <p name="miss">Bienvenido</p>
+
+    <p>Hello (aplica el estilo de la pseudoclase al 4o hijo)</p>
+    <p>Bonjour</p>
+    <p>Ciao</p>
+
+    <ol>
+        <li><p>Alimentos</p></li>
+        <li>Frutas</li>
+        <li><p>Aguacate</p>
+            <p>Limon</p>
+            <p>Mango</p>
+            <p>Platano (4o hijo de la etiqueta &lt;li&gt;)</p>
+        </li>
+    </ol>
+    <p>Hallo (Ultimo elemento hijo del elemento body)</p>
+</body>
+</html>
