@@ -30,3 +30,50 @@ h1{
     box-shadow: #00F, 5px, 5px, 10px;/* sombra difuminada */
     text-shadow: #FFF,2px,2px,3px;
 }
+
+h2{
+   font: bold 1.7em Verdana, Geneva, sans-serif; 
+   margin: 0px;
+   padding: 5px, 0 5px 0px;
+   color:  #000;
+}
+
+section{
+    width: 91%;
+    border-top: 1px dashed gray;
+    margin: 15px auto;
+}
+
+figure{
+    float: left; /* permite que el contenido aparezca rodeandole. El elemento flota */
+}
+
+figure img{ /* aplica el estilo a las etiquetas img hijas de la etiqueta figure; selector descendiente */
+    padding: 4px;
+    background: gray;
+    border-radius: 20px;
+    box-shadow: rgb(84, 89, 90) 3px 5px 20px;
+}
+
+figure img:hover{ /* pseudoclase para el estado hover (pasar el cursor por encima) */
+    transform: scale(1.2); /* crece la imagen 1.2 al enfocarla */
+    transition: transform 0.3s ease-in-out 0.1s; /* suaviza la transicion al enfocar y desenfocar */
+}
+
+figcaption{
+    font-family: Arial, Helveltica, sans-serif;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 5px;
+}
+
+footer{
+    clear: both; /* rompe el float de la etiqueta figure */
+    padding-top: 75px;
+}
+
+footer p{
+    font: 1.6em Georgia;
+    color: gray;
+    margin: 10px 8px;
+}
