@@ -5,6 +5,7 @@ El codigo CSS puede colocarse en:
     Estilo inline dentro de la etiqueta
 
     selector {atributos con comentarios sobre codigo antiguo}
+    selector{propiedad:valor}
 */
 @charset "utf-8";
 

@@ -1,3 +1,4 @@
+# CSS
 # Modelo caja contenedor
 Dos tipos de etiquetas en HTML
  - **Etiquetas block:** generan un salto de linea arriba u abajo de la pagina ocupando el 100% del ancho del documento, la mayoria son de este tipo.
@@ -6,9 +7,11 @@ Dos tipos de etiquetas en HTML
 
 ## Selectores CSS
 En CSS existen selectores de:
- - Etiqueta p{}
- - id       #cabeceraDiv{}
- - clase    .miEstilo{}
+ - __Etiqueta o tipo__  p{}  div{}
+ - __id__               #id-del-elemeto{}
+ - __clase__            .miEstilo-o-elemento{}
+ - __atributo__         a[href="..."]{}
+ - __universal__        *{}
 
 El uso del selector con el acento circunflejo permite aplicar el estilo a los elementos __p__ que __comiencen__ con _"mis"_.
 ```css
