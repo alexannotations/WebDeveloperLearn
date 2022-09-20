@@ -1,7 +1,7 @@
 # Selectores combinadores
 Ayudan a ser más especificos.
  - __Descendientes__        div p
-    padre . hijo
+    padre _ hijo
  - __Hijo directo__         div > p
     padre >.hijoDirecto
  - __Elemento adyacente__   div + p

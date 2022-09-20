@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores CSS</title>
+    
+    <style>
+        *{
+            background: papayawhip;
+        }
+        div{
+            background: pink;
+        }
+        .selectorClass{
+            color: blueviolet;
+        }
+        #selectorID{
+            color: brown;
+        }
+        a[href="https://blog.alexannotations.com"]{
+            color: blue;
+        }
+        /* Selectores combinadores */
+        div p{
+            color: limegreen;
+        }
+        div > div{
+            background: plum;
+        }
+        .selectorClase{
+            background: red;
+        }
+        div+section{
+            background: palevioletred;
+        }
+        div~p{
+            color: powderblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="selectorClass">. Selector Clase</div>
+    <div id="selectorID"># Selector id</div>
+    <a href="https://blog.alexannotations.com">Mi blog (selector atributo)</a>
+
+    <div>
+        <p>HTML colors</p>
+        <p>  selector combinador Descendiente</p>
+        <div>> selector hijo directo</div>
+        <div class="selectorClase"> selector de clase hijo directo</div>
+    </div>
+    <section>elementos adyacentes</section>
+    <p>General de hermanos</p>
+    <div>otra etiqueta div</div>
+</body>
+</html>
