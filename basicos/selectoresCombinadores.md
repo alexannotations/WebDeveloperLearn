@@ -14,7 +14,7 @@ div .selectorA ~ .selectorB > p{}
 # Tipos de selectores: pseudoclases y pseudoelementos
 
 ## pseudoclases
-Permite llegar a las acciones que hace el usuario (reacciona a eventos)
+Permite llegar a las acciones que hace el usuario, para estilizar algun estado en especial de ese elemento
  - :active
  - :focus
  - :hover
