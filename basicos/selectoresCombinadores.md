@@ -11,3 +11,19 @@ Se pueden combinar los selectores, y se pueden leer mas facil de derecha a izqui
 ```css
 div .selectorA ~ .selectorB > p{}
 ```
+# Tipos de selectores: pseudoclases y pseudoelementos
+
+## pseudoclases
+Permite llegar a las acciones que hace el usuario (reacciona a eventos)
+ - :active
+ - :focus
+ - :hover
+ - :nth-child(n)
+
+
+ ## pseudoelementos
+ Permiten acceder a elementos de html que no son accesibles con los anteriores selectores.
+   - ::after
+   - ::before
+   - ::first-letter
+   - ::placeholder
