@@ -68,9 +68,9 @@ La propiedad display establece el tipo de visualización de los elementos HTML s
 
 - __inline-block__: Con este display podemos tener tanto los beneficios de inline como de block, es decir, podemos tener elementos que no ocupen todo el ancho de la pantalla, sino que ocupen solamente lo que su contenido ocupa, pero también vamos a poder darle márgenes y podremos cambiar su tamaño.
 
-- __flex__:
+- __flex__: consiste en el ordenamiento de elementos hijos en un solo eje, por defecto horizontalmente. El elemento padre o contenedor deberá contener la propiedad display con el valor flex. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
 
-- __grid__: 
+- __grid__: [guide to grid](https://css-tricks.com/snippets/css/complete-guide-grid/) consiste en el ordenamiento de elementos hijos en dos ejes, como si fuera una cuadrícula o tabla. El elemento padre o contenedor deberá contener la propiedad display con el valor grid y debes definir las medidas de las columnas y de las filas. A partir de aquí, ya puedes ordenar los hijos según sea necesario.
 
 - __none__: El display none desactiva la visualización de un elemento, como si el elemento no existiera.
 
