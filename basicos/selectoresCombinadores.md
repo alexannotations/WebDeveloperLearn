@@ -13,7 +13,8 @@ div .selectorA ~ .selectorB > p{}
 ```
 # Tipos de selectores: pseudoclases y pseudoelementos
 
-## pseudoclases
+## [pseudoclases](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes#indice_de_las_pseudo-clases_est%C3%A1ndar)
+
 Permite llegar a las acciones que hace el usuario, para estilizar algun estado en especial de ese elemento
  - :active
  - :focus
@@ -21,7 +22,7 @@ Permite llegar a las acciones que hace el usuario, para estilizar algun estado e
  - :nth-child(n)
 
 
- ## pseudoelementos
+ ## [pseudoelementos](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
  Permiten acceder a elementos de html que no son accesibles con los anteriores selectores.
    - ::after
    - ::before
