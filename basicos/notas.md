@@ -1,4 +1,10 @@
 # CSS
+
+[HTML color codes](https://htmlcolorcodes.com/)
+
+[HTML reference](https://htmlreference.io/)
+
+
 # Modelo caja contenedor
 Dos tipos de etiquetas en HTML
  - **Etiquetas block:** generan un salto de linea arriba u abajo de la pagina ocupando el 100% del ancho del documento, la mayoria son de este tipo.
@@ -50,3 +56,21 @@ Aplica el estilo al elemento __p__ unico
 ```css
 p:only-child{ ... }
 ``` 
+
+
+## Tipos de display
+
+La propiedad display establece el tipo de visualización de los elementos HTML sin afectar el flujo normal de los elementos. Existen etiquetas que por defecto su display ya está determinado, como la etiqueta ```<div>``` que tiene display block, ```<span>``` tiene display inline y ```<button>``` tiene display inline-block.
+
+- __inline__: Estos elementos son los que su caja mide exactamente lo mismo que su contenido. Estos elementos los podemos usar en textos y en lugar de que se agreguen en una nueva línea se agregaran justo al ladito del texto. ❗ Tienen como desventaja que no podemos ponerles márgenes ni tampoco podemos cambiar su tamaño.
+
+- __block__: Estos elementos ocupan toda la pantalla, por lo que si quieres agregar otro elemento, este se agregará automáticamente abajo. No importa que tengas poco contenido, el elemento sí o sí va a ocupar toda la pantalla.
+
+- __inline-block__: Con este display podemos tener tanto los beneficios de inline como de block, es decir, podemos tener elementos que no ocupen todo el ancho de la pantalla, sino que ocupen solamente lo que su contenido ocupa, pero también vamos a poder darle márgenes y podremos cambiar su tamaño.
+
+- __flex__:
+
+- __grid__: 
+
+- __none__: El display none desactiva la visualización de un elemento, como si el elemento no existiera.
+

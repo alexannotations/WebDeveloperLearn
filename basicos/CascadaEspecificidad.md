@@ -21,6 +21,3 @@ Existen 6 tipos de especificidad con su respectivo valor, donde ```X``` es la ca
 
 [specificity Calculator](https://specificity.keegan.st/)
 
-[HTML color codes](https://htmlcolorcodes.com/)
-
-
