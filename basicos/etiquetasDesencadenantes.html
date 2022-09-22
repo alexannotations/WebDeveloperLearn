@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>identificar que etiquetas queremos que desencadene un codigo javascript</title>
+    <style>
+        .class_element{
+            color: red;
+        }
+        #id_de_identificicacion{
+            color: green;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Identificaci&oacuten de elementos</p>
+    <p>Otro parrafo que no ejecuta nada</p>
+    <p id="id_de_identificicacion">tercer parrafo (mensaje alert al pasar el mouse)</p>
+    <p>cuarto parrafo</p>
+    <p id="id_de_identificicacion">solo se identifica un unico atributo id, 
+        por lo que no funciona id=</p>
+    <div class="class_element">div con class</div>
+    <div class="class_element">div con class, pero no deberia ejecutar JS</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
