@@ -1,0 +1,17 @@
+*{
+    background: papayawhip;
+}
+
+h2{
+    font-size: 3em;
+    color: blueviolet;
+}
+
+article .texto{
+    color: darkgreen;
+}
+
+/* ver la diferencia con el selector en JS (la coma) */
+article .texto span{
+    font-style: oblique;
+}

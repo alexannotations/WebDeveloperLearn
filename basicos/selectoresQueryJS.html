@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos para javascript. Identificaci&on de elementos</title>
+    <link rel="stylesheet" href="selectoresQueryJS.css">
+</head>
+
+<body>
+    <header>
+        <p>un parrafo en el header ?🤔?</p>
+    </header>
+
+    <section id="principal">
+        <article>
+            <p class="importante">Ambos m&eacutetodos envian como parametros los selectores CSS.</p>
+            <h2>querySelector()</h2>
+            <p class="texto">Retorna el primer elemento que corresponde al grupo
+                de selectores indicado entre par&eacutentesis.
+            </p>
+            <p>clic aqui para ejecutar la funcion ejecuta</p>
+        </article>
+        <p>Parrafo en section fuera de article</p>
+        <article>
+            <h2 id="selectorTodo">querySelectorAll()</h2>
+            <p class="texto">Retorna todos los elementos que corresponden al <span>grupo
+                de selectores</span> indicado entre par&eacutentesis. El valor
+                devuelto es un array conteniendo los elementos en 
+                el mismo orden en el que aparecen en el documento.
+            </p>
+        </article>
+    </section>
+
+    <footer>
+        <p class="texto">un parrafo en el footer ?🤔?</p>
+    </footer>
+    
+    <script src="selectoresQueryJS.js">    </script>
+</body>
+</html>
