@@ -21,3 +21,11 @@ Existen 6 tipos de especificidad con su respectivo valor, donde ```X``` es la ca
 
 [specificity Calculator](https://specificity.keegan.st/)
 
+## Posicionamiento
+ - relative
+ - absolute
+ - fixed
+ - sticky
+ - static
+ - initial
+ - inherital
