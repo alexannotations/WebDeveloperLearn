@@ -47,6 +47,15 @@
             position: sticky;
             top: 0;
         }
+        /* Responsive desing */
+        @media (max-width: 400px){
+            nav{
+            background: palegoldenrod;
+            position: fixed;    /* no se mueve de su posicion */
+            z-index: 7;
+        }
+        }
+
 
     </style>
 </head>
@@ -114,6 +123,23 @@ Posición variable fija
 La posición sticky consiste en quitar al elemento del flujo normal del documento y fijarlo en un lugar mientras su contenedor sea visible; donde las propiedades de posición sí pueden ser establecidas.
 
 </p>
+
+<p>El diseño responsivo (Responsive Design) consiste en un conjunto de herramientas para que tu sitio se vea bien en varias medidas de pantalla, esto incluye imágenes, tipografía, internacionalización de la página y entre otros.
+
+    En la actualidad, la mayoría de sitios web son visitados desde un celular, por lo que asegurarse que nuestro sitio sea responsivo para cualquier dispositivo es fundamental para optimizar las ganancias.
+    Qué son las media queries
+    
+    Las media queries son reglas CSS que establecen un comportamiento distinto o diferentes estilos en un cierto rango de la pantalla. Esto sirve para establecer el layout del sitio web para diferentes tipos de pantalla: escritorio, tablets y celulares.
+    
+    Estos son dos tipos de media querie :
+    
+        max-width / max-height: establece un rango máximo para cierto comportamiento.
+        min-width / min-height: establece un rango mínimo para cierto comportamiento.
+    
+    Estos valores son parecidos a condicionales, mientras se cumpla la condición, aplica determinados estilos.
+    Estructura de la media querie
+    
+    La estructura de una media querie consiste en empezar con @media, seguido del tipo de la media querie estableciendo un rango, envolviendo las reglas CSS dentro de ese rango.</p>
     
         <ul>
             <p>Frutas0</p>
