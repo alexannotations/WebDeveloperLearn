@@ -24,6 +24,7 @@ function ejecutaAlCargar(){
     */
 
     for (let i = 0; i < 5; i++) {
+        // onclick se utiliza cuando el evento es en linea
         document.getElementsByTagName("p")[i].onclick=saludo; 
     }
 
