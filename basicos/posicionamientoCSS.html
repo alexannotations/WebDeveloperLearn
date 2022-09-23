@@ -12,6 +12,17 @@
             background: peachpuff;
             position: relative;
             top: 20px;
+            z-index: 4; /* https://css-tricks.com
+            el orden importa en el eje Z, 
+            los elementos que esten en la parte inferior
+            prevalecen sobre los elementos que esten en la parte superior.
+            entre mayor sea el z-index mayor relevancia tendra (capa superior)
+            Para el tema de positions, z-index solo trabaja con 
+            position: absolute, 
+            position: relative, 
+            position: fixed, 
+            position: sticky.
+            */
         }
         .item{
             width: 20px;
@@ -19,12 +30,18 @@
             background: hotpink;
             position: absolute;
             right: 0;
+            z-index: 9; /* item aparece arriba de container, pero no arriba de nav
+            porque item esta dentro de container y container es mas pequeño que nav
+            nueca item estara por encima de nav. 
+            Se respeta el orden de los elementos padre e hija
+            */
         }
         nav{
             width: 100%;
             height: 60px;
             background: lightcyan;
             position: fixed;    /* no se mueve de su posicion */
+            z-index: 7;
         }
         ul p{
             position: sticky;
@@ -35,7 +52,7 @@
 </head>
 <body>
     <nav>
-
+        <div>https://github.com/platzi/curso-frontend-developer/</div>
     </nav>
     <div class="container">
         <div class="item"></div>
