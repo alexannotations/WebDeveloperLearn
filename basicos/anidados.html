@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+ <!-- al pulsar en el parrafo se llame a una funcion y al pulsar en la imagen
+se desencadene un evento diferente y se llame a una funcion diferente.
+Como la img esta contenida en el parrafo, el tercer parametro de addEventListener
+ permite establecer la prioridad en los objetos anidados
+Con el parametro false se ejecuta la funcion aviso1 seguida de la funcion aviso2.
+al estar anidado dentro de dos elementos primero ejecuta uno seguido del otro, 
+el orden se puede cambiar a true para dar prioridad
+cuando se tienen elementos anidados y todos los elementos desencadenan eventos
+se dara prioridad a unos sobre otros
+-->   
+<p><img src="../ejercicio1/6.jpg" alt="6"></p>
+
+<script>
+
+    function aviso1() {
+        alert("Hola soy la imagen");
+    }
+
+    function aviso2() {
+        alert("Hola soy el parrafo");
+    }
+
+    function losEventos() {
+        var elemento1=document.getElementsByTagName("p")[0];
+        var elemento2=document.getElementsByTagName("img")[0];
+
+        elemento1.addEventListener("click",aviso2,true);
+        elemento2.addEventListener("click",aviso1,false);
+    }
+
+    window.addEventListener("load",losEventos,false);
+
+</script>
+</body>
+
+</html>
