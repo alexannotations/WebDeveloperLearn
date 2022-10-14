@@ -5,6 +5,7 @@
 /* Esto es un comentario 
     multilínea
     Estos comandos se correran en la consola
+    Xdebug 
 */
 
 // Un array de datos:
