@@ -13,3 +13,7 @@ Se usa la etiqueta de apertura para indicar el comienzo del script, la etiqueta 
     echo "<br> salto de linea (recomendable para el navegador)";
 ?>
 ```
+
+# Debugging en PHP
+Nos ofrece 2 opciones como lo son las funciones ```var_dump()``` y ```print_r()```
+
