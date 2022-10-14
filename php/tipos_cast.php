@@ -25,6 +25,15 @@
     $numero2 = $numero2 + 2 ; // Sumamos al String un número
     var_dump($numero2); // 
 
+    // forzar el casting
+    $numero3=(float)$numero2;
+    var_dump($numero3);
+
+    $flag=0;
+    var_dump($flag);
+    $flag=(bool)$flag;
+    var_dump($flag);
+
        # MALAS practicas, observe al final que si realizo la suma 16
        # solo funciona si esta al principio de la cadena (con warning)
     $papas = "11 papas en el costal";
