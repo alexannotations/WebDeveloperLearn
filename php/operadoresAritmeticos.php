@@ -24,7 +24,7 @@
 echo (5*6) ." ". (80/4)."\n";
 
 # Operador de asignacion, =
-$year=18
+$year=18;
 
 $contador=1;
 $contador++;        // $contador+=1;    $contador=$contador+1;
@@ -32,3 +32,21 @@ $contador++;        // $contador+=1;    $contador=$contador+1;
 $name="Usuario";
 $name.= " "."lastName";      // $name=$name ." "."lastName";
 
+
+# Precedencia y asociatividad
+$contador=0;
+echo $contador ."\n";
+$resultado = $contador++;   // primero asigna, despues acumula
+echo $resultado ."\n";
+echo $contador ."\n";
+
+echo "\nRepetimos\n";
+
+$contador=0;
+echo $contador ."\n";
+$resultado = ++$contador;   // primero acumula, despues asigna
+echo $resultado ."\n";
+echo $contador ."\n";
+
+
+echo "\n";

@@ -17,3 +17,21 @@ Se usa la etiqueta de apertura para indicar el comienzo del script, la etiqueta 
 # Debugging en PHP
 Para ver las variables, nos ofrece 2 funciones: ```var_dump()``` y ```print_r()```
 
+
+# Precedencia
+https://www.php.net/manual/es/language.operators.precedence.php
+La asociatividad indica el orden de ejecucion.
+De izquierda indica que primero se ejecuta lo del lado izquierdo
+para el lado derecho primero se ejecuta lo del lado derecho, 
+y segun el orden de la tabla, más arriba tiene mayor prioridad de precedencia.
+Para un orden particular de ejecución use parentesis.
+```php
+// asociatividad izquierda
+// (((1 - 2) - 3) -4)
+echo 1 - 2 - 3 -4;
+
+// asociatividad derecha
+$c=10;
+// ($a = ($b = $c))
+$a = $b = $c;
+```

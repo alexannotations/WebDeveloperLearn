@@ -29,4 +29,12 @@ var_dump($resultado); // true
 $resultado2 = $verdadero && $mentira;   // false
 var_dump($resultado2); // false
 
-
+# Explicación de la precedencia
+# =     tiene asociatividad derecha y mayor precedencia (asignacion)
+# and   tiene asociatividad izquierda y menor precedencia (lógico)
+#       ($resultado = $verdadero)      1o asigna true a resultado
+# por lo anterior var_dump muestra true
+#       ($verdadero and $mentira)      2o evalua, pero no asigno
+# para forzar el resultado, usar parentesis
+$resultado = ($verdadero and $mentira);
+var_dump($resultado);
