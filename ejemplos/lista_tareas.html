@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis tareas</title>
+    <link rel="stylesheet" type="text/css" href="lista_tareas.css">
+    <script src="lista_tareas.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div>
+            <label>Texto de la tarea</label>
+            <textarea id="textTask"></textarea>
+        </div>
+        <div>
+            <button onclick="taskManager.add()"
+            class="btn-success">Guardar</button>
+        </div>
+    </div>
+
+    <div id="divTasks">
+
+    </div>
+</body>
+
+<script>
+    let taskManager=new TaskManager(
+        document.getElementById("divTasks"),
+        document.getElementById("textTask")
+    );
+</script>
+
+</html>
