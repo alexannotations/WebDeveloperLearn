@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operadores de comparacion</title>
 </head>
-
+<!-- el css se puede guardar tambien en el archivo php, con sus respectivas etiquetas <style> -->
 <style>
     h1{
         text-align:center;
@@ -28,8 +28,8 @@
 </style>
 
 <body>
-    <h1>usando operadores de comparacion</h1>
-
+    <h1>Usando operadores de comparacion</h1>
+    <!--<form action="validacion.php"-->
     <form action="" method="post" name="datos_usuario" id="datos_usuario">
         <table width="15%" align="center">
             <tr>
@@ -38,7 +38,7 @@
                 <input type="text" name="nombre_usuario" id="nombre_usuario"></td>
             </tr>
             <tr>
-                <td>Nombre:</td>
+                <td>Edad:</td>
                 <td><label for="edad_usuario"></label>
                 <input type="text" name="edad_usuario" id="edad_usuario"></td>
             </tr>
@@ -52,6 +52,22 @@
         </table>
 
     </form>
+
+    <!--validacion.php-->
+    <?php
+        // comprueba se se ha pulsado el boton enviando
+        if(isset($_POST["enviando"])){
+            $usuario=$_POST["nombre_usuario"];
+            $edad=$_POST["edad_usuario"];
+
+            if($usuario=="Alex" && $edad=>18){
+                echo "<p class=\"validado\">Acceso permitido</p>";
+            }else{
+                echo "<p class='no_validado'>No puedes entrar</p>";
+            }
+
+        }
+    ?>
     
 </body>
 </html>
