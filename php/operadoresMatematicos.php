@@ -16,11 +16,11 @@
     <input type="text" name="num2" id="num2">
     <label for="operacion"></label>
     <select name="operacion" id="operacion">
-        <option value="">Suma</option>
-        <option value="">Resta</option>
-        <option value="">Multiplicacion</option>
-        <option value="">Division</option>
-        <option value="">Residuo</option>
+        <option value="Suma">Sumar</option>
+        <option value="Resta">Restar</option>
+        <option value="Multiplicacion">Multiplicar</option>
+        <option value="Division">Dividir</option>
+        <option value="Modulo">Residuo</option>
     </select>
 
 </p>
@@ -29,5 +29,32 @@
 </p>
 </form>
 <p>&nbsp;</p>    
+
+<?php
+//var_dump($_POST);
+print_r($_POST);
+    if(isset($_POST["button"])){
+        $numero1=$_POST["num1"];
+        $numero2=$_POST["num2"];
+        $operacion=$_POST["operacion"];
+
+        if (!strcmp("Suma",$operacion)) {
+            echo "El resultado es: " .($numero1+$numero2);
+        }
+        if (!strcmp("Resta",$operacion)) {
+            echo "El resultado es: " .($numero1-$numero2);
+        }
+        if (!strcmp("Multiplicacion",$operacion)) {
+            echo "El resultado es: " .($numero1*$numero2);
+        }
+        if (!strcmp("Division",$operacion)) {
+            echo "El resultado es: " .($numero1/$numero2);
+        }
+        if (!strcmp("Modulo",$operacion)) {
+            echo "El resultado es: " .($numero1%$numero2);
+        }
+    }
+?>
+
 </body>
 </html>
