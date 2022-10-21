@@ -8,12 +8,6 @@
 <?php
 //var_dump($_POST);
 print_r($_POST);
-    if(isset($_POST["button"])){
-        $numero1=$_POST["num1"];
-        $numero2=$_POST["num2"];
-        $operacion=$_POST["operacion"];
-        calcular($operacion);
-    }
 
     // paso de parametros
     function calcular($calculo){
@@ -22,23 +16,34 @@ print_r($_POST);
         global $numero2;
 
         if (!strcmp("Suma",$calculo)) {
-            echo "<p class='resultado'>El resultado es: " .($numero1+$numero2) ."</p>";
+            echo "<p class='resultado'>El resultado es (+): " .($numero1+$numero2) ."</p>";
         }
         if (!strcmp("Resta",$calculo)) {
             $resultado=$numero1-$numero2;
-            echo "<p class='resultado'>El resultado es:  $resultado</p>";
+            echo "<p class='resultado'>El resultado es (-):  $resultado</p>";
         }
         if (!strcmp("Multiplicacion",$calculo)) {
             $resultado=$numero1*$numero2;
-            echo "<p class='resultado'>El resultado es:  $resultado</p>";
+            echo "<p class='resultado'>El resultado es (*):  $resultado</p>";
         }
         if (!strcmp("Division",$calculo)) {
             $resultado=$numero1/$numero2;
-            echo "<p class='resultado'>El resultado es:  $resultado</p>";
+            echo "<p class='resultado'>El resultado es (/):  $resultado</p>";
         }
         if (!strcmp("Modulo",$calculo)) {
             $resultado=$numero1%$numero2;
-            echo "<p class='resultado'>El resultado es:  $resultado</p>";
+            echo "<p class='resultado'>El resultado es (%):  $resultado</p>";
         }
+        if (!strcmp("Increment",$calculo)) {
+            $numero1++;
+            $resultado=$numero1;
+            echo "<p class='resultado'>El resultado (++):  $resultado</p>";
+        }
+        if (!strcmp("Decrement",$calculo)) {
+            $numero1--;
+            $resultado=$numero1;
+            echo "<p class='resultado'>El resultado (--):  $resultado</p>";
+        }
+
     }
 ?>

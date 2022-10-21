@@ -8,7 +8,7 @@
 <body>
 
 <p>&nbsp;</p>
-<form name="form1" action="calculadora.php" method="post">
+<form name="form1" action="" method="post">
 <p>
     <label for="num1">numero 1</label>
     <input type="text" name="num1" id="num1">
@@ -21,6 +21,8 @@
         <option value="Multiplicacion">Multiplicar</option>
         <option value="Division">Dividir</option>
         <option value="Modulo">Residuo</option>
+        <option value="Increment">Incremento en 1</option>
+        <option value="Decrement">Decremento en 1</option>
     </select>
 
 </p>
@@ -29,6 +31,18 @@
 </p>
 </form>
 <p>&nbsp;</p>    
+
+<?php
+    include("calculadora.php");
+
+    if(isset($_POST["button"])){
+        $numero1=$_POST["num1"];
+        $numero2=$_POST["num2"];
+        $operacion=$_POST["operacion"];
+        calcular($operacion);
+    }
+
+?>
 
 </body>
 </html>
