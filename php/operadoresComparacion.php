@@ -60,7 +60,7 @@
             $usuario=$_POST["nombre_usuario"];
             $edad=$_POST["edad_usuario"];
 
-            if($usuario=="Alex" && $edad=>18){
+            if($usuario=="Alex" && $edad>=18){
                 echo "<p class=\"validado\">Acceso permitido</p>";
             }else{
                 echo "<p class='no_validado'>No puedes entrar</p>";
