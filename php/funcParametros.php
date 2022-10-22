@@ -27,7 +27,8 @@ function sum(...$args)
     return array_sum($args); // funcion predefinida
     # la funcion no indica algun retorno en su definicion
 }
-echo sum(1,2,3,4); // 10
+echo sum(1,2,3,4); // regresa un int 10
+# si a una funcion no se le pone nombre, se le llama funcion anonima
 echo "\n";
 
 
