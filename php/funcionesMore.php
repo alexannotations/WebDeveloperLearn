@@ -9,7 +9,11 @@
 # https://www.php.net/manual/es/function.usort.php
 # https://www.php.net/manual/es/migration70.new-features.php
 # https://www.php.net/manual/es/array.sorting.php
-# 
+#
+# https://www.php.net/manual/es/ref.strings.php
+# https://www.php.net/manual/es/ref.math.php
+# https://www.php.net/manual/es/ref.array.php
+# https://www.php.net/manual/es/ref.datetime.php
 
 $precios_de_cafes = [12, 56, 32, 89, 2, 1];
 
