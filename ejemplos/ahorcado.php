@@ -1,4 +1,5 @@
 <?php
+# https://github.com/RetaxMaster/juego-ahorcado-php/blob/main/index.php
 
 function cleanScreen(){
     if (PHP_OS==="Linux") {
@@ -16,6 +17,15 @@ $possible_words = ["Bebida", "Prisma", "Ala", "Dolor", "Piloto", "Murcielago",
 define("MAX_ATTEMPS", 6);
 
 echo "¡Juego del ahorcado! \n\n";
+echo "
+            +---+
+            |   |
+            O   |
+           /|\  |
+           / \  |
+                |
+            =========
+            ";
 
 // Inicializamos el juego
 $choosen_word = $possible_words[ rand(0, count($possible_words)-1 ) ];
