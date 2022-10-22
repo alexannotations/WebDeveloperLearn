@@ -14,6 +14,9 @@
 # https://www.php.net/manual/es/ref.math.php
 # https://www.php.net/manual/es/ref.array.php
 # https://www.php.net/manual/es/ref.datetime.php
+# 
+# https://www.php.net/manual/es/reserved.variables.globals.php
+# https://www.php.net/manual/es/language.variables.scope.php
 
 $precios_de_cafes = [12, 56, 32, 89, 2, 1];
 
