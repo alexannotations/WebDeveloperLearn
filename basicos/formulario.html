@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formularios</title>
     <style>
+        input + span {
+        padding-right: 30px;
+        }
 
+        input:invalid + span::after {
+        position: absolute;
+        content: "❌";
+        padding-left: 5px;
+        }
+
+        input:valid + span::after {
+        position: absolute;
+        content: "✅";
+        padding-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -15,27 +29,31 @@
 
     <form action="/action_page.php">
 
-        <label for="campo1" title="Datos de texto"><span>Introduzca sus datos</span>
-            <input type="text" id="campo1" placeholder="Ejemplo de datos a introducir"/>
+        <label for="campo1" title="Datos de fecha"><span>Introduzca sus datos</span>
+            <input type="text" id="campo1" placeholder="hh:mm ejemplo de datos a introducir" pattern="[0-9]{2}:[0-9]{2}" required/>
+            <span></span>
         </label>
 
         <label for="campo2"><span>Introduzca su fecha</span>
             <input type="date" id="campo2" min="2022-08-02" max="2022-09-19" />
+            <span></span>
         </label>
 
         <!-- el formato del tiempo se puede especificar con CSS3 -->
         <label for="campo3"><span>Introduzca su horario</span>
-            <input type="time" id="campo3" min="07:00" max="18:00" value="13:33" required />
+            <input type="time" id="campo3" min="07:00" max="18:00" value="13:33" />
+            <span class="validity"></span>
         </label>
 
         <label for="campo4"><span title="Date and time">Introduzca fecha y hora</span></label>
             <input type="datetime-local" id="campo4" min="2021-02-01 00:00" max="2021-05-31 23:59" required />
+            <span class="validity"></span>
         
         <input type="submit" value="Continuar" />
 
-        <p>Al hacer clic en el boton continuar, el form-data sera
+        <p> ✖ Al hacer clic en el boton continuar, el form-data sera
             enviado a una pagina llamada &quot;/action_page.php&quot;.<br>
-            form-handler (endpoint) a donde se envia la informacion atributo action
+            ✓ form-handler (endpoint) a donde se envia la informacion atributo action
             de la etiqueta &lt;form&gt;
         </p>
 
