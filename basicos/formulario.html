@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formularios</title>
+    <style>
+
+    </style>
 </head>
 <body>
     <a href="https://www.w3schools.com/html/html_form_input_types.asp">tipos de formularios</a>
     <a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/input">input</a>
     
 
-    <form action="endpoint a donde se envia la informacion">
+    <form action="/action_page.php">
 
-        <label for="campo1"><span>Introduzca sus datos</span>
+        <label for="campo1" title="Datos de texto"><span>Introduzca sus datos</span>
             <input type="text" id="campo1" placeholder="Ejemplo de datos a introducir"/>
         </label>
 
         <label for="campo2"><span>Introduzca su fecha</span>
-            <input type="date" id="campo2"/>
+            <input type="date" id="campo2" min="2022-08-02" max="2022-09-19" />
         </label>
 
         <!-- el formato del tiempo se puede especificar con CSS3 -->
         <label for="campo3"><span>Introduzca su horario</span>
-            <input type="time" id="campo3"/>
+            <input type="time" id="campo3" min="07:00" max="18:00" value="13:33" required />
         </label>
 
-        <label for="campo4"><span>Introduzca fecha y hora</span>
-            <input type="datetime-local" id="campo4"/>
-        </label>
+        <label for="campo4"><span title="Date and time">Introduzca fecha y hora</span></label>
+            <input type="datetime-local" id="campo4" min="2021-02-01 00:00" max="2021-05-31 23:59" required />
+        
+        <input type="submit" value="Continuar" />
+
+        <p>Al hacer clic en el boton continuar, el form-data sera
+            enviado a una pagina llamada &quot;/action_page.php&quot;.<br>
+            form-handler (endpoint) a donde se envia la informacion atributo action
+            de la etiqueta &lt;form&gt;
+        </p>
 
     </form>
     
