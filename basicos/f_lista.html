@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+</head>
+<body>
+    <main>
+        <!--
+            La etiqueta <fieldest> Nos da un borde en el formulario y poder seleccionar un formulario
+            La etiqueta <legend> Nos permite colocar un titulo al formulario 
+        -->
+
+        <!-- Lista de seleccion (select-option), permite usar la primer letra para seleccionar -->
+        
+        <form action="#" method="get">
+        <fieldset>
+        <legend><b>Select - option</b></legend>
+        <label for="cursosA">Choose your course from the list:</label>
+        <select name="cursosA" id="cursosA">
+            <option value="javascript">JavaScript</option>
+            <option value="html5">HTML5</option>
+            <option value="php8">PHP8</option>
+            <option value="dom">DOM</option>
+            <option value="web standar">Web Standars</option>
+        </select>
+        <input type="submit">
+        </fieldset> 
+        </form>
+
+
+        <!-- Lista de seleccion (input datalist - option), permite ir escribiendo para filtrar 
+            o agregar nuevas opciones, se requiere validacion extra para valores no permitidos
+            Observacion si los "valores" de los atributos llevan un numero no funcionan ("cursos2") -->
+        <form action="" method="post">
+        <fieldset>
+        <legend><b>input DataList - option</b></legend>
+            <label >Choose your course from the list:
+            <input list="cursosDos" name="cursosDos"></label>
+            <datalist id="cursosDos">
+              <option value="javascript">
+              <option value="html5">
+              <option value="php8">
+              <option value="dom">
+              <option value="web standar">
+            </datalist>
+            <input type="submit">
+        </fieldset> 
+        </form>
+
+
+    </main>
+</body>
+</html>
