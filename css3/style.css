@@ -1,10 +1,13 @@
- /* formas de agregar estilos
+/* formas de agregar estilos
  selector por elemento o etiqueta */
 p{
     font-size: 30px;
     color: greenyellow;
 }
-
+.pseudoclase:hover{
+    color: #119F4F;
+    
+}
 
 /* selector por class */
 .clase_css{
