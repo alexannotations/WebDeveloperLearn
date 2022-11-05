@@ -13,10 +13,10 @@ Existen 6 tipos de especificidad con su respectivo valor, donde ```X``` es la ca
 ||||||Especificidad|
 |-|-|-|-|-|-|
 |X|O|O|O|O|!important|
-||X|O|O|O|estilos en linea escritos en el html|
+||X|O|O|O|estilos en linea escritos en el html inlineStyles|
 |||X|O|O|#id|
 ||||X|O|clases, atributos y pseudoclases|
-|||||X|elementos y pseudoelementos|
+|||||X|elementos y pseudoelementos tag|
 |||||O|selector universal|
 
 [specificity Calculator](https://specificity.keegan.st/)

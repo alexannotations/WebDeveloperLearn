@@ -4,11 +4,18 @@
     padding: 0;
     margin: 0;
 }
-main{
+html{
     font-size: 125%;
 }
 main {
-    width: calc(100%-20px); /* calcula el ancho para adaptarlo al tamaño de la pantalla */
+    width: calc(100%-20px); 
+    /* calcula el ancho para adaptarlo al tamaño de la pantalla 
+    para controlar el orden al declarar CSS
+        - Importancia (userAgent, autorStyles, !important)
+        - Especificidad (ver tabla)
+        - Orden en las fuentes (las declaraciones al final del documento anularán a las que sucedad antes en caso de conflicto)
+    https://www.codecaptain.io/tools/css-specificity-calculator
+    */
     height: 300px;
     border: 10px solid grey;
     padding: 20px 35px;
