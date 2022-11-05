@@ -1,0 +1,42 @@
+/* Anatomia de una regla en CSS
+ Selector{propiedad: valor_de_la_propiedad; } 
+ Selector{declaracion_de_estilos} 
+        #id    .clase :estado []atributo   *todos
+ */
+.main-nav{
+    margin-top: 10px;
+    list-style: none;   /* Quitar los bullets a las listas */
+    padding: 15px;  /* espacio interno en el contenedor */
+    background-color: #13a4a4;
+}
+
+.main-nav__item{
+    display: inline-block;  /* coloca en forma horizontal los elementos */
+}
+
+/* llega a la etiqueta <a> de la barra de navegacion 
+    a todas las etiquetas a que estan dentro de la clase "main-nav__item" 
+    hay especificidad de elementos
+*/
+.main-nav__item a{
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 6px;
+    text-decoration-line: none; /* quita el subrayado de los hipervinculos*/
+    background-color: indianred;
+}
+
+/* pseudo clases : define el estilo de un estado especial de un elemento */
+.main-nav__item a:hover{
+    color: blue;
+}
+.main-nav__item a:active{
+    color: red;
+}
+
+/* pseudoelemento :: 
+    Define; el estilo de un parte espcifica de un elemento
+*/
+.main-nav__item a::after{
+    content: " | ";
+}
