@@ -1,44 +1,66 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-h1{
+h1 {
     color: palevioletred;
     font-family: serif;
     margin-bottom: 10px;
 }
 
-#page-title{
+/*#page-title {
     font-family: Arial, Helvetica, sans-serif;
-}
+}*/
 
 /* cuidar la especificidad cuando tengas mas de una clase o una clase y un id en los elementos */
-.title{
+.title {
     font-size: 18px;
     font-family: monospace; /* no se carga por la especificidad */
 }
 
-#main-nav{
+.nav {
+    margin-top: 10px;
+    list-style-type: none;
+    padding-left: 0;
+}
+/*#main-nav {
     margin-top: 10px;
     list-style-type: none;
     padding-left: 0px;
-}
+}*/
 
-#main-nav li{
+.nav li {
     display: inline-block;
 }
+/*#main-nav li {
+    display: inline-block;
+}*/
 
-#main-nav a{
+.nav a {
     color: white;
     background-color: #13a4a4;
     padding: 6px;
     border-radius: 2px;
     text-decoration: none;
 }
+/*#main-nav a {
+    color: white;
+    background-color: #13a4a4;
+    padding: 6px;
+    border-radius: 2px;
+    text-decoration: none;
+}*/
+/* cambiamos los id (en comentarios) por las clases */
 
-/* un estilo embebido tiene mas importancia que la clases */
-#main-nav .blog{
+/* un estilo embebido tiene mas importancia que la clases 
+    se recomienda usar más clases y selectores, en lugar de id 
+    * quitar el important y el style embebido en la clase blog
+*/
+.nav .blog{
     background-color: red;
 }
+/*#main-nav .blog{
+    background-color: red !important;
+}*/
