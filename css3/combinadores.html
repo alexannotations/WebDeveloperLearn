@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinadores</title>
+    <Style>
+        body {background-color: beige;}
+        h2 + p {color: fuchsia;}    /* adyacente */
+        h3 ~ h3 {color: limegreen;}   /* hermano general */
+        nav>p{color: cadetblue;} /* child (del padre nav que sea mayor padre de p o etiqueta p que sea hijo directo de nav)*/
+        article p{color: crimson;}/* descendiente */
+    </Style>
+</head>
+<body>
+    
+    <div>
+        <h2>h2</h2>
+        <p>p adyacente a h2</p>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+        <h2>h2</h2>
+        <p>p adyacente a h2</p>
+    </div>
+
+    <div>
+        <h3>h3 dentro de otro div, no va precedido de otro h3</h3>
+        <p>p adyacente a h3</p>
+        <h2>h2 hermano de h3, h2 y p</h2>
+        <h3>h3 hermano general que va precedido de otro h3 y ambos comparten el mismo padre</h3>
+        <p>p</p>
+        <h3>h3 hermano general que va precedido de otro h3 y ambos comparten el mismo padre</h3>
+        <p>p adyacente a h3</p>
+    </div>
+
+    <nav>
+        <article>
+            <p>texto hija de article (descendiente)</p>
+        </article>
+        <article>
+            <p>texto hija de article (descendiente)</p>
+        </article>
+        <section>
+            <nav>
+                <p>texto p hijo directo de nav</p>
+            </nav>
+        </section>
+        <p>texto p hijo directo de nav</p>
+    </nav>
+
+</body>
+</html>
