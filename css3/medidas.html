@@ -7,26 +7,54 @@
 </head>
 
 <style>
-    main{
-        background-color: papayawhip;
-        width: 100%;
-        height: 500px;
-    }
+    *{box-sizing: border-box; margin: 0; padding: 0;}
+    html{font-size: 62.5%;} /* modifico el tamaño por default de 16px por tanto 1 rem equivale a 10px */
+    
+    main{background-color: papayawhip; font-size: 20px;}
     #pixel{font-size: 22px;}
     #percent{font-size: 100%;}
+
+    /* Observe como cambia la referencia para la medida del em Tomando la medida del padre directo. */
+    .text-container{font-size: 1.5em;}
+    .text-container div{font-size: 1.5em;}
+
+    /* rem tiene referencia a la etiqueta root <html> con 16px */
+    footer p{font-size: 1.6rem;}    /* 1.6rem equivalen a 16px con la modificacion a la raiz <html> */
 </style>
 
 <body>
-    <main>
+    
+    <header>
         <p>El tamaño de fuente predeterminado es de 16px</p>
         <p id="pixel">texto de ejemplo pixel</p>
         <p id="percent">texto de ejemplo percent</p>
-        <p id="pixel">texto de ejemplo</p>
-        <p id="pixel">texto de ejemplo</p>
-        <p id="pixel">texto de ejemplo</p>
-        <p id="pixel">texto de ejemplo</p>
-        <p id="pixel">texto de ejemplo</p>
+    </header>
+
+    <main class="text-container">
+        <p>texto de ejemplo con elemento. Toma de fuente el tamaño del padre directo</p>
+        <div>
+            <p>texto de ejemplo con elemento em.</p>
+            <div>
+                <p>texto de ejemplo con elemento em.</p>
+                <div>
+                    <p>texto de ejemplo con elemento em.</p>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <footer>
+        <p>texto de ejemplo con rootElemento. Toma de fuente el tamaño de la etiqueta <i>html</i></p>
+        <div>
+            <p>texto de ejemplo con elemento rem.</p>
+            <div>
+                <p>texto de ejemplo con elemento rem.</p>
+                <div>
+                    <p>texto de ejemplo con elemento rem.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
