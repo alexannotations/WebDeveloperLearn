@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Posiciones</title>
+<title>Posiciones y Display</title>
 <style>
     * {    box-sizing: border-box;    margin: 0;    padding: 0;    }
 
@@ -21,8 +21,37 @@
     
     #two {
     background-color: green;
+    position: relative;
+    bottom: -30px;
     }
-</style>
+
+    .block-element{
+        background-color: aquamarine;
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .parrafo{
+        display: inline;
+        background-color: darkcyan;
+    }
+    
+    .main-nav{
+        background-color: peachpuff;
+        padding: 20px;
+        list-style: none;
+        text-align: center;
+    }
+
+    .main-nav__item{
+        display: inline-block;
+        font-size: 20px;
+        /* en inline no se pueden agregar estos elementos */
+        margin: 10px 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    </style>
 </head>
 
 <body>
@@ -33,6 +62,24 @@
         <div class="box" id="three">3</div>
         <div class="box" id="four">4</div>
     </div>
+
+    <br><br><br><br>
+
+    <div class="block-element">Etiqueta div</div>
+    <p class="block-element">etiqueta de parrafo</p>
+    <div>
+        <p class="parrafo">Text</p>
+        <p class="parrafo">text</p>
+        <p class="parrafo">more text</p>
+    </div>
+
+
+    <ul class="main-nav">
+        <li class="main-nav__item"><a href="">Home</a></li>
+        <li class="main-nav__item"><a href="">Cursos</a></li>
+        <li class="main-nav__item"><a href="">Instructores</a></li>
+        <li class="main-nav__item"><a href="">Blog</a></li>
+    </ul>
 
 </body>
 </html>

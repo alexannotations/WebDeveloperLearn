@@ -6,7 +6,7 @@ https://css-tricks.com/almanac/properties/p/position/
 
 html, body, div posicion static por defecto
 
-static *
+static * (default)
 absolute *
 relative *
 fixed
