@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display flex o Display Box</title>
+
+    <style>
+        *{box-sizing: border-box;margin: 0px;padding: 0px;} /* reset user-agent*/
+        html{font-size: 62.5%;} /* uso de rem como si fueran pixeles */
+        body{font-size: 1.6rem;}
+
+        .container{
+            border: .3rem solid black; /* .3rem = 3px */
+            display: flex;
+            flex-direction: row-reverse; /* row, column, row-reverse */
+            justify-content: space-evenly;
+        } 
+        .box{width: 10rem; height: 10rem; color: azure; }
+
+        .box1{background-color: blue;}
+        .box2{background-color: blueviolet;}
+        .box3{background-color: green;}
+        .box4{background-color: olive;}
+        .box5{background-color: royalblue;}
+        .box6{background-color: fuchsia;}
+    </style>
+</head>
+
+<body>
+    
+<main class="container">
+    <!-- aqui hay dos clases para el tag div que por default tiene display: block; quedando en columnas-->
+    <div class="box1 box">
+        <p>Box1</p>
+    </div>
+    <div class="box2 box">
+        <p>Box2</p>
+    </div>
+    <div class="box3 box">
+        <p>Box3</p>
+    </div>
+    <div class="box4 box">
+        <p>Box4</p>
+    </div>
+    <div class="box5 box">
+        <p>Box5</p>
+    </div>
+    <div class="box6 box">
+        <p>Box6</p>
+    </div>
+</main>
+
+<section><article>
+    <br>
+    <p>Dsiplay flex permite hacer un diseño mas responsive</p>
+    <p>
+    En flexbox tenemos lo que se llama MAIN AXIS (eje principal) y 
+    CROSS AXIS (eje secudario) los elementos se mueven SIEMPRE en 
+    el MAIN AXIS que por defecto es de forma HORIZONTAL porque 
+    esta el FLEX-DIRECTION: ROW pero nosotros podemos cambiar que 
+    ya no este de forma horizontal con FLEX-DIRECTION:COLUMN 
+    asi el main axis esta de forma vertical y el cross axis de 
+    forma horizntal
+    </p>
+</article></section>
+
+</body>
+</html>

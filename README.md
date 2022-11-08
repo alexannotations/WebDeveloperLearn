@@ -6,9 +6,14 @@ https://htmlreference.io/
 
 Flexbox
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://yoksel.github.io/flex-cheatsheet/
 
+Generar etiquetas y estructuras para mejor productividad
+https://docs.emmet.io/
 
 # Games for practice
+
+https://mastery.games/
 
 https://flukeout.github.io/
 
