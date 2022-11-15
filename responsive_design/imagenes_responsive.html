@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes responsive</title>
+    <link rel="stylesheet" href="imagenes_responsive.css">
+</head>
+<body>
+
+    <main>
+        <!-- NO recomendado, el tag picture se convierte en el contenedor de la imagen
+        <div class="picture"><img src="./imgs/large.jpg" alt=""></div>
+         el orden de las images importa para el renderizado 
+        -->
+
+         <picture>
+            <source media="(min-width:600px)" srcset="./imgs/medium.jpg">
+            <source media="(min-width:1200px)" srcset="./imgs/large.jpg">
+            <img src="./imgs/small.jpg" alt="imagen ejemplo"> <!-- imagen base -->
+         </picture>
+        
+    </main>
+    
+</body>
+</html>

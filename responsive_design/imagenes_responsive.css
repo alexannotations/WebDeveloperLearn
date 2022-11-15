@@ -1,0 +1,8 @@
+/* .picture{
+    width: 500px;
+    height: 400px;
+} */ /* Se elimina porque no existe la clase */
+
+img{
+    width: 100%;    /* Es la mejor opcion para imagenes responsive en conjunto con picture */
+}
