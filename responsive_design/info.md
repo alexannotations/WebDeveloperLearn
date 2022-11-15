@@ -5,6 +5,7 @@ https://mediaqueri.es/
 https://web.dev/learn/design/
 
 
+https://www.notion.so/Curso-definitivo-de-HTML-y-CSS-7196d473c6b046d2b8de4a0edaa82dc6
 Se debe optimizar para todos los dispositivos. Hay tiene que tener en claro un par de conceptos:
 
 __Break points__: cuando la pantalla sea de cierto tamaño, se generará un cambio para reposicionar o redimensionar los contenedores.
