@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fonts y web fonts</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
+    <!-- display=swap se refiere a cargar primero el sitio, despues el estilo de fuente -->
+    <style>
+    /*  @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');   */
+        html{
+            font-family: 'Inconsolata', monospace;
+        }
+        /* utilizar las fuentes desde nuestro sitio
+        es mejor importar la fuente desde la etqiueta head, en lugar del css */
+        @font-face{
+            font-family: 'ChakraPetch-Regular';
+            src: url(./fonts/ChakraPetch-Regular.ttf);
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <p>
+        Las Web Fonts son grupos familiares de fuentes, los navegadores web poseen fuentes predeterminadas y dependiendo del mismo cada uno de ellos posee estilos diferentes.
+Algunas Generic Families
+
+    Serif: son un tipo de fuente de estilo formal o clásico como Times New Roman.
+
+    Sans-serif: No tienen acabado en las puntas, como: Verdana.
+
+    Cursive: Son las que tienen estilo cursivo.
+
+    Monospace: Son tipos de fuentes con espaciado entre las letras, como: Roboto mono.
+    </p>
+
+    
+</body>
+</html>
