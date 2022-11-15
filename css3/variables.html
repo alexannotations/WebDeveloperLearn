@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <style>
+/* Variables */
+        :root{/* hace referencia a la etiqueta html*/
+            --primary-color:#003476;
+            --secundary-color:#b4d2f7;
+            --header-size:4rem;
+            --font:1.8rem;
+        }
+/* --- --- --- */
+        *{box-sizing: border-box;margin: 0px;padding: 0px;} /* reset user-agent*/
+        html{font-size: 62.5%;} /* uso de rem como si fueran pixeles */
+        body{font-size: 1.6rem;}
+
+        header{
+            width: 100vw; 
+            height: 15vh;
+            background-color: var(--primary-color); /* llamo a la variable con la funcion var */
+        }
+
+        main{
+            width: 100vw;
+            height: 70vh;
+            font-size: var(--font);   /* considere el tema de herencia en el tamaño de fuente */
+        }
+
+        h1{
+            font-size: var(--header-size);
+            color: var(--primary-color);
+        }
+
+        footer{
+            width: 100vw;
+            height: 15vh;
+            background-color: var(--secundary-color);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header></header>
+    <main><h1>Soy un titulo</h1>
+    <section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing 
+        elit. Facere porro blanditiis aut repudiandae odio quam 
+        explicabo nam voluptas molestias tempore excepturi eligendi, 
+        repellendus hic commodi aliquam illum saepe delectus maxime.
+        </p>
+    </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
