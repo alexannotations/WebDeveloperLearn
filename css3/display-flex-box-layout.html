@@ -13,17 +13,25 @@
         .container{
             border: .3rem solid black; /* .3rem = 3px */
             display: flex;
-            flex-direction: row-reverse; /* row, column, row-reverse */
-            justify-content: space-evenly;
             flex-wrap: wrap;
+            /* align-items: baseline;  /* otras opciones: center, flex-end, stretch */
+            /* height: 50vh;   /* 50% de la pantalla */
         } 
-        .box{width: 10rem; height: 10rem; color: azure; }
+        .box{
+            height: 10rem; 
+            flex-basis: 10rem; 
+            flex-grow: 1; 
+            color: azure; 
+        }
 
-        .box1{background-color: blue;}
-        .box2{background-color: blueviolet;}
-        .box3{background-color: green;}
+        /* Los contenedores que no tengan un orden 
+        se pasan hacia la izquierda, lo que tienen 
+        se colocan despues en el orden indicado */
+        .box1{background-color: blue; order: 1; /*flex-grow: 1;*/}
+        .box2{background-color: blueviolet; /*flex-grow: 1;*/}
+        .box3{background-color: green; order: 2;}
         .box4{background-color: olive;}
-        .box5{background-color: royalblue;}
+        .box5{background-color: royalblue; order: 3;}
         .box6{background-color: fuchsia;}
     </style>
 </head>
