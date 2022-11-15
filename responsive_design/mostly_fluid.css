@@ -50,13 +50,13 @@ body{
 /* Los media query siempre deben ir al final pro buenas practicas 
     para marcar los break points */
 
-@media (min-width: 600px){
+/* @media (min-width: 600px){
     .c2, .c3, .c4 {
         width: 50%;
     }
-}
+} */
 
-@media (min-width: 800px){
+/* @media (min-width: 800px){
     .container{
         width: 800px;
         margin-left: auto;
@@ -74,4 +74,4 @@ body{
     .c5, .c6 {
         width: 34%;
     }
-}
+} */
