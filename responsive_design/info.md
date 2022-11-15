@@ -43,3 +43,10 @@ En la tag ```<link>``` se colocan los atributos ```href```, ```rel``` y, a parti
         <link href="style.css" rel="stylesheet"> <!-- estilos enfocados en mobile -->
         <link href="tablet.css" rel="stylesheet" media="screen and (min-width: 768px)">
     ```
+
+# Los patrones son:
+    - Tiny Tweaks
+    - Mostly Fluid
+    - Column Drop
+    - Layout Shifter
+    - Off Canvas
