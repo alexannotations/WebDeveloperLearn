@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +55,8 @@
             var clave=document.getElementById("clave").value;   
             var valor=document.getElementById("valor").value;
             // se guarda mientras dure la sesion de la pestaña
-            //sessionStorage.setItem(clave,valor);
-            sessionStorage[clave]=valor;
+            //localStorage.setItem(clave,valor);
+            localStorage[clave]=valor;
             leer_mostrar(clave);
             // limpia el cuadro de texto
             document.getElementById("clave").value="";
@@ -65,14 +65,14 @@
 
         function leer_mostrar(clave) {
             var zonadatos=document.getElementById("zonadatos"); // para mostrar los datos se identifica la zona
-            //var elvalor=sessionStorage.getItem(clave);  // se rescata la informacion almacenada del ultimp item
-            //var elvalor=sessionStorage[clave];
+            //var elvalor=localStorage.getItem(clave);  // se rescata la informacion almacenada del ultimp item
+            //var elvalor=localStorage[clave];
             //zonadatos.innerHTML="";
             zonadatos.innerHTML='<div><button onclick="eliminar_todo()">Eliminar todo</div>';
             
-            for (let i = 0; i < sessionStorage.length; i++) {
-                var clave = sessionStorage.key(i); // metodo key() para acceder a la posicion del array
-                var elvalor=sessionStorage.getItem(clave);
+            for (let i = 0; i < localStorage.length; i++) {
+                var clave = localStorage.key(i); // metodo key() para acceder a la posicion del array
+                var elvalor=localStorage.getItem(clave);
                 // agrega a la impresion en pantalla el nuevo elemento
                 zonadatos.innerHTML+='<div>Clave: '+clave+' -- Valor: '+elvalor+'<br><button onclick="eliminar_item(\''+clave+'\')">Eliminar</button></div>';
             }
@@ -80,14 +80,14 @@
 
         function eliminar_todo() {
             if (confirm("Estas seguro?")) {
-                sessionStorage.clear();
+                localStorage.clear();
                 leer_mostrar();
             }
         }
 
         function eliminar_item(clave) {
             if (confirm("Estas seguro?")) {
-                sessionStorage.removeItem(clave);
+                localStorage.removeItem(clave);
                 leer_mostrar();
             }
         }
@@ -113,6 +113,9 @@
     </div>
 
     Los datos se sobreescriben al guardar un valor con la misma clave
+    Dado que los metodos son muy parecidos, para utilizar localStorage, 
+    solo cambiamos sessionStorage por localStorage, y viceversa
+    y se almacenara de forma casi permanente aun cerrando el navegador
 
 </body>
 </html>
