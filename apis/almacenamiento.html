@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almacenando informacion</title>
+    <style>
+        @charset "utf-8";
+
+        *{    box-sizing: border-box;    margin: 0px;    padding: 0px;}
+        html{    font-size: 62.5%;}
+        body{    font-size: 1.6rem;}
+
+        #contenedor{
+            width: 50%;
+            margin: auto;
+            padding-top: 5rem;
+        }
+
+        #zonaformulario{
+            float: left;
+            padding: .2rem;
+            border: .1rem solid #039;
+            margin-left: .15rem;
+        }
+
+        #zonadatos{
+            float: right;
+            width: 30rem;
+            margin-left: 2rem;
+            padding: 2rem;
+            border: 1px solid #f00;
+        }
+
+        #clave, #valor {
+            width: 18rem;
+        }
+
+        #zonadatos div {
+            padding: 15rem;
+            border-bottom: 3rem solid #00F;
+        }
+
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    
+    <div id="contenedor">
+        <section id="zonaformulario">
+            <form name="miformulario">
+                <p>Clave: <br><input type="text" id="clave"></p>
+                <p>Valor: <br><textarea id="valor"></textarea></p>
+                <p>Clave: <br><input type="button" id="grabar" value="Grabar"></p>
+            </form>
+        </section>
+        <section id="zonadatos">
+            A la espera de la lectura
+        </section>
+    </div>
+
+</body>
+</html>
