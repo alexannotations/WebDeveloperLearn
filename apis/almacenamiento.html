@@ -42,9 +42,32 @@
         }
 
     </style>
+
     <script>
 
+        function comenzar() {
+            var boton=document.getElementById("grabar");
+            boton.addEventListener("click",itemNuevo,false);
+        }
+
+        function itemNuevo() {
+            // obtiene y se almacena el valor identificado 
+            var clave=document.getElementById("clave").value;   
+            var valor=document.getElementById("valor").value;
+            // se guarda mientras dure la sesion de la pestaña
+            sessionStorage.setItem(clave,valor);
+            leer_mostrar(clave);
+        }
+
+        function leer_mostrar(clave) {
+            var zonadatos=document.getElementById("zonadatos"); // para mostrar los datos se identifica la zona
+            var elvalor=sessionStorage.getItem(clave);  // se rescata la informacion almacenada
+            zonadatos.innerHTML="<div>Clave: "+clave+" -- Valor: "+elvalor+"</div>";
+        }
+
+        window.addEventListener("load",comenzar,false);
     </script>
+
 </head>
 
 <body>
