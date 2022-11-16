@@ -27,8 +27,8 @@
         #zonadatos{
             float: right;
             width: 30rem;
-            margin-left: 2rem;
-            padding: 2rem;
+            margin-left: .2rem;
+            padding: .2rem;
             border: 1px solid #f00;
         }
 
@@ -37,8 +37,8 @@
         }
 
         #zonadatos div {
-            padding: 15rem;
-            border-bottom: 3rem solid #00F;
+            padding: 1.5rem;
+            border-bottom: .3rem solid #00F;
         }
 
     </style>
@@ -55,14 +55,41 @@
             var clave=document.getElementById("clave").value;   
             var valor=document.getElementById("valor").value;
             // se guarda mientras dure la sesion de la pestaña
-            sessionStorage.setItem(clave,valor);
+            //sessionStorage.setItem(clave,valor);
+            sessionStorage[clave]=valor;
             leer_mostrar(clave);
+            // limpia el cuadro de texto
+            document.getElementById("clave").value="";
+            document.getElementById("valor").value="";
         }
 
         function leer_mostrar(clave) {
             var zonadatos=document.getElementById("zonadatos"); // para mostrar los datos se identifica la zona
-            var elvalor=sessionStorage.getItem(clave);  // se rescata la informacion almacenada
-            zonadatos.innerHTML="<div>Clave: "+clave+" -- Valor: "+elvalor+"</div>";
+            //var elvalor=sessionStorage.getItem(clave);  // se rescata la informacion almacenada del ultimp item
+            //var elvalor=sessionStorage[clave];
+            //zonadatos.innerHTML="";
+            zonadatos.innerHTML='<div><button onclick="eliminar_todo()">Eliminar todo</div>';
+            
+            for (let i = 0; i < sessionStorage.length; i++) {
+                var clave = sessionStorage.key(i); // metodo key() para acceder a la posicion del array
+                var elvalor=sessionStorage.getItem(clave);
+                // agrega a la impresion en pantalla el nuevo elemento
+                zonadatos.innerHTML+='<div>Clave: '+clave+' -- Valor: '+elvalor+'<br><button onclick="eliminar_item(\''+clave+'\')">Eliminar</button></div>';
+            }
+        }
+
+        function eliminar_todo() {
+            if (confirm("Estas seguro?")) {
+                sessionStorage.clear();
+                leer_mostrar();
+            }
+        }
+
+        function eliminar_item(clave) {
+            if (confirm("Estas seguro?")) {
+                sessionStorage.removeItem(clave);
+                leer_mostrar();
+            }
         }
 
         window.addEventListener("load",comenzar,false);
@@ -84,6 +111,8 @@
             A la espera de la lectura
         </section>
     </div>
+
+    Los datos se sobreescriben al guardar un valor con la misma clave
 
 </body>
 </html>
