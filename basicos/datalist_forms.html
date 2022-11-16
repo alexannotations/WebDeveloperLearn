@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso HTML 5. Formularios III.Datalist y API forms. Vídeo 23</title>
+    <title>Curso HTML 5. Formularios III.Datalist y API forms. Vídeo 23 - 25</title>
     <style>
         table{
             text-align: center;
@@ -42,9 +42,13 @@
         }
 
         function enviar() {
+            var cuadro_usuario=document.getElementById("usuario");
             var correcto=document.datos_usuario.checkValidity();
             if(correcto){
                 document.datos_usuario.submit();
+            }
+            else if (cuadro_usuario.validity.valueMissing || cuadro_usuario.validity.patternMismatch) {
+                alert("El usuario no puede estar vacio y recuerda que tiene 3 letras");
             }
         }
 
@@ -85,6 +89,36 @@
         </table>
     </form>
 
+</section>
+
+<section>
+    <h2>Propiedades de validacion (validity)</h2>
+            <!-- lista de definiciones, el tag dl envuelve la lista -->
+            <dl>
+                <dt>valueMissing</dt>
+                <dd>true cuando el campo es required y esta vacio</dd>
+                
+                <dt>patternMismatch</dt>
+                <dd>true cuando el valor no coincide con el formato pattern</dd>
+    
+                <dt>typeMismatch</dt>
+                <dd>true cuando la sintaxis no coincide con el tipo del campo</dd>
+    
+                <dt>tooLong</dt>
+                <dd>true cuando se excede maxlength</dd>
+
+                <dt>rangeUnderflow</dt>
+                <dd>true cuando se sobrepasa min</dd>
+
+                <dt>rangeOverflow</dt>
+                <dd>true cuando se sobrepasa max</dd>
+
+                <dt>stepMismatch</dt>
+                <dd>true cuando el valor de number no se corresponde con step</dd>
+
+                <dt>customError</dt>
+                <dd>true cuando declaramos error personalizado con setCustomValidity</dd>
+            </dl>
 </section>
 
 </body>
