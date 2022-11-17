@@ -18,6 +18,12 @@
     <br>
     <?=  "<b>Hola $usuario con =<b>"; ?>
 
+    <!-- 
+        tres tipos de tag para php, se agrego un espacio intencionalmente entre < y ?
+            1.normal tag(< ?php ?>)
+            2.short echo tag(< ?= ?>)
+            3.short tag(< ? ?>)  está desaconsejada
+     -->
 
     <!-- Sintaxis alternativa de estructuras de control 
              la sintaxis alternativa es cambiar 
