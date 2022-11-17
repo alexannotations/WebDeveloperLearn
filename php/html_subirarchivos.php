@@ -5,6 +5,10 @@ var_dump($_FILES);
 echo "</pre>";
 
 $basename = $_FILES["image"]["name"];
+$image=$_FILES["image"]["tmp_name"];
+$ruta_guardado="./uploads/$basename";
+
+move_uploaded_file($image,$ruta_guardado);
 
 echo $basename;
 ?>
@@ -23,7 +27,7 @@ echo $basename;
         <input type="text" name="nombre" id="nombre">
         <label for="image">Imagen:</label>
         <input type="file" name="image" id="image">
-        <button type="submit">Mandar formulario</button>
+        <button type="submit">Subir archivo</button>
     </form>
 
     <section>
