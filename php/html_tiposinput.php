@@ -12,7 +12,9 @@ echo "<pre>";
     var_dump($_POST["list2"]);
     var_dump($_POST["list3"]);
     echo "<h2>Radio button</h2>";
-    var_dump($_POST["lista"]);
+    var_dump($_POST["listaradio"]);
+    echo "<h2>Files</h2>";
+    var_dump($_FILES["galeria"]);
 echo "</pre>";
 ?>
 <!DOCTYPE html>
@@ -24,7 +26,7 @@ echo "</pre>";
 </head>
 <body>
     
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form action="#" method="post" enctype="application/x-www-form-urlencoded">
         <!--  -->
         <h2>Input simple</h2>
         <label for="nombre">Nombre:</label>
@@ -54,11 +56,20 @@ echo "</pre>";
 
         <!--  -->
         <h2>Radio button</h2>
-        <input type="radio" name="lista" value="one">
-        <input type="radio" name="lista" value="two">
-        <input type="radio" name="lista" value="three">
+        <input type="radio" name="listaradio" value="one">
+        <input type="radio" name="listaradio" value="two">
+        <input type="radio" name="listaradio" value="three">
 
         <button type="submit">Mandar formulario</button>
+    </form>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <!-- Múltiples archivos -->
+        <h2>Files</h2>
+        <label for="galeria">Carga tus imágenes:</label>
+        <input type="file" multiple name="galeria[]" id="galeria">
+
+        <button type="submit">Subir archivos</button>
     </form>
 </body>
 </html>
