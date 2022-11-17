@@ -12,7 +12,7 @@ var_dump($_REQUEST);
 // Para mostrar el resultado tal cual se envia 
 // podemos usar las etiquetas <prep></pre>
 // que indican texto preformateado
-//     echo "<pre>"
-//     echo  vardump($arreglo);
-//     echo "</pre>"
+//     echo "<pre>";
+//     echo  var_dump($arreglo);
+//     echo "</pre>";
 
