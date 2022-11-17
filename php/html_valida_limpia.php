@@ -1,12 +1,22 @@
 <?php
-
-echo "- isset:".var_dump(isset($_POST["name_user"]))."<br>";
-echo "- notempty:".var_dump(!empty($_POST["name_user"]))."<br>";
+// Determina si una variable está definida y no es null
+echo "- isset name_user:".var_dump(isset($_POST["name_user"]))."<br>";
+// Determina si una variable está vacía
+echo "- notempty name_user:".var_dump(!empty($_POST["name_user"]))."<br>";
 
 if ( isset($_POST["name_user"]) ) {
-    echo "Toda la informacion del formulario fue mandada";
+    echo "name_user fue enviado";
     echo "<pre>";
     echo var_dump($_POST["name_user"]);
+    echo "</pre>";
+}
+
+echo "- isset form:".var_dump(isset($_POST["form"]))."<br>";
+echo "- notempty form:".var_dump(!empty($_POST["form"]))."<br>";
+if ( isset($_POST["form"]) ) {
+    echo "Toda la informacion del formulario fue mandada";
+    echo "<pre>";
+    echo var_dump($_POST["form"]);
     echo "</pre>";
 }
 else {
@@ -26,8 +36,9 @@ else {
     <label for="nombre">Nombre</label>
     <input type="text" name="name_user" id="nombre">
 
-    <!-- envia el encabezado de form_name sin datos. name_user si contiene datos al enviar -->
-    <button name="form_name" type="submit">Mandar formulario</button>
+    <!-- envia el encabezado de form sin datos. name_user si contiene datos al enviar 
+        Se puede usar form para validar si todo el formulario se envio -->
+    <button name="form" type="submit">Mandar formulario</button>
 </form>
     
 </body>
