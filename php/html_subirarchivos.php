@@ -4,6 +4,7 @@ echo "<pre>";
 var_dump($_FILES);
 echo "</pre>";
 
+// cada vez que se sube la misma imagen se sobreescribe
 $basename = $_FILES["image"]["name"];
 $image=$_FILES["image"]["tmp_name"];
 $ruta_guardado="./uploads/$basename";
@@ -29,6 +30,13 @@ echo $basename;
         <input type="file" name="image" id="image">
         <button type="submit">Subir archivo</button>
     </form>
+
+    <section>
+        <figure>
+            <img loading="lazy" src="<?=$ruta_guardado?>" alt="<?=$basename?>">
+            <figcaption>La imagen guardada en el servidor.</figcaption>   
+        </figure>  
+    </section>
 
     <section>
         <p>
