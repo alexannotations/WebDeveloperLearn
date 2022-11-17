@@ -42,7 +42,14 @@ $edad_usuario=23;
         mientras la pagina es preprocesada, javascript se
         ejecuta despues de que la pagina fue cargada.
     </p>
-    
+    <p>
+        Buenas practicas
+        - nombres de variables descriptivas
+        - no combinar logica de php con html
+        - usa las etiquetas de php diseñadas para imprimir en html
+        - deja toda la logica al inicio del documento y solo imprime los resultados en html
+        - No abuses de la libertar que te da php
+    </p>
 </section>
     
 </body>
