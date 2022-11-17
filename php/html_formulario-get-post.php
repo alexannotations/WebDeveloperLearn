@@ -30,5 +30,10 @@
         <button type="submit">Mandar formulario</button>
     </form>
 
+    <section><p>
+        Para mandar contraseñas podrian enviarse 
+        por medio de una peticion de javascript
+    </p></section>
+
 </body>
 </html>
