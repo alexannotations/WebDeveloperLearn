@@ -6,8 +6,8 @@
     <title>Formulario por GET</title>
 </head>
 <body>
-    <form action="htmlserverget.php" method="get">
-
+    <form action="htmlserverget-post.php" method="get">
+        <!-- el atributo name al definirlo permite mandar los datos por el metodo GET -->
         <label for="nombre">Nombre:</label>
         <input type="text" name="name_user" id="nombre">
 
