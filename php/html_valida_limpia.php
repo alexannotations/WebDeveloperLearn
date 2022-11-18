@@ -34,11 +34,45 @@ if ( isset($_POST["form"]) ) {
     // expresiones regulares: unicamente las letras "/\d/" numeros "/\D/"
     $onlywords=preg_replace("/\d/","",$username);
     // Filtra una variable con el filtro que se indique
-    $email=filter_var($email,FILTER_SANITIZE_EMAIL);
+    $useremail=filter_var($useremail,FILTER_SANITIZE_EMAIL);
 }
 else {
     echo "No se mando ninguna informacion en el formulario";
 }
+
+
+// Validar si es un número
+$isNumeric = is_numeric('3d'); // False
+$isNumeric1 = is_numeric('3'); // True
+$isNumeric2 = is_numeric(3); // True
+
+// Validar si es un string
+$isString = is_string('3d'); // True
+$isString1 = is_string('3'); // True
+$isString2 = is_string(3); // false
+
+// validar si es un array
+$isArray = is_array([]); // true
+$isArray2 = is_array(array()); // true
+$isArray3 = is_array('No soy un array XD soy un string'); // false
+// Si el dato no es correcto return false, si es correcto regresa el valor
+$is_float = filter_var("0.9", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_THOUSAND);
+
+$is_int = filter_var("45", FILTER_VALIDATE_INT);
+
+$is_ip = filter_var("127.0.0.1", FILTER_VALIDATE_IP);
+
+$is_url = filter_var("https://example.com", FILTER_VALIDATE_URL);
+
+$is_email = filter_var("foo@correo.com", FILTER_VALIDATE_EMAIL);
+
+echo "<pre>";
+var_dump($is_float);
+var_dump($is_int);
+var_dump($is_ip);
+var_dump($is_url);
+var_dump($is_email);
+echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
