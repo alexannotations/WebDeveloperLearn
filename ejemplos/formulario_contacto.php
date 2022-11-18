@@ -47,6 +47,7 @@
         <div class="contact-info">
             
             <div class="info">
+                <!-- el tag i funciona para agregar los iconos -->
                 <span><i class="fas fa-map-marker-alt"></i> 13 Saw Mill Circle, North Olmested.</span>
             </div>
 
@@ -58,6 +59,11 @@
 
     </form>
 
+    <!-- 
+        https://fontawesome.com/ 
+        https://tailwindcss.com/
+        https://icons8.com/line-awesome
+        -->
     <script src="https://kit.fontawesome.com/bbff992efd.js" crossorigin="anonymous"></script>
     
 </body>
