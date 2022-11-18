@@ -1,5 +1,5 @@
 <?php
-
+require("./formulario_contacto_mail.php");
 function validate_data($name, $email, $subject, $message, $form) {
     return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
 }
@@ -19,8 +19,13 @@ if ( isset($_POST["form"]) ) {
         $subject = $_POST["subject"];
         $message = $_POST["message"];
 
+        $body="name <$email> te envia el siguiente mensaje: <br><br>$message";
+
         // TODO: sanitizar los datos
-        // Mandar el correo
+        // Mandar el correo mail(); requiere tener un servidor de correo
+        // phpmailer package se puede descargar con composer
+        // se recomienda ignorar por git la carpeta vendor
+        sendMail($subject,$body,$email,$name,true);
 
         $status = "success";
 
