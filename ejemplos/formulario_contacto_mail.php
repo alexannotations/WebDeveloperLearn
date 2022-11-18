@@ -1,6 +1,9 @@
 <?php
-
-require("vendor/autoload.php");
+/** despues de instalar composer ejecutar:
+ * composer require phpmailer/phpmailer
+ * 
+ */
+require("./vendor/autoload.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 
