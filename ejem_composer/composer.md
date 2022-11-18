@@ -1,3 +1,14 @@
+# composer
+
+El trabajo de composer es centralizar todos los paquetes de php, la gestion de paquetes (si un paquete depende de otros paquetes y por tanto se tienen todas las dependencias instaladas)
+[repositorio principal](https://packagist.org/)
+
+
+```composer require --dev phpunit/phpunit```
+la opcion --dev indica que queremos instalar un componente a nivel de desarrollo
+```composer require nesbot/carbon```
+este componente para manejo de fechas funcionara del lado de producción. Observe que se auto agregaron al archvio _composer.json_ dos estructuras _"require"_ y _"require-dev"_ junto con la carpeta vendor y el archivo _autoload.php_ 
+
 
 Se hace la configuración de la tecnología
 archivo composer.json
