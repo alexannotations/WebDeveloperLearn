@@ -9,6 +9,9 @@ la opcion --dev indica que queremos instalar un componente a nivel de desarrollo
 ```composer require nesbot/carbon```
 este componente para manejo de fechas funcionara del lado de producción. Observe que se auto agregaron al archvio _composer.json_ dos estructuras _"require"_ y _"require-dev"_ junto con la carpeta vendor y el archivo _autoload.php_ 
 
+Cuando se trabaja con composer, todo gira en torno al archivo _composer.json_ se puede generar automaticamente con un comando, seguido de algunas preguntas, tomando algunas configuraciones de git: ``` composer init ```
+_Would you like to install dependencies now [yes]?_ __no__
+para hacer la instalacion usamos el comando ``` composer install ``` y comenzara a instalar los paquetes requeridos y sus dependencias.
 
 Se hace la configuración de la tecnología
 archivo composer.json
