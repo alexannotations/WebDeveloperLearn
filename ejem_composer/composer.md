@@ -1,4 +1,5 @@
 # composer
+Es el sistema empleado para mantener un estandar profesional en nuestros proyectos web en php
 
 ## Repositorio
 El trabajo de composer es centralizar todos los paquetes de php, la gestion de paquetes (si un paquete depende de otros paquetes y por tanto se tienen todas las dependencias instaladas)
@@ -20,6 +21,10 @@ para hacer la instalacion de las dependencias usamos el comando ``` composer ins
 ## Comandos de composer
 https://getcomposer.org/doc/03-cli.md
 
+Auxilia en la generación del archivo composer.json
+iniciando un proyecto
+``` composer init ```
+
 Crea la configuración de composer 
 en orden: (composer.json, estructurar el proyecto, crear las clases y archivos)
 ``` composer dump ```
@@ -40,9 +45,10 @@ Actualiza las dependencias de nuestros proyectos
 ``` composer update ```
 
 
-## Archivo de configuración json
+## Archivo de configuración composer.json
 Se hace la configuración de la tecnología
-archivo composer.json
+archivo _composer.json_
+Guarda la configuración estandar de lo que se necesita
 ```json
 {
     "name": "name_author/name_package",
@@ -66,6 +72,10 @@ archivo composer.json
 Para indicarle al sistema que se esta usando el sistema de autocarga de composer, en la terminal ejecutamos
 ``` composer dump``` (agregar composer al proyecto) para que se cree la carpeta vendor
 y el archivo _autoload.php_ junto con los archivos de configuración donde se registro el _helper.php_ a nivel de archivos, y en psr4 el namespace apunta a la carpeta _src_
+
+
+## Archivo composer.lock
+Se crea de manera automatica. Es de ayuda para trabajos colaborativos, porque mantiene las versiones exactas de cada dependencia, omitiendo asi el compartir la carpeta vendor.
 
 
 ## Migrar a servidor
