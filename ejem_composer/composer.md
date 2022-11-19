@@ -25,11 +25,12 @@ Auxilia en la generación del archivo composer.json
 iniciando un proyecto
 ``` composer init ```
 
-Crea la configuración de composer 
+Crea la configuración de composer (generate autoload files)
 en orden: (composer.json, estructurar el proyecto, crear las clases y archivos)
 ``` composer dump ```
 
 Cuando tenemos la configuracion json, pero nada en composer (vendor)
+Genera los archivos autoload, descarga e instala las dependencias
 ``` composer install ```
 
 Agregar dependecias por primera vez

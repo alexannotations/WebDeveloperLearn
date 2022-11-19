@@ -26,3 +26,17 @@ if ('lower') {
         return Text\Format::lowerText($value);
     }
 }
+
+/** Al no incluirse, la clase da error al no reconocer la clase
+ * require referencia_a_la_misma_carpeta . 
+ * Sistema de carga de clases instalado
+ * 
+ * helper permite crear funciones repetitivas
+ * Realmente Composer si facilita (Y profesionaliza) 
+ * mucho la carga de archivos en PHP, pero, cuand trabajas 
+ * con muchas dependencias mediante Composer, es posible que 
+ * existan 2 funciones iguales que lleven el mismo nombre, 
+ * y eso puede causar un Fatal Error en PHP, es por eso que 
+ * siempre se suele encerrar dentro de un if ( ! function_exists() ),
+ * de esa forma no duplicamos las funciones y nos evitamos un error.
+ */

@@ -6,3 +6,4 @@ ejemplos/vendor
 ejemplos/composer.json
 ejemplos/composer.lock
 ejem_composer/vendor
+php/vendor
