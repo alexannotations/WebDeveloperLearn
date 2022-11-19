@@ -17,6 +17,29 @@ Cuando se trabaja con composer, todo gira en torno al archivo _composer.json_ se
 _Would you like to install dependencies now [yes]?_ __no__
 para hacer la instalacion de las dependencias usamos el comando ``` composer install ``` y comenzara a instalar los paquetes requeridos y sus dependencias.
 
+## Comandos de composer
+https://getcomposer.org/doc/03-cli.md
+
+Crea la configuración de composer 
+en orden: (composer.json, estructurar el proyecto, crear las clases y archivos)
+``` composer dump ```
+
+Cuando tenemos la configuracion json, pero nada en composer (vendor)
+``` composer install ```
+
+Agregar dependecias por primera vez
+``` composer require nombre/paquete ```
+
+Desinstalar un paquete
+``` composer remove nombre/paquete``` 
+
+Actualiza composer, el manejador de dependencias
+``` composer self-update ```
+
+Actualiza las dependencias de nuestros proyectos
+``` composer update ```
+
+
 ## Archivo de configuración json
 Se hace la configuración de la tecnología
 archivo composer.json
@@ -41,15 +64,17 @@ archivo composer.json
 }
 ```
 Para indicarle al sistema que se esta usando el sistema de autocarga de composer, en la terminal ejecutamos
-___composer dump___ para que se cree la carpeta vendor
+``` composer dump``` (agregar composer al proyecto) para que se cree la carpeta vendor
 y el archivo _autoload.php_ junto con los archivos de configuración donde se registro el _helper.php_ a nivel de archivos, y en psr4 el namespace apunta a la carpeta _src_
+
 
 ## Migrar a servidor
 Si necesitas migrar tu proyecto a un servidor, no es necesario copiar todas las carpetas, la carpeta vendor se suele ignorar, porque el archivo _composer.json_, permite instalar las dependencias con el comando ```composer install```, _composer_ buscará las dependencias y creará la carpeta vendor automáticamente en cualquier máquina que se ejecute.
 
 Si dos dependencias distintas requieren de una misma dependencia simplemente instala una sola vez esta dependencia.
 
-# sistema autoload
+
+## sistema autoload
 Despues de crear este archivo y crear las carpetas indicadas si ejecutamos ```composer dump``` nos configurara el archivo _autoload.php_ que internamente se encarga de cargar todo.
 ```json
     "autoload": {
