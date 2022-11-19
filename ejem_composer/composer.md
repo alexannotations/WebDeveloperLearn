@@ -17,7 +17,7 @@ Cuando se trabaja con composer, todo gira en torno al archivo _composer.json_ se
 _Would you like to install dependencies now [yes]?_ __no__
 para hacer la instalacion de las dependencias usamos el comando ``` composer install ``` y comenzara a instalar los paquetes requeridos y sus dependencias.
 
-## Archivo de configuración
+## Archivo de configuración json
 Se hace la configuración de la tecnología
 archivo composer.json
 ```json
@@ -48,3 +48,34 @@ y el archivo _autoload.php_ junto con los archivos de configuración donde se re
 Si necesitas migrar tu proyecto a un servidor, no es necesario copiar todas las carpetas, la carpeta vendor se suele ignorar, porque el archivo _composer.json_, permite instalar las dependencias con el comando ```composer install```, _composer_ buscará las dependencias y creará la carpeta vendor automáticamente en cualquier máquina que se ejecute.
 
 Si dos dependencias distintas requieren de una misma dependencia simplemente instala una sola vez esta dependencia.
+
+# sistema autoload
+Despues de crear este archivo y crear las carpetas indicadas si ejecutamos ```composer dump``` nos configurara el archivo _autoload.php_ que internamente se encarga de cargar todo.
+```json
+    "autoload": {
+        "psr-4": {
+            "Text\\": "src/"
+        },
+        "files": [  // carga una serie de archivos, observe que es un array, configurando archivos ayudantes con funciones
+            "src/helpers.php",
+            "src/file2.php"
+        ],
+        "classmap":[ // configura carpetas, carga de manera directa carpetas que van a tener dentro de si diferentes clases
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-0":{   // elemento antiguo, a simple vista parece la misma configuración que psr-4
+        // Pero se debe considerar toda la ruta de la carpeta
+            "Text\\":"src/"
+        },
+        "psr-4":{//actual, hace enfasis a la carpeta principal y se entiende la ruta dentro de si o árbol de carpeta
+            "Text\\":"src/"
+        }
+    }
+// NOTA: los archivos json no permiten comentarios
+```
+Al utilizar un archivo _index.php_ debemos invocar al archivo de autocarga 
+```php
+require __DIR__ . '/vendor/autoload.php';
+```
+para darle la utilidad correcta a composer, que permite cargar las clases y configuración.
