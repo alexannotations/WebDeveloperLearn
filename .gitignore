@@ -5,5 +5,10 @@ composer.phar
 ejemplos/vendor
 ejemplos/composer.json
 ejemplos/composer.lock
+proyecto_ut/composer.json
+proyecto_ut/composer.lock
+ejem_composer/proyecto_ut/vendor
+ejem_composer/proyecto_ut/composer.json
+ejem_composer/proyecto_ut/composer.lock
 ejem_composer/vendor
 php/vendor
