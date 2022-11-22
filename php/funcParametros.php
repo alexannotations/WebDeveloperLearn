@@ -10,7 +10,7 @@
 
 # recibe parametro $rank
 # en caso de no pasarse algun valor en la funcion, se puede usar un valor por defecto
-# aqui pasamos $rank=1
+# aqui pasamos $rank=1 que es un parametro predeterminado, pero puede recibir otro valor
 function es_estudiante_legend($rank=1) {
     
     if ($rank >= 20000) {
@@ -21,11 +21,34 @@ function es_estudiante_legend($rank=1) {
     }
 }
 
+# Paso de parametros
+// Valores
+function greet($name)
+{
+    return "Hola, $name";
+}
+echo greet('Usuario');
+
+// Referencia
+$course='PHP';
+/* el parametro por referencia &, si se quita la variable $course mostraria PHP fuera de la funcion */
+function path(&$course)  
+{
+    $course='Lavarel';
+    echo $course;   // Lavarel
+}
+path($course);
+echo $course;   // Lavarel
+
+
 # podemos crear una función que reciba una lista de números
 function sum(...$args)
 {
     return array_sum($args); // funcion predefinida
     # la funcion no indica algun retorno en su definicion
+    # para retornar varios elementos podemos utilizar un array
+    //return ['PDF','vista'];
+    //exit(); # detiene el sistema 
 }
 echo sum(1,2,3,4); // regresa un int 10
 # si a una funcion no se le pone nombre, se le llama funcion anonima
@@ -73,4 +96,41 @@ es_estudiante_legend($rank_user);
 
 
 echo "\n";
+
+
+# closure y funciones anonimas
+/* Una función anónima se suele usar muy a menudo como 
+parámetro directo en lugar de guardarlo en una variable (por comodidad)
+Los Closures también se llaman callbacks porque son las funciones que 
+son llamadas de regreso al terminar de ejecutar el código 
+de otra función que te la pidió */
+
+# funcion anonima
+$greetings=function($name) // variable que requiere lógica
+{
+    return "Hola, $name";
+};
+echo $greetings('Lex');
+
+
+# closure
+// mandar por parametro una función que sera ejecutada por otra función
+// closure forza a que se use una funcion anónima
+function greet_lang(Closure $lang, $name)
+{
+    return $lang($name);
+}
+// variable con funcion anonima, variable que ejecuta logica en su interior
+$es=function ($name)
+{
+    return "Hola, $name";
+};
+$en=function ($name)
+{
+    return "Hello, $name";
+};
+
+echo greet_lang($es,'Betty');
+echo greet_lang($en,'Betty');
+
 ?>
