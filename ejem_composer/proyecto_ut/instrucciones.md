@@ -26,7 +26,7 @@ Ejecutar ```composer dump``` para dar de alta esta nueva configuracion de autolo
 
 - Se crea la clase _Validate_ en la carpeta _src_ con la estructura basica, y al ejecutar la prueba deberia salir correcta, si el email es correcto o falsa si es incorrecto.
 
-
+- Ahora se puede probar en un archivo index, sabiendo que funciona. Haciendolo de manera directa. Recordemos que primero es el test, y despues la validación. Cada test representa a un metodo,  y cada afirmacion es un asset
 
 
 ## Descripcion de archivos

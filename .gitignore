@@ -12,3 +12,6 @@ ejem_composer/proyecto_ut/composer.json
 ejem_composer/proyecto_ut/composer.lock
 ejem_composer/vendor
 php/vendor
+
+#phpunit
+*.cache
