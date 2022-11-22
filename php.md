@@ -111,3 +111,31 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 ```
+
+## Extraccion de datos
+```php
+$data='Estudio PHP';
+echo $data[0];  // extraer un caracter
+echo ($data[0]);    // ya no hay soporte para la otra sintaxis {}
+
+$post='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam ducimus aut vel quasi magnam non aperiam. Maxime reiciendis fugit quisquam dolorem iure deserunt a voluptatem, ab aspernatur illum minima esse?';
+$extract=substr($post,0,20);
+echo "$extract... [ver mas]";
+
+// El primer parametro define que esta separando los elementos
+$dataa='javascript, php, lavarel';  // campo tags
+$tags=explode(', ',$dataa); // crea un array de un string
+var_dump($tags); // array
+
+$courses=['javascript', 'php', 'lavarel'];
+echo implode(', ',$courses); // crea un string de un arrray
+
+// eliminar espacios iniciales y finales
+$course="   Curso de PHP   ";
+$course=trim($course);  // ltrim() y rtrim(), quita solo los espacios del lado indicado
+echo "<pre>";
+echo "Quiero aprender $course, y otro curso";
+
+
+```
+
