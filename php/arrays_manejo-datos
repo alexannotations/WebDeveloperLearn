@@ -79,3 +79,25 @@ var_dump(array_push($courses));
 // intercambia los key por los valores
 var_dump(array_flip($courses));
 
+
+# comparacion
+$languajes=['javascript','php'];
+$whises=['php','lavarel','javascript','vuejs'];
+
+// ver las diferencias entre arrays, lo que tengo $languajes vs los que quieren $wishes
+// resultado: 'lavarel','vuejs', descarta lo repetido
+var_dump(array_diff($whises,$languajes));
+
+
+$arrayA=[1,2,3,4,5];
+$arrayB=[3,4,5,6,7];
+// diferencia respecto al array A considerando los valores
+var_dump(array_diff($arrayA,$arrayB));  // 1,2
+// diferencia respecto al array B considerando los valores
+var_dump(array_diff($arrayB,$arrayA));  // 6,7
+
+// Calcula la diferencia entre arrays con un chequeo adicional de índices
+// array_diff_assoc: valores, keys
+var_dump(array_diff_assoc($arrayA, $arrayB));
+
+
