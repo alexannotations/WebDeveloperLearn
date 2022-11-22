@@ -1,0 +1,40 @@
+<?php
+
+// array simple, sin definir keys
+// array complejo, se definen keys
+$courses=[
+    'frontend'=>'javascript',
+    'framework'=>'lavarel',
+    'backend' => 'php',
+    'vuejs'
+];
+
+echo "<pre>";
+var_dump($courses);
+
+foreach ($courses as $key => $value) {
+    echo "$key : $value <br>";
+}
+
+foreach ($courses as $course) {
+    echo "$course <br>";
+}
+
+
+# -- --- ----
+// va avanzando por el array, la funcion se autollama por cada elemento
+function upper($course,$key)
+{
+    echo strtoupper($course).": $key<br>";
+}
+array_walk($courses,'upper');
+
+// ver si un key existe
+array_key_exists('frontend',$courses);
+// busca a nivel de valores
+in_array('javascript',$courses);
+// mostrar todos los keys
+array_keys($courses);
+// mostrar todos los valores
+array_values($courses);
+
