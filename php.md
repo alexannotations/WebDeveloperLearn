@@ -112,6 +112,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 ```
 
+
 ## Extraccion de datos
 ```php
 $data='Estudio PHP';
@@ -135,7 +136,35 @@ $course="   Curso de PHP   ";
 $course=trim($course);  // ltrim() y rtrim(), quita solo los espacios del lado indicado
 echo "<pre>";
 echo "Quiero aprender $course, y otro curso";
-
-
 ```
+
+
+## Formato de datos
+```php
+// Alterar
+$text="PHP eS UN LENGUAJE";
+echo strtolower($text); // minusculas
+echo strtoupper($text); //mayusculas
+echo lcfirst($text);    // primera minuscula
+echo ucfirst($text);    // primera mayuscula
+
+// Remplazar
+$slug=str_replace(' ','-',$text);   // texto a remplazar, texto a colocar
+echo strtolower($slug);
+
+// Modificar
+$code=39;
+echo str_pad($code,8,'#');
+echo str_pad($code,8,'#',STR_PAD_BOTH);
+
+// quitar codigo html
+$text="<h1>PHP eS UN LENGUAJE<h1>";
+echo strip_tags($text);
+
+// elementos monobit y multibit
+$multibit="PHP es un lenguaje, año 2022, programación";
+echo strtoupper($multibit);
+echo mb_strtoupper($multibit);
+```
+
 
