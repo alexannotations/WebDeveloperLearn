@@ -1,7 +1,8 @@
 <?php
+# https://www.php.net/manual/es/ref.array.php
 
 // array simple, sin definir keys
-// array complejo, se definen keys
+// array complejo o array asociativo, se definen keys
 $courses=[
     'frontend'=>'javascript',
     'framework'=>'lavarel',
@@ -27,7 +28,9 @@ function upper($course,$key)
 {
     echo strtoupper($course).": $key<br>";
 }
-array_walk($courses,'upper');
+// el primer valor que recibe la función que se define en array_walk siempre sera el valor del array y si le indicamos el índice lo unico es que nosotros decidimos que nombre darle dentro del ambito de dicha funcion
+array_walk($courses,'upper');   // parametros: array a recorrer, la funcion que tiene que ejecutar por cada valor del array que se haya pasado
+// considere que el array tiene values y keys, y su posicion
 
 // ver si un key existe
 array_key_exists('frontend',$courses);
@@ -37,4 +40,42 @@ in_array('javascript',$courses);
 array_keys($courses);
 // mostrar todos los valores
 array_values($courses);
+
+
+# Funciones php para arrays
+// ordenar el array de values
+sort($courses);
+
+echo "<pre>";
+var_dump($courses);
+
+// orden al reves de values
+rsort($courses);
+
+// ordenar el array segun keys
+ksort($courses);
+
+// ordenar el array alreves segun keys
+krsort($courses);
+
+// una parte del array, 1 rebanada
+var_dump(array_slice($courses,1));
+
+// parte el array, en 2 pedazos
+var_dump(array_chunk($courses,2));
+
+// elimina el primer elemento y lo retorna
+var_dump(array_shift($courses));
+
+// elimina el ultimo elemento y lo retorna
+var_dump(array_pop($courses));
+
+// agrega un primer elemento
+var_dump(array_ushift($courses));
+
+// agrega un ultimo elemento
+var_dump(array_push($courses));
+
+// intercambia los key por los valores
+var_dump(array_flip($courses));
 
