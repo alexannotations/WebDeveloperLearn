@@ -101,3 +101,22 @@ var_dump(array_diff($arrayB,$arrayA));  // 6,7
 var_dump(array_diff_assoc($arrayA, $arrayB));
 
 
+# union
+$frontend=['javascript'];
+$backend=['php','lavarel'];
+
+// solo muestra dos elementos, porque el key[0] se repite y por tanto remplaza (keys numericos)
+// si fuera un array asociativo, y los keys no se repiten, el concepto funciona y muestra todos los valores
+var_dump($frontend+$backend);
+
+// unir sin importar si hay keys repetidos, se reinician los keys numericos
+var_dump(array_merge($frontend,$backend));
+
+// unir con strings keys repetidos, los reagrupa creando sub arrays
+var_dump(array_merge_recursive($frontend,$backend));
+
+
+$cursos_u=['javascript','php','lavarel'];
+$categories=['frontend','backend','framework'];
+// combina dos arrays generando keys y values
+var_dump(array_combine($categories,$cursos_u));
