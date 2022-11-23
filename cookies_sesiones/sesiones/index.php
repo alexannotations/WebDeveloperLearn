@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,6 +20,18 @@
         <h1>No has iniciado sesión :(</h1>
     
     <?php endif; ?>
+
+    <form action="login.php" method="get">
+        <h2>Selector de usuario</h2>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="user" id="nombre" placeholder="Ingrese su id" title='id del array'>
+
+        <input type="submit" value="Iniciar sesión">
+    </form>
+
+    <form action="logout.php" method="get">
+    <button type="submit" name="button">Cerrar sesión</button>
+    </form>
 
 </body>
 </html>

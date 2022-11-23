@@ -92,6 +92,7 @@ Los argumentos serán pasados a la variable dada como un array.
 data(...$_POST)
 ```
 ```:```
+```@``` operador de control de errores, suprime los mensajes de error, y no son mostrados
 
 
 ### Estructuras de control
