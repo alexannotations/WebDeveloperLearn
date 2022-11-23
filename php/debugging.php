@@ -22,3 +22,18 @@ echo "\n";
 
 # Ahora usando solo muestra la info sin dar demasiados detalles
 print_r(  $personas );
+
+/** 
+ * En laravel tenemos la funcion dump(). Esta nos provee de un elemento que
+ * podemos manipular para ver información muy detallada de lo que queramos.
+ * 
+ * En frameworks como lavarel podemos llegar a tener herramientas
+ * mas avanzadas de debugging como la funcion dd()
+ * 
+ * Estas funciones no estan nativamente, se pueden implementar con composer:
+ * composer require symfony/var-dumper
+ * 
+ * index.php
+ * 
+ * 
+ */

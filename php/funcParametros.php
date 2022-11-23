@@ -31,7 +31,15 @@ echo sum(1,2,3,4); // regresa un int 10
 # si a una funcion no se le pone nombre, se le llama funcion anonima
 echo "\n";
 
-
+/**
+ * Este es un ejemplo para PHP Doc
+ * Esta funcion realiza una suma dee dos numeros
+ * puede auxiliarse con la extension vscode: PHP DocBlocker
+ * 
+ * @param int $a
+ * @param int $b
+ * @return void
+ */
 function suma($a,$b)
 {
     echo "La suma de $a + $b es: ".($a+$b)."\n";
