@@ -9,8 +9,9 @@ class ValidateTest extends TestCase
     // los metodos deben comenzar con test_nombreMetodo o testNombreMetodo
     public function test_email(){
         // clase :: metodo()
-        // Validamos que se correcto
+        // Validamos que sea correcto
         // assert1
+        // El nombre de clase completamente cualificado ClassName::class
         $email=Validate::email('usuario@example.com');
         $this->assertTrue($email);  // funcion de phpunit para probar si el correo funciona
 

@@ -18,7 +18,7 @@ Ejecutar ```composer dump``` para dar de alta esta nueva configuracion de autolo
 
 - Al trabajar con un sistema de pruebas phpunit debemos crear un documento _phpunit.xml_ con una configuración base
 
-- Para ejecutar el sistema de pruebas, en la terminal escribir ```php vendor/phpunit/phpunit/phpunit```, hasta este momento no tenemos test para ejecutar, porque apenas creamos la configuración.
+- Para ejecutar el sistema de pruebas, en la terminal escribir ```php vendor/phpunit/phpunit/phpunit```, asi en la terminal nos mostrara si la prueba es exitosa o no. hasta este momento no tenemos test para ejecutar, porque apenas creamos la configuración.
 
 - Creamos la carpeta _test_, ahi creamos la clase _ValidateTest.php_. El estandar indica que las clases  de prueba deben terminar con Test, y las clases que deseemos porbar no deben tener la palabra test.
 
@@ -36,3 +36,6 @@ archivo de configuracion donde se indica donde estan las pruebas.
 
 ### ValidateTest.php
 la prueba que dice prueba el metodo email y esperamos que sea verdadero o falso. Este codigo garantiza que el codigo es correcto.
+
+Se incluyen las instrucciones para realizar la prueba, sin cambios mostrara __FAILURES!__
+(referencia 1)[https://platzi.com/clases/2032-datos-php/32094-iniciando-nuestro-proyecto/]
