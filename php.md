@@ -91,6 +91,7 @@ Los argumentos serán pasados a la variable dada como un array.
 ...
 data(...$_POST)
 ```
+```:```
 
 
 ### Estructuras de control

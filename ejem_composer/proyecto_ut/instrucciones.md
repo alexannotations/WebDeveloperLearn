@@ -4,7 +4,7 @@ Proyecto con las herramientas php, composer y phpunit
 
 - Instalar phpunit  ``` composer require --dev phpunit/phpunit ``` se crea la carpeta _vendor/_ y los archivos _composer.json_ y _composer.lock_
 
-- Se puede trabajar asi, o se puede agragar el autoload a _composer.json_
+- Se puede trabajar asi, o se puede agregar el autoload a _composer.json_
 ```json
     "name": "alexannotations/validate",
     "description": "Proyecto de validación",
