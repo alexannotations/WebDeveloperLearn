@@ -1,0 +1,122 @@
+<?php
+# https://www.php.net/manual/es/ref.array.php
+
+// array simple, sin definir keys
+// array complejo o array asociativo, se definen keys
+$courses=[
+    'frontend'=>'javascript',
+    'framework'=>'lavarel',
+    'backend' => 'php',
+    'vuejs'
+];
+
+echo "<pre>";
+var_dump($courses);
+
+foreach ($courses as $key => $value) {
+    echo "$key : $value <br>";
+}
+
+foreach ($courses as $course) {
+    echo "$course <br>";
+}
+
+
+# -- --- ----
+// va avanzando por el array, la funcion se autollama por cada elemento
+function upper($course,$key)
+{
+    echo strtoupper($course).": $key<br>";
+}
+// el primer valor que recibe la función que se define en array_walk siempre sera el valor del array y si le indicamos el índice lo unico es que nosotros decidimos que nombre darle dentro del ambito de dicha funcion
+array_walk($courses,'upper');   // parametros: array a recorrer, la funcion que tiene que ejecutar por cada valor del array que se haya pasado
+// considere que el array tiene values y keys, y su posicion
+
+// ver si un key existe
+array_key_exists('frontend',$courses);
+// busca a nivel de valores
+in_array('javascript',$courses);
+// mostrar todos los keys
+array_keys($courses);
+// mostrar todos los valores
+array_values($courses);
+
+
+# Funciones php para arrays
+// ordenar el array de values
+sort($courses);
+
+echo "<pre>";
+var_dump($courses);
+
+// orden al reves de values
+rsort($courses);
+
+// ordenar el array segun keys
+ksort($courses);
+
+// ordenar el array alreves segun keys
+krsort($courses);
+
+// una parte del array, 1 rebanada
+var_dump(array_slice($courses,1));
+
+// parte el array, en 2 pedazos
+var_dump(array_chunk($courses,2));
+
+// elimina el primer elemento y lo retorna
+var_dump(array_shift($courses));
+
+// elimina el ultimo elemento y lo retorna
+var_dump(array_pop($courses));
+
+// agrega un primer elemento
+var_dump(array_ushift($courses));
+
+// agrega un ultimo elemento
+var_dump(array_push($courses));
+
+// intercambia los key por los valores
+var_dump(array_flip($courses));
+
+
+# comparacion
+$languajes=['javascript','php'];
+$whises=['php','lavarel','javascript','vuejs'];
+
+// ver las diferencias entre arrays, lo que tengo $languajes vs los que quieren $wishes
+// resultado: 'lavarel','vuejs', descarta lo repetido
+var_dump(array_diff($whises,$languajes));
+
+
+$arrayA=[1,2,3,4,5];
+$arrayB=[3,4,5,6,7];
+// diferencia respecto al array A considerando los valores
+var_dump(array_diff($arrayA,$arrayB));  // 1,2
+// diferencia respecto al array B considerando los valores
+var_dump(array_diff($arrayB,$arrayA));  // 6,7
+
+// Calcula la diferencia entre arrays con un chequeo adicional de índices
+// array_diff_assoc: valores, keys
+var_dump(array_diff_assoc($arrayA, $arrayB));
+
+
+# union
+$frontend=['javascript'];
+$backend=['php','lavarel'];
+
+// solo muestra dos elementos, porque el key[0] se repite y por tanto remplaza (keys numericos)
+// si fuera un array asociativo, y los keys no se repiten, el concepto funciona y muestra todos los valores
+var_dump($frontend+$backend);
+
+// unir sin importar si hay keys repetidos, se reinician los keys numericos
+var_dump(array_merge($frontend,$backend));
+
+// unir con strings keys repetidos, los reagrupa creando sub arrays
+var_dump(array_merge_recursive($frontend,$backend));
+
+
+$cursos_u=['javascript','php','lavarel'];
+$categories=['frontend','backend','framework'];
+// combina dos arrays generando keys y values
+var_dump(array_combine($categories,$cursos_u));
