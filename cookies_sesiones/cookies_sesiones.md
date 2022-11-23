@@ -28,7 +28,11 @@ Las sesiones se destruyen en cuanto hacemos logout. Con las sesiones podemos ten
 Con esta funcion podemos decirle a PHP que queremos empezar a trabajar con sesiones, siempre hay que incluirla en todos los archivos en donde queremos usar sesiones.
 Debemos tener cuidado de no usar dos veces la funcion session_start(), ya que esto puede provocar un error.
 
+### La funcion __session_destroy()__
+ el session_destroy() limpia por completo el arreglo de $_SESSION. unset($_SESSION); seria innecesario.
+
 ### $_SESSION
 Una vez que tenemos una sesion iniciada, podemos empezar a escribir y obtener datos a traves de la variable superglobal $_SESSION. Es un arreglo unico por usuario. 
 
-
+### session_regenerate_id
+[session_regenerate_id()](https://www.php.net/manual/es/function.session-regenerate-id.php) renueva la cookie PHPSESSIONID
