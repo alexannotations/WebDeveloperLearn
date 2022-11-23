@@ -69,6 +69,8 @@ echo $$mivariable;    // valor
 ### Comparacion
  comprobación de identidad ```===``` (valor y tipo)
  comprobación de igualdad débil ```==``` (valor)
+ ```<=>``` nave espacial
+ ```??``` fusion de null (El primer operando de izquierda a derecha que exista y no sea null. null si no hay valores definidos y no son null.)
 
 
 ### Aritmetica
@@ -82,6 +84,7 @@ echo $$mivariable;    // valor
 ### Operadores
 
 [operador splat en PHP (token ...)](https://www.php.net/manual/es/functions.arguments.php#functions.variable-arg-list)
+[operadores de comparacion](https://www.php.net/manual/es/language.operators.comparison.php)
 Denota que la función acepta un número variable de argumentos.
 Los argumentos serán pasados a la variable dada como un array.
 ```
