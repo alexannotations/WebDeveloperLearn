@@ -46,6 +46,7 @@ $casa_de_michis = array(
     ]
 );
 
+echo "<pre>";
 var_dump($casa_de_michis);
 // es interactivo el detalle del arreglo
 dd($casa_de_michis);

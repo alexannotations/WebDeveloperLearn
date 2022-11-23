@@ -7,18 +7,18 @@
 
 setcookie(
     name: "header_color",
-    value: "#12373d"    // si esta definida se usa este color
+    value: "blue"    // si esta definida se usa este color
 );
 
 /* indica si ya esta definida la cookie header_color
-si es asi asigna el value a $color #12373d
-no esta definida asigna el color #121f3d
+si es asi asigna el value a $color blue
+no esta definida asigna el color red
 */
-$color = $_COOKIE["header_color"] ?? "#121f3d";
+$color = $_COOKIE["header_color"] ?? "red";
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
