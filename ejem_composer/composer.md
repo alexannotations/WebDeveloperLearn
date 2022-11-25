@@ -70,7 +70,7 @@ Guarda la configuración estandar de lo que se necesita
     }
 }
 ```
-Para indicarle al sistema que se esta usando el sistema de autocarga de composer, en la terminal ejecutamos
+Para indicarle al sistema que se esta usando el sistema de (autocarga)[https://www.php-fig.org/] de composer, en la terminal ejecutamos
 ``` composer dump``` (agregar composer al proyecto) para que se cree la carpeta vendor
 y el archivo _autoload.php_ junto con los archivos de configuración donde se registro el _helper.php_ a nivel de archivos, y en psr4 el namespace apunta a la carpeta _src_
 
