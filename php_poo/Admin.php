@@ -1,6 +1,17 @@
 <?php
+require 'User.php';
 
-class Admin extends Person
+// Admin hereda de User
+class Admin extends User
 {
-    public $name='Administrador';
+    public $rol='Administrador';
+    public function getName(){
+        return "Soy $this->name";
+    }
 }
+
+$admin=new Admin("Roberta ");
+echo $admin->getName();
+
+$nuser=new User(" Raquel ");
+echo $nuser->getName();

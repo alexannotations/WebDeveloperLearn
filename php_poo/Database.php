@@ -1,4 +1,5 @@
 <?php
+require 'StoreInterface.php';
 
 class Database implements StoreInterface
 {

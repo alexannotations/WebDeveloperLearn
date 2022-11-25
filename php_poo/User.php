@@ -3,11 +3,17 @@
 class User
 {
     public const PAGINATE = 25;
-    public $type;
-    protected $name;
+    protected $type;
+    public $name;
     private $password;
 
-    public function getName(){
+    public function __construct($name)
+    {
+        $this->name=$name;
+    }
 
+    public function getName()
+    {
+        return $this->name;
     }
 }
