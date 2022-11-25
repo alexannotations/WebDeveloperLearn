@@ -7,7 +7,8 @@
 ```include_once``` Tiene un comportamiento similar al de la sentencia include, siendo la única diferencia de que si el código del fichero ya ha sido incluido, no se volverá a incluir, e include_once devolverá TRUE. Como su nombre indica, el fichero será incluido solamente una vez.
 Considere que debe tomarse en cuenta el orden de los archivos, llame primero a los archivos que no tienen dependencia de otros.
 
-```extends``` hereda
+```extends``` hereda de una clase padre o una clase abstracta
+```implements``` implementa interface
 ```$this``` hace referencia a diferentes elementos de la clase
 
 ## operadores de objetos
