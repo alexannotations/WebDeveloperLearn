@@ -9,7 +9,7 @@ Considere que debe tomarse en cuenta el orden de los archivos, llame primero a l
 
 ## abstraccion y herencia
 ```extends``` hereda de una clase padre o una clase abstracta
-```implements``` implementa interface
+```implements``` implementa interface. Una interface se desarrolla e implementa en una clase.
 ```$this``` hace referencia a diferentes elementos de la clase
  ```final``` se puede usar para evitar el polimorfismo o la herencia, evitando que se sobreescriban metodos o clases. Una clase abstracta no se puede instanciar, una clase final si se puede.
 
