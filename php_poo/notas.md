@@ -6,6 +6,7 @@
 ```require_once``` idéntica a require excepto que PHP verificará si el archivo ya ha sido incluido y si es así, no se incluye.
 ```include_once``` Tiene un comportamiento similar al de la sentencia include, siendo la única diferencia de que si el código del fichero ya ha sido incluido, no se volverá a incluir, e include_once devolverá TRUE. Como su nombre indica, el fichero será incluido solamente una vez.
 Considere que debe tomarse en cuenta el orden de los archivos, llame primero a los archivos que no tienen dependencia de otros.
+```use``` se usa para especificar que namespace usar. [link](https://stackoverflow.com/questions/10965454/how-does-the-keyword-use-work-in-php-and-can-i-import-classes-with-it#25138965)
 
 ## abstraccion y herencia
 ```extends``` hereda de una clase padre o una clase abstracta

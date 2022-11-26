@@ -27,7 +27,9 @@ class PostTest extends TestCase
 
         /** ------------------------------------------ */
         // afirmaciones de comprobación
-        /** despues de crearse el post, lo comprobamos */
+        /** despues de crearse el post, lo comprobamos 
+         * comparando un comentario con la cantidad de comentarios creados
+        */
         $this->assertEquals(1, $post->countComments());
         /**
          *  probar que el comentario sea una instancia real de la clase comentarios.
