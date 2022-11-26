@@ -1,4 +1,6 @@
 Proyecto con las herramientas php, composer y phpunit
+Codigo respaldado por los test, metodologia TDD
+Test-Driven Development (desarrollo dirigido por tests) 
 
 ## Instrucciones de la actividad
 
@@ -21,7 +23,7 @@ Ejecutar ```composer dump``` para dar de alta esta nueva configuracion de autolo
 - Para ejecutar el sistema de pruebas, en la terminal escribir ```php vendor/phpunit/phpunit/phpunit```, asi en la terminal nos mostrara si la prueba es exitosa o no. hasta este momento no tenemos test para ejecutar, porque apenas creamos la configuración.
 
 - Creamos la carpeta _test_, ahi creamos la clase _ValidateTest.php_. El estandar indica que las clases  de prueba deben terminar con Test, y las clases que deseemos porbar no deben tener la palabra test.
-
+-------
 - Se probara una clase que no existe, se creo primero el test para analizar el resultado que deseamos, para que indique error, y asi las pruebas orienten respecto a la creación del sistema.
 
 - Se crea la clase _Validate_ en la carpeta _src_ con la estructura basica, y al ejecutar la prueba deberia salir correcta, si el email es correcto o falsa si es incorrecto.
