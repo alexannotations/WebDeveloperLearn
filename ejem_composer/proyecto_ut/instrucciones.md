@@ -41,3 +41,4 @@ la prueba que dice prueba el metodo email y esperamos que sea verdadero o falso.
 
 Se incluyen las instrucciones para realizar la prueba, sin cambios mostrara __FAILURES!__
 (referencia 1)[https://platzi.com/clases/2032-datos-php/32094-iniciando-nuestro-proyecto/]
+(phpUnit)[https://phpunit.readthedocs.io/es/latest/]
