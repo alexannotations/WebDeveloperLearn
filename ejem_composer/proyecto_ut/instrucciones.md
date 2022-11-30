@@ -23,6 +23,14 @@ Ejecutar ```composer dump``` para dar de alta esta nueva configuracion de autolo
 - Para ejecutar el sistema de pruebas, en la terminal escribir ```php vendor/phpunit/phpunit/phpunit```, asi en la terminal nos mostrara si la prueba es exitosa o no. hasta este momento no tenemos test para ejecutar, porque apenas creamos la configuración.
 
 - Creamos la carpeta _test_, ahi creamos la clase _ValidateTest.php_. El estandar indica que las clases  de prueba deben terminar con Test, y las clases que deseemos porbar no deben tener la palabra test.
+
+
+-------
+- Se pueden ejecutar todas la pruebas unitarias si solo se indica la opcion ```php vendor/phpunit/phpunit/phpunit```. Si se desea ejecutar alguna prueba en particular la agregamos como segunda opcion ```php vendor/phpunit/phpunit/phpunit  test\PostTest.php```.
+
+- Si se desean más detalles sobre las pruebas unitarias ejecutadas se agrega el modificador ```--testdox``` al final. ```php vendor\phpunit\phpunit\phpunit --testdox```
+
+
 -------
 - Se probara una clase que no existe, se creo primero el test para analizar el resultado que deseamos, para que indique error, y asi las pruebas orienten respecto a la creación del sistema.
 
