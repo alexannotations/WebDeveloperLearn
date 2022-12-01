@@ -60,3 +60,28 @@ function sumar_edades($edades = array(13, 17, 35)) {
   }
   
   echo suma(8) . PHP_EOL;
+
+
+
+/** # Named arguments   php8.0
+ * https://www.php.net/manual/es/functions.arguments.php#functions.named-arguments
+ * Los named arguments son una forma de pasarle parametros a una funcion 
+ * basandose en el nombre del parametro en lugar de la posicion. Es decir,
+ * puedo simplemente mencionar a que parametro le quiero pasar algun valor.
+ * 
+ * */
+function myFunction ($parametro1, $parametro2) {
+	#code
+}
+myFunction($argumento1, $argumento2);
+
+// ----------------------------------
+function get_person_info($name, $age, $country){
+    echo "Tengo la información de $name, tiene $age años y vive en $country";
+}
+// observe que se envian en diferente orden
+get_person_info(
+    age: 18,
+    country: "Erathia",
+    name: "Rosalia B.",
+);
