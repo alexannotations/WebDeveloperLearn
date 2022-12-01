@@ -58,6 +58,12 @@ $mivariable='variable';
 $variable='valor';
 echo $mivariable;   // variable
 echo $$mivariable;    // valor
+
+# variable variable
+$var="nombre";
+$$var="Lala";   //$nombre="Lala"
+echo $nombre;   // Lala
+
 ```
 ### Asignacion
 ```

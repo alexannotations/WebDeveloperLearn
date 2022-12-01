@@ -40,3 +40,12 @@ echo NUMERO_PI ."\n";
 # pero no redefine la constante nuevamente
 define("NUMERO_PI", 1234);  // Constante: NUMERO_PI = 3.14
 echo NUMERO_PI ."\n";
+
+# variables variables
+$nombre = "Tania";
+$edad = 18;
+$comida_favorita = "Hamburguesa mexicana";
+
+$variable = readline("Escribe que variable quieres conocer: ");
+
+echo $$variable;
