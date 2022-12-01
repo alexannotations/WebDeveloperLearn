@@ -65,6 +65,20 @@ $$var="Lala";   //$nombre="Lala"
 echo $nombre;   // Lala
 
 ```
+### Ámbito de las variables (global y local)
+[Scope](https://www.php.net/manual/es/language.variables.scope.php)
+Es el contexto en donde una variable es definida. Usualmente tiene un ambito simple, es decir esta disponible en todo el archivo e incluso en otros archivos donde se haga require __ámbito global__. 
+
+Al interior de las funciones definidas por el usuario se introduce un ámbito local a la función. Cualquier variable usada dentro de una función está, por omisión, limitada al __ámbito local__ de la función. 
+
+Las variables globales deben ser declaradas globales dentro de la función si van a ser utilizadas dentro de dicha función, con la palabra reservada __global__
+
+Una variable estática existe sólo en el ámbito local de la función, pero no pierde su valor cuando la ejecución del programa abandona este ámbito, con la palabra reservada __static__. 
+
+La variable ```$GLOBALS``` es una variable predefinida de un arreglo que tiene todas las variables globales que existen. ```print_r($GLOBALS);```. Tambien se puede usar para definir variables globales dentro de una funcion.
+
+[Superglobals](https://www.php.net/manual/es/language.variables.superglobals.php)
+
 ### Asignacion
 ```
 =

@@ -55,18 +55,17 @@ $a = $b = $c;
 - Acepta cualquier expresión
 - Puede definir case insensitive pasando "true" en el tercer argumento
 
-### (constantes predefinidas)
+### Constantes
+[constantes predefinidas](https://www.php.net/manual/es/language.constants.predefined.php)
 
-https://www.php.net/manual/es/language.constants.predefined.php
+[Constantes predefinidas del núcleo](https://www.php.net/manual/es/reserved.constants.php)
 
-(Constantes predefinidas del núcleo)[https://www.php.net/manual/es/reserved.constants.php]
-
-(Constantes)[https://www.php.net/manual/es/language.constants.php]
+[Constantes](https://www.php.net/manual/es/language.constants.php)
 
 ### constantes mágicas
 Las constantes mágicas son "constantes" cuyos valores sí cambian. Realmente no son constantes, pero se les llama así porque son palabras que hacen referencia a algo que depende del entorno en el que se está ejecutando el script.
 La mayoria de estas constantes inician con doble guion bajo:
-\__LINE__
-\__FILE__
-\__DIR__
-ClassName::class
+- \_\_LINE__
+- \_\_FILE__
+- \_\_DIR__
+- ClassName::class

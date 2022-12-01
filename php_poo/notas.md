@@ -23,5 +23,5 @@ Considere que debe tomarse en cuenta el orden de los archivos, llame primero a l
 
 ## operadores de objetos
 ```->``` object operator: se utiliza cuando se desea llamar a un método en una instancia o acceder a una propiedad de instancia.
-```::```  (class operator)[https://www.php.net/manual/es/language.oop5.paamayim-nekudotayim.php]: se utiliza cuando se desea llamar a un método estático, acceder a una variable estática o llamar a la versión de una clase padre de un método dentro de una clase secundaria.
+```::```  [class operator](https://www.php.net/manual/es/language.oop5.paamayim-nekudotayim.php): se utiliza cuando se desea llamar a un método estático, acceder a una variable estática o llamar a la versión de una clase padre de un método dentro de una clase secundaria.
 
