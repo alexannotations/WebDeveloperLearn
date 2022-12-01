@@ -181,7 +181,9 @@ var_dump($numbers_by_2);
  * sin necesidad de pasarla como parametro podemos usar la palabra 
  * reservada "use".
  * Recordemos que las funciones tienen un ambito local, sin acceso al ambito global
- * 
+ * Las funciones anonimas son similares a los callbacks de javascript, 
+ * la palabra reservada use permite pasar una variable del ambito global al ambito local,
+ * y poder leerla, pero no sobre-escribirla.
  */
 $outside_variable="esta es una variable externa";
 $funcion_anonima = function() use($outside_variable){
