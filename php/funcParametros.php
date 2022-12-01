@@ -29,6 +29,7 @@ function greet($name)
 }
 echo greet('Usuario');
 
+
 // Referencia
 $course='PHP';
 /* el parametro por referencia &, si se quita la variable $course mostraria PHP fuera de la funcion */
@@ -39,6 +40,13 @@ function path(&$course)
 }
 path($course);
 echo $course;   // Lavarel
+/**
+ * https://www.php.net/manual/es/language.references.pass.php
+ * El paso de parametros a una funcion, se realiza una copia de la variable
+ * a otra ubicacion en memoria.
+ * Un paso por referencia, se manda la ubicacion en memoria de dicha variable.
+ * 
+ *  */
 
 
 # podemos crear una función que reciba una lista de números
