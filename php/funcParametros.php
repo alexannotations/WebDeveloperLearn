@@ -114,18 +114,27 @@ es_estudiante_legend($rank_user);
 echo "\n";
 
 
-# closure y funciones anonimas
-/* Una función anónima se suele usar muy a menudo como 
-parámetro directo en lugar de guardarlo en una variable (por comodidad)
-Los Closures también se llaman callbacks porque son las funciones que 
-son llamadas de regreso al terminar de ejecutar el código 
-de otra función que te la pidió */
+# closure o funciones anonimas
+/** 
+ * https://www.php.net/manual/es/class.closure.php
+ * https://www.php.net/manual/es/functions.anonymous.php
+ * 
+ * Son funciones que podemos definir sin necesidad de asignarles un nombre.
+ * Una función anónima se suele usar muy a menudo como 
+ * parámetro directo en lugar de guardarlo en una variable (por comodidad)
+ * Los Closures también se llaman callbacks porque son las funciones que 
+ * son llamadas de regreso al terminar de ejecutar el código 
+ * de otra función que te la pidió 
+ * Las podemos guardar dentro de variables, pero su uso mas comun es pasarlas
+ * como parametros de  otra funcion. Las funciones anonimas son una instancia 
+ * de la clase Closure.
+ * */
 
 # funcion anonima
 $greetings=function($name) // variable que requiere lógica
-{
-    return "Hola, $name";
-};
+            {
+                return "Hola, $name";
+            };
 echo $greetings('Lex');
 
 
@@ -137,16 +146,49 @@ function greet_lang(Closure $lang, $name)
     return $lang($name);
 }
 // variable con funcion anonima, variable que ejecuta logica en su interior
-$es=function ($name)
-{
-    return "Hola, $name";
-};
-$en=function ($name)
-{
-    return "Hello, $name";
-};
+$es=function ($name){
+        return "Hola, $name";
+    };  // No olvidar el ;
+$en=function ($name){
+        return "Hello, $name";
+    };  // No olvidar el ;
 
 echo greet_lang($es,'Betty');
 echo greet_lang($en,'Betty');
+
+/* *  https://www.php.net/manual/es/function.array-map.php
+ * funcion anonima como parametro de una funcion
+ * cada numero del array $numbers se multiplicara por dos,
+ * como indica la funcion anonima, y se guardara como array
+        array(4) {
+            [0]=>int(2)
+            [1]=>int(4)
+            [2]=>int(6)
+            [3]=>int(8)
+        }
+  */
+$numbers=[1,2,3,4];
+$numbers_by_2=array_map(
+                    function($current){
+                        return $current*2;
+                    }, $numbers
+                );  // No olvidar el ;
+
+var_dump($numbers_by_2);
+
+/** La palabra reservada use
+ * Cuando queremos que una variable externa exista dentro de un Closure
+ * sin necesidad de pasarla como parametro podemos usar la palabra 
+ * reservada "use".
+ * Recordemos que las funciones tienen un ambito local, sin acceso al ambito global
+ * 
+ */
+$outside_variable="esta es una variable externa";
+$funcion_anonima = function() use($outside_variable){
+    // gracias a use puedo usar la variable $outside dentro de esta funcion
+    echo $outside_variable;
+};  // No olvidar el ;
+$funcion_anonima();
+
 
 ?>
