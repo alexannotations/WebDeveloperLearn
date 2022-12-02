@@ -3,11 +3,12 @@
  * https://www.php.net/manual/es/language.exceptions.php 
  * https://www.php.net/manual/es/class.throwable.php
  * https://www.php.net/manual/es/class.exception.php
+ * https://www.php.net/manual/es/language.exceptions.extending.php
  * 
  * Errores en tiempo de ejecución
  * php lanza una excepcion, que se manejan con la
  * estructura ```try/catch```
- * Para lanzar errores propios, se usa la palabra ```throw```
+ * Para lanzar excepciones personalizadas, se usa la palabra ```throw```
  * Todas las excepciones en php deben implementar la interfaz ```Throwable```.
  * La clase ```Exception``` de php implementa directamente a la interfaz ```Throwable```
  * 
@@ -74,4 +75,49 @@ try {
      * */
     var_dump($e->getTrace());   
 
+}
+
+
+/** ---------------------------------------- */
+/** Custom exceptions 
+ * la clase heredo de Exception, en lugar de implementar la interfaz Throwable
+ * como sugiere el manual de php. 
+ * Aunque no se pueden sobreescribir los metodos de Exception::getMessage()
+ * 
+ * */
+class GatoException extends Exception {
+    // metodo personalizado para el manejo de excepciones
+    public function getMeow() {
+        return "Meow! 😾";
+    }
+}
+
+
+class ConejoException extends Exception {
+    public function getRabbit() {
+        return "🐰";
+    }
+}
+
+/** Manejo de excepciones personalizadas
+ * A manera de ejemplo se da a elegir que excepcion lanzar
+ * */
+try {
+    $exception = readline("Excepcion a lanzar: ");
+    if ($exception == "gato")
+    // esta excepcion personalizada solo atrapa exception tipo GatoException
+        throw new GatoException("Michi incorrecto");
+    else
+        // Requiere un bloque catch para atrapar la excepcion ConejoException que es lanzada
+        throw new ConejoException("Conejo incorrecto");
+} catch (GatoException $e) {
+    echo $e->getMessage() .PHP_EOL;
+    echo $e->getMeow(); // lanza el metodo personalizado para el manejo del error
+} catch (ConejoException $e) {
+    echo $e->getMessage() .PHP_EOL;
+    echo $e->getRabbit();
+} finally {
+    // finally siempre se ejecuta despues de atrapar las excepciones
+    // o bien tambien se ejecuta si no hay alguna catched exception 
+    echo PHP_EOL."Te perdono :3".PHP_EOL;
 }
