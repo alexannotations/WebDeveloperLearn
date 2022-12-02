@@ -82,7 +82,7 @@ La variable ```$GLOBALS``` es una variable predefinida de un arreglo que tiene t
 ### Asignacion
 ```
 =
-=>
+=>  // functions arrow, permite escribir una sintaxis más concisa para las funciones anonimas
 ```
 
 
