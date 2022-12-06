@@ -50,6 +50,17 @@ use VecindarioB\Casa as CasaB;  // usar alias con nombres de clases iguales
 
 ```
 
+## PSR-4 y composer
+
+PSR son un conjunto de reglas o estandares que definen como trabajar con el lenguaje.
+PSR-4 hace referencia a que, todos los namespaces deben hacer referencia hacia la carpeta en donde dichos archivos están ubicados. Composer usa este PSR para lograr la autocarga de sus archivos, es decir, ya no tenemos que preocuparnos de usar include y require.
+PSR-4 indica que en los archivos de las clases:
+- Las clases se deben llamar igual que el archivo.
+- El namespace debe ser igual a la carpeta donde se encuentra
+
+
+
+
 ## abstraccion y herencia
 ```extends``` hereda de una clase padre o una clase abstracta
 ```implements``` implementa interface. Una interface se desarrolla e implementa en una clase.

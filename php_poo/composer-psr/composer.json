@@ -1,0 +1,20 @@
+{
+    "name": "alexa/composer-psr",
+    "type":"project",
+    "authors": [
+        {
+            "name": "alexannotations",
+            "email": "correo@example.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "app/Logic/CreateMichis.php"
+        ],
+        "psr-4":{
+            "App\\":"app"
+        }
+    },
+
+    "require": {}
+}
