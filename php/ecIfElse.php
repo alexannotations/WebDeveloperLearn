@@ -5,6 +5,7 @@
 # else if o elseif funcionan igual en caso de llaves, 
 # pero considere el caso de uso de dos puntos
 # https://www.php.net/manual/es/control-structures.elseif.php
+echo password_verify($_POST['upassword'], $passwordSavedHashed) ? 'password correct' : 'passwword incorrect';
 
 $asientos_disponibles = 0;
 $tiene_boletos = false;

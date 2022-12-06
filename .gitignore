@@ -13,6 +13,7 @@ ejem_composer/proyecto_ut/composer.lock
 ejem_composer/vendor
 php/vendor
 php_poo/composer-psr/vendor
+php_poo/traits/vendor
 cookies_sesiones/vendor
 
 #phpunit
