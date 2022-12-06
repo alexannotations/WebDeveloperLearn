@@ -6,7 +6,49 @@
 ```require_once``` idéntica a require excepto que PHP verificará si el archivo ya ha sido incluido y si es así, no se incluye.
 ```include_once``` Tiene un comportamiento similar al de la sentencia include, siendo la única diferencia de que si el código del fichero ya ha sido incluido, no se volverá a incluir, e include_once devolverá TRUE. Como su nombre indica, el fichero será incluido solamente una vez.
 Considere que debe tomarse en cuenta el orden de los archivos, llame primero a los archivos que no tienen dependencia de otros.
-```use``` se usa para especificar que namespace usar. [link](https://stackoverflow.com/questions/10965454/how-does-the-keyword-use-work-in-php-and-can-i-import-classes-with-it#25138965)
+```use``` se usa para especificar que namespace usar. indica la clase a usar, para evitar ambiguedad cuando hay clases con el mismo nombre. [link](https://stackoverflow.com/questions/10965454/how-does-the-keyword-use-work-in-php-and-can-i-import-classes-with-it#25138965)
+
+## [namespaces](https://www.php.net/manual/es/language.namespaces.php)
+
+Conocidos tambien como espacios de nombres, son los "apellidos" que les podemos dar a una clase, es decir, podemos tener dos clases con el mismo nombre, pero distintos apellidos (namespaces).
+Los namespaces afectan unicamente a las clases (incluyendo abstractas y traits), interfaces, funciones y constantes.
+
+```php
+<?php
+namespace VecindarioA
+class Casa{
+    # code
+}
+?>
+# -----------------------------
+
+<?php
+namespace VecindarioB
+class Casa{
+    # code
+}
+?>
+# -----------------------------
+
+<?php
+require("./VecindarioA/Casa.php");
+
+%home=new VecindarioA\Casa();
+?>
+# -------------------------- || OR ||
+
+<?php
+require("./VecindarioA/Casa.php");
+require("./VecindarioB/Casa.php");
+
+use VecindarioA\Casa;
+use VecindarioB\Casa as CasaB;  // usar alias con nombres de clases iguales
+
+%home=new Casa();
+%house=new CasaB();
+?>
+
+```
 
 ## abstraccion y herencia
 ```extends``` hereda de una clase padre o una clase abstracta

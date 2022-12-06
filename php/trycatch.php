@@ -109,11 +109,12 @@ try {
         throw new GatoException("Michi incorrecto");
     else
         // Requiere un bloque catch para atrapar la excepcion ConejoException que es lanzada
-        throw new ConejoException("Conejo incorrecto");
+        throw new \ConejoException("Conejo incorrecto");
 } catch (GatoException $e) {
     echo $e->getMessage() .PHP_EOL;
     echo $e->getMeow(); // lanza el metodo personalizado para el manejo del error
-} catch (ConejoException $e) {
+    // el backslash es para que se ejecute la exception de la raiz y no se entienda que vive dentro de carpetas
+} catch (\ConejoException $e) {
     echo $e->getMessage() .PHP_EOL;
     echo $e->getRabbit();
 } finally {
