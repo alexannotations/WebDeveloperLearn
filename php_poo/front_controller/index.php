@@ -2,6 +2,8 @@
 
 $page = $_GET["page"] ?? null;
 
+//echo $page;     die();
+
 if ($page==NULL) {
     require("pages/home.php");
 }else{

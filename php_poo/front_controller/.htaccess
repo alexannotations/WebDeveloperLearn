@@ -1,0 +1,20 @@
+# habilitar el motor de sobreescritura en la carpeta
+RewriteEngine On
+
+# Condiciones 
+# si no es un archivo que ya exista aplica la sobreescritura
+RewriteCond %{REQUEST_FILENAME} !-f
+# si no es un directorio que exista aplica la sobreescritura
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# si las condiciones son verdaderas, soobrescribe
+# la Regex indica que cualquier valor que se escriba debe cargar index.php
+# con el primer parametro GET en la variable $1 
+# ^ inicio de la cadena
+# $ fin de la cadena
+# . cualquier caracter
+# * el caracter anterior puede repetirse varias veces
+# () indican que lo de adentro es una variable, la $1
+# [L] es un flag (last), si esa regla hace match no siseguir procesando otras reglas.
+# RewriteRule pattern target [Flag1,Flag2,Flag3]
+RewriteRule ^(.*)$ index.php?page=$1 [L]
