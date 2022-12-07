@@ -1,5 +1,9 @@
 <?php
 
+namespace Dbc\PDO;
+
+class Connection{
+
 $server = "localhost";
 $database = "finanzas_personales";
 $username = "root";
@@ -16,3 +20,4 @@ try {
 }
 
 var_dump($setnames);
+}
