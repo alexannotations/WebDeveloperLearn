@@ -43,5 +43,5 @@ Estan disponibles a partir de PHP8.1
 
 ## SQL injection con bindParam
 https://es.stackoverflow.com/questions/18232/c%C3%B3mo-evitar-la-inyecci%C3%B3n-sql-en-php
-
+https://www.php.net/manual/es/pdo.prepare.php
 

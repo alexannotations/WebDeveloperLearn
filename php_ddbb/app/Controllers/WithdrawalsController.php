@@ -22,7 +22,7 @@ class WithdrawalsController {
     public function store($data) {
         // preparo la conexion
         $connection = Connection::getInstance()->get_database_instance();
-        
+/*
         // ejecuta la consulta con $connection->exec, y devuelve el numero de filas afectadas
         $affected_rows = $connection->exec("INSERT INTO 
             withdrawals (payment_method, type, date, amount, description) 
@@ -33,8 +33,35 @@ class WithdrawalsController {
                 {$data['amount']},
                 '{$data['description']}'
         )");
+*/
+        
+        // Para evitar inyeccion SQL tambien preparamos la consulta
+        // ahora devuelve un objeto prepared statement
+        // aqui para los valores se utilizan placeholders que consisten en poner :nombre_de_variable
+        $stmt = $connection->prepare("INSERT INTO 
+            withdrawals (payment_method, type, date, amount, description) 
+            VALUES (
+                :payment_method, 
+                :type, 
+                :date, 
+                :amount, 
+                :description
+        )");
 
-        echo "Se han insertado $affected_rows filas en la base de datos.";
+        // ejecuta la consulta
+        // Recibe un arreglo que cada llave corresponde a los placeholders en prepare VALUES
+/*        $stmt->execute([
+            ":payment_method"=>1,
+            ":type"=>2,
+            ":date" => date("Y-m-d H:i:s"),
+            ":amount" => 20,
+            ":description" => "Compré mucha comida para mis queridos y amados gatos."
+        ]);
+        */
+        // O bien se manda toda la variable tipo array que ya tiene las llaves
+        $stmt->execute($data);
+
+        echo "Se han insertado {$stmt->rowCount()} filas en la base de datos.";
     }
 
     /**

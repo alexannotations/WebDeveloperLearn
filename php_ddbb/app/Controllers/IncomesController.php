@@ -16,6 +16,7 @@ class IncomesController{
      */
     public function create() {}
 
+    
     /**
      * Guarda un nuevo recurso en la base de datos
      */
@@ -63,6 +64,7 @@ class IncomesController{
 
         echo "Se han insertado {$stmt->affected_rows} filas en la base de datos";
     }
+
 
     /**
      * Muestra un único recurso especificado
