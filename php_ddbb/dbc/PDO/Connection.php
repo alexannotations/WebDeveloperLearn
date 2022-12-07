@@ -1,6 +1,6 @@
 <?php
 
-namespace Dbc\PDO;
+namespace DBC\PDO;
 
 class Connection{
 

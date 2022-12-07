@@ -22,3 +22,18 @@ Estos archivos no se deben encuentrar al alcance de los usuarios, por lo que nun
 
 "PHP dotenv" https://github.com/vlucas/phpdotenv hace la tarea de abrir el archivo donde las variables de entorno se almacenan y procesar su contenido, para producir las variables de entorno y consumirlas cómodamente dentro de las aplicaciones.
 
+
+## Controladorea para la aplicacion
+[prepare](https://www.php.net/manual/es/mysqli.prepare.php)
+Por lo general un controlador tiene 7 metodos, en el API pueden ser 5.
+Un recurso suele seer cualquier cosa que queramos controlar.
+
+- __index__: muestra la lista de todos los recursos.(GET)
+- __create__: muestra un formulario para ingresar un nuevo recurso. (luego manda a llamar al método store), (responde a una peticion tipo GET)
+- __store__: registra dentro de la base de datos el nuevo recurso. (responde a una peticion tipo POST)
+- __show__: muestra un recurso específico.(GET)
+- __edit__: muestra un formulario para editar un recurso. (luego manda a llamar al método update).(responde a una peticion tipo GET)
+- __update__: actualiza el recurso dentro de la base de datos.(responde a una peticion tipo POST)
+- __destroy__: elimina un recurso.(GET)
+
+

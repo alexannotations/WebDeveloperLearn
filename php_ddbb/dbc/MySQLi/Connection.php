@@ -1,5 +1,5 @@
 <?php
-namespace Dbc\MySQLi;
+namespace DBC\MySQLi;
 
 class Connection{
 
