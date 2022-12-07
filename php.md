@@ -34,7 +34,7 @@ class User{
 }
 
 $user=new User;     // objeto de User
-// para ver el objeto
+// para ver el objeto;  Operador de Objetos, para acceder a elementos de objetos, excepto las constantes y estaticos
 echo "$user->name quiere 💗"
 
 // variables variables, se accede a los datos
