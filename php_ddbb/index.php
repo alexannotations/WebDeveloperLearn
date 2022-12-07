@@ -12,11 +12,12 @@ require("vendor/autoload.php");
 // Insercion de datos con PDO
 $withdrawal_controller = new WithdrawalsController();
 $withdrawal_controller->store([
+    // para cada key tambien se puede colocar el bind param :
     "payment_method" => PaymentMethodEnum::CreditCard->value,
     "type" => WithdrawalTypeEnum::Purchase->value,
     "date" => date("Y-m-d H:i:s"),
-    "amount" => 20,
-    "description" => "Compré mucha comida para mis queridos y amados michis."
+    "amount" => 50,
+    "description" => "Compré muchos juguetes."
 ]);
 
 

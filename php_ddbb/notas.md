@@ -45,3 +45,8 @@ Estan disponibles a partir de PHP8.1
 https://es.stackoverflow.com/questions/18232/c%C3%B3mo-evitar-la-inyecci%C3%B3n-sql-en-php
 https://www.php.net/manual/es/pdo.prepare.php
 
+Para ligar valores podemos usar bindParam o bindValue
+- Con bindParam se vincula la variable al parámetro y en el momento de hacer el execute es cuando se asigna realmente el valor de la variable a ese parámetro. Es decir como todavia no se ejecuta, se puede ligar otro valor
+- Con bindValue se asigna el valor de la variable a ese parámetro justo en el momento de ejecutar la instrucción bindValue.
+
+

@@ -48,6 +48,17 @@ class WithdrawalsController {
                 :description
         )");
 
+        // bindparams es una alternativa para ligas los datos que nos da el usuario con la consulta sql
+        // $stmt es la variable que mantiene la consulta preparada, 
+        // observe que el metodo se escribe diferente a mysqli bind_param
+        // Recibe primero el nombre del placeholder y despues el valor
+        // sin : porque desde el index se manda sin ellos
+        $stmt->bindParam(":payment_method", $data["payment_method"]);
+        $stmt->bindParam(":type", $data["type"]);
+        $stmt->bindParam(":date", $data["date"]);
+        $stmt->bindParam(":amount", $data["amount"]);
+        $stmt->bindParam(":description", $data["description"]);
+
         // ejecuta la consulta
         // Recibe un arreglo que cada llave corresponde a los placeholders en prepare VALUES
 /*        $stmt->execute([
