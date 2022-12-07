@@ -37,3 +37,6 @@ Un recurso suele seer cualquier cosa que queramos controlar.
 - __destroy__: elimina un recurso.(GET)
 
 
+## ENUMS
+Sirve para dar significado a un numero. Enumerations, or “Enums” allow a developer to define a custom type that is limited to one of a discrete number of possible values. 
+
