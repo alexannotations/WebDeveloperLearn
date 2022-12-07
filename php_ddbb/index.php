@@ -8,7 +8,7 @@ use App\Enums\WithdrawalTypeEnum;
 
 // llamar el archivo de autocarga de composer
 require("vendor/autoload.php");
-
+/*
 // Insercion de datos con PDO
 $withdrawal_controller = new WithdrawalsController();
 $withdrawal_controller->store([
@@ -19,7 +19,7 @@ $withdrawal_controller->store([
     "amount" => 50,
     "description" => "Compré muchos juguetes."
 ]);
-
+*/
 
 /*
 // Insercion de datos con MySQLi
@@ -38,3 +38,7 @@ $incomes_controller->store([
     "description" => "Pago de mi salario por mi arduo y muy bien trabajo :D"
 ]);
 */
+
+// Index de datos con PDO
+$withdrawal_controller = new WithdrawalsController();
+$withdrawal_controller->index();
