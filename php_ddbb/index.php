@@ -28,8 +28,8 @@ $incomes_controller = new IncomesController();
 // el metodo store() es el que almacena un nuevo recurso (se hara por terminal)
 // normalmente se pasan en forma de arreglos asociativos
 $incomes_controller->store([
-    // la DB recibe un entero, 
-    //por lo que se usan los ENUMS para entenderlos con claridad, 
+    // la DB recibe un entero,
+    //por lo que se usan los ENUMS para entenderlos con claridad,
     //pero devolvera un int
     "payment_method" => PaymentMethodEnum::BankAccount->value,
     "type" => IncomeTypeEnum::Salary->value,
@@ -39,6 +39,15 @@ $incomes_controller->store([
 ]);
 */
 
-// Index de datos con PDO
-$withdrawal_controller = new WithdrawalsController();
-$withdrawal_controller->index();
+// // Index de datos con PDO
+// $withdrawal_controller = new WithdrawalsController();
+// $withdrawal_controller->index();
+
+// Traemos un solo recurso, por lo que se indica pasandolo por parametro
+// $withdrawal_controller = new WithdrawalsController();
+// $id = 1;
+// $withdrawal_controller->show($id);
+
+
+$incomes_controller = new IncomesController();
+$incomes_controller->index();

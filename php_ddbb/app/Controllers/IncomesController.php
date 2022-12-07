@@ -2,14 +2,32 @@
 
 namespace App\Controllers;
 
-use DBC\MySQLi\Connection;
+use DBC\PDO\Connection;
 
 class IncomesController{
+
+    private $connection;
+
+    public function __construct(){
+        $this->connection=Connection::getInstance()->get_database_instance();
+    }
     
     /**
-     * Muestra una lista de este recurso
+     * Muestra una lista de este 
+     * hack: consultando varios datos usando fetch()
      */
-    public function index() {}
+    public function index() {
+        
+        $stmt = $this->connection->prepare(
+            "SELECT * FROM incomes"
+        );
+        $stmt->execute();   // devuelve todas las filas de la base de datos
+
+        // mientras hayan filas por ser recorridas, devolvera esa fila
+        // y si hay una siguiente fila, la cargara automaticamente
+        while($row = $stmt->fetch())
+            echo "Ganaste " . $row["amount"] . " USD en: " . $row["description"] . PHP_EOL;
+    }
 
     /**
      * Muestra un formulario para crear un nuevo recurso
@@ -19,50 +37,69 @@ class IncomesController{
     
     /**
      * Guarda un nuevo recurso en la base de datos
+     * Al cambiar el controlador de DB de MySQLi a PDO, 
+     * el metodo deja de funcionar, por lo que se comento
      */
     public function store($data) {
-        
-        // observe que se encadenan ambos metodos para obtener la instancia de la conexion; 
-        // el estatico para crear la instancia, y obtener la conexion
-        // evitando el $connection = new Connection()->get_database_instance();
-        // objetivo del patron singleton
-        $connection = Connection::getInstance()->get_database_instance();
+        $stmt = $this->connection->prepare(
+            "INSERT INTO incomes 
+                (payment_method, type, date, amount, description) 
+                    VALUES (
+                        :payment_method, 
+                        :type, 
+                        :date, 
+                        :amount, 
+                        :description)"
+            );
+            // se asocia cada placeholder con su respectivo valor
+        $stmt->bindValue(":payment_method", $data["payment_method"]);
+        $stmt->bindValue(":type", $data["type"]);
+        $stmt->bindValue(":date", $data["date"]);
+        $stmt->bindValue(":amount", $data["amount"]);
+        $stmt->bindValue(":description", $data["description"]);
 
-/*        // esto es una consulta plana a la base de datos (peligro de sql injection)
-        // observe las comillas en date y description para pasarlo como string
-        $connection->query("INSERT INTO 
-            incomes (payment_method, type, date, amount, description) 
-                VALUES(
-                    {$data['payment_method']},
-                    {$data['type']},
-                    '{$data['date']}',
-                    {$data['amount']},
-                    '{$data['description']}'
-        );");
-*/
-        // Para evitar el sqlinjection se prepara previamente la consulta 
-        //(observe que cambio el metodo query por prepare y se agregaron signos en lugar de valores para el filtrado
-        // el metodo devuelve un objeto que tiene un metodo llamado bind_param()
-        // usualmente la variable se llama $stmt
-        $stmt=$connection->prepare("INSERT INTO 
-        incomes (payment_method, type, date, amount, description) 
-            VALUES(?,?,?,?,?);");
-
-        // observe que no estan aun asignadas las variables, se asignan mas abajo
-        // el metodo depura los datos a insertar segun su tipo definido por una letra en el primer argumento
-        // mysqli_stmt_bind_param()
-        $stmt->bind_param("iisds",$payment_method, $type, $date, $amount, $description);
-        // aqui se asignan los valores
-        $payment_method = $data['payment_method'];
-        $type = $data['type'];
-        $date = $data['date'];
-        $amount = $data['amount'];
-        $description = $data['description'];
-
-        // ejecuta la consulta
         $stmt->execute();
+//         // observe que se encadenan ambos metodos para obtener la instancia de la conexion; 
+//         // el estatico para crear la instancia, y obtener la conexion
+//         // evitando el $connection = new Connection()->get_database_instance();
+//         // objetivo del patron singleton
+//         $connection = Connection::getInstance()->get_database_instance();
 
-        echo "Se han insertado {$stmt->affected_rows} filas en la base de datos";
+// /*        // esto es una consulta plana a la base de datos (peligro de sql injection)
+//         // observe las comillas en date y description para pasarlo como string
+//         $connection->query("INSERT INTO 
+//             incomes (payment_method, type, date, amount, description) 
+//                 VALUES(
+//                     {$data['payment_method']},
+//                     {$data['type']},
+//                     '{$data['date']}',
+//                     {$data['amount']},
+//                     '{$data['description']}'
+//         );");
+// */
+//         // Para evitar el sqlinjection se prepara previamente la consulta 
+//         //(observe que cambio el metodo query por prepare y se agregaron signos en lugar de valores para el filtrado
+//         // el metodo devuelve un objeto que tiene un metodo llamado bind_param()
+//         // usualmente la variable se llama $stmt
+//         $stmt=$connection->prepare("INSERT INTO 
+//         incomes (payment_method, type, date, amount, description) 
+//             VALUES(?,?,?,?,?);");
+
+//         // observe que no estan aun asignadas las variables, se asignan mas abajo
+//         // el metodo depura los datos a insertar segun su tipo definido por una letra en el primer argumento
+//         // mysqli_stmt_bind_param()
+//         $stmt->bind_param("iisds",$payment_method, $type, $date, $amount, $description);
+//         // aqui se asignan los valores
+//         $payment_method = $data['payment_method'];
+//         $type = $data['type'];
+//         $date = $data['date'];
+//         $amount = $data['amount'];
+//         $description = $data['description'];
+
+//         // ejecuta la consulta
+//         $stmt->execute();
+
+//         echo "Se han insertado {$stmt->affected_rows} filas en la base de datos";
     }
 
 

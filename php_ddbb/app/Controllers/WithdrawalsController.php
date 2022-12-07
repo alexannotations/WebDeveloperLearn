@@ -131,7 +131,23 @@ class WithdrawalsController {
     /**
      * Muestra un único recurso especificado
      */
-    public function show() {}
+    public function show($id) {
+        // se filtra un solo dato con un placeholder :id
+        // usualmente el placeholder se llama igual que el campo id=:id
+        $stmt = $this->connection->prepare("
+                SELECT * FROM withdrawals WHERE id=:id"
+        );
+        // como se pasa un placeholder, se pasa un arreglo que contiene el valor del placeholder
+        $stmt->execute([
+            ":id" => $id
+        ]);
+
+        // entrega los datos por arreglo asociativo y array numerico
+        // para evitar esto se coloca un flag, que elimina los indices numericos
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        //        var_dump($result);
+        echo "El registro con id $id dice que te gastaste {$result['amount']} USD en {$result['description']}";
+    }
 
     /**
      * Muestra el formulario para editar un recurso
