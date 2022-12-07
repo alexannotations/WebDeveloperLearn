@@ -119,7 +119,14 @@ class IncomesController{
     /**
      * Muestra un único recurso especificado
      */
-    public function show() {}
+    public function show($id) {
+        $stmt = $this->connection->prepare(
+            "SELECT * FROM incomes WHERE id=:id;"
+        );
+        $stmt->execute([
+            ":id" => $id
+        ]);
+    }
 
     /**
      * Muestra el formulario para editar un recurso
@@ -129,7 +136,27 @@ class IncomesController{
     /**
      * Actualiza un recurso específico en la base de datos
      */
-    public function update() {}
+    public function update($data, $id) {
+        
+        $stmt = $this->connection->prepare(
+            "UPDATE incomes 
+                SET payment_method = :payment_method, 
+                    type = :type, 
+                    date = :date, 
+                    amount = :amount, 
+                    description = :description
+                WHERE id=:id;"
+        );
+
+        $stmt->execute([
+            ":id" => $id,
+            ":payment_method" => $data["payment_method"],
+            ":type" => $data["type"],
+            ":date" => $data["date"],
+            ":amount" => $data["amount"],
+            ":description" => $data["description"],
+        ]);
+    }
 
     /**
      * Elimina un recurso específico de la base de datos

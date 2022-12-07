@@ -157,11 +157,39 @@ class WithdrawalsController {
     /**
      * Actualiza un recurso específico en la base de datos
      */
-    public function update() {}
+    public function update($data, $id) {
+                $stmt = $this->connection->prepare(
+                        "UPDATE incomes 
+                        SET 
+                        payment_method = :payment_method, 
+                        type = :type, 
+                        date = :date, 
+                        amount = :amount, 
+                        description = :description
+                        WHERE id=:id;"
+                        );
+
+        $stmt->execute([
+                ":id" => $id,
+                ":payment_method" => $data["payment_method"],
+                ":type" => $data["type"],
+                ":date" => $data["date"],
+                ":amount" => $data["amount"],
+                ":description" => $data["description"],
+        ]);
+    }
 
     /**
      * Elimina un recurso específico de la base de datos
      */
-    public function destroy() {}
+    public function destroy($id) {
+        
+        $delete = $this->connection->prepare("DELETE FROM withdrawals WHERE id=:id;");
+
+        $delete->execute([
+            ":id" => $id
+        ]);
+
+    }
 
 }
