@@ -4,20 +4,43 @@ namespace Dbc\PDO;
 
 class Connection{
 
-$server = "localhost";
-$database = "finanzas_personales";
-$username = "root";
-$password = "";
+    private static $instance;
+    private $connection;
+    
 
-try {
-    $connection = new PDO("mysql:host=$server;dbname=$database", $username, $password);
+    private function __construct(){
+        $this->make_connection();
+    }
 
-    // Permite usar caracteres especiales en las consultas
-    $setnames = $connection->prepare("SET NAMES 'utf8'");
-    $setnames->execute();
-} catch(PDOException $e){
-    die("Connection failed: {$e->getMessage()}");
-}
 
-var_dump($setnames);
+    public static function getInstance():Connection{
+        if(!self::$instance instanceof self)
+            self::$instance=new self();
+
+        return self::$instance;
+    }
+
+
+    public function get_database_instance(){
+        return $this->connection;
+    }
+
+
+    private function make_connection(){
+        $serverdb = "localhost";
+        $database = "finanzas_personales";
+        $username = "root";
+        $password = "";
+
+        try {
+            $connection = new \PDO("mysql:host=$serverdb;dbname=$database", $username, $password);
+            $setnames = $connection->prepare("SET NAMES 'utf8'");
+            $setnames->execute();
+        } catch(\PDOException $e){
+            die("Connection failed: {$e->getMessage()}");
+        }
+
+        //var_dump($setnames);
+        $this->connection = $connection;
+        }
 }

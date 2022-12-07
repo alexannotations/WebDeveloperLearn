@@ -6,6 +6,7 @@ class Connection{
     /**
      * Se usa el patron singleton, para asegurarnos 
      * que solo exista una instancia, que es retornada por getInstance()
+     * $connection contiene la conexion
      */
     private static $instance;
     private $connection;
@@ -20,7 +21,7 @@ class Connection{
     // para obtener la instancia singletoon debemos acceder a esta instancia
     // cuando un metodo es estatico no se requiere la instancia de la clase,
     // solo el nombre de la clase y el metodo
-    public static function getInstance(){
+    public static function getInstance():Connection{
         // self se refiere a una propiedad estatica de la misma clase
         // si $instance todavia no es una instancia de mi misma clase 
         // haz la instancia de la clase y asignala en la variable $instance
@@ -44,38 +45,38 @@ class Connection{
     // este metodo hace la conexion a la DB y la guarda en $connection
     // la cual se puede obtener con su getter
     private function make_connection(){
-/**
- * Estas variables deberian definirse en un archivo .env
- * composer require vlucas/phpdotenv 
- * */
-$server = "localhost";
-$database = "finanzas_personales";
-$username = "root";
-$password = "";
+        /**
+         * Estas variables deberian definirse en un archivo .env
+         * composer require vlucas/phpdotenv
+         * */
+        $server = "localhost";
+        $database = "finanzas_personales";
+        $username = "root";
+        $password = "";
 
-// Forma procedural
-//$mysqli = mysqli_connect($server, $username, $password, $database);
+        // Forma procedural
+        //$mysqli = mysqli_connect($server, $username, $password, $database);
 
-// Forma orientada a objetos
-// con los namespace genera error, por que la clase mysqli existe de manera global
-// para evitar el error del namespace local, se agrega una diagonal invertida al principio de la clase
-// que indica que se ocupa el namespace global
-$mysqli = new \mysqli($server, $username, $password, $database);
+        // Forma orientada a objetos
+        // con los namespace genera error, por que la clase mysqli existe de manera global
+        // para evitar el error del namespace local, se agrega una diagonal invertida al principio de la clase
+        // que indica que se ocupa el namespace global
+        $mysqli = new \mysqli($server, $username, $password, $database);
 
-// Comprobar conexión de manera procedural, si la variable no fue definida
-/* if (!$mysqli)
-    die("Falló la conexión: " . mysqli_connect_error()); */
+        // Comprobar conexión de manera procedural, si la variable no fue definida
+        /* if (!$mysqli)
+            die("Falló la conexión: " . mysqli_connect_error()); */
 
-// Comprobar conexión de manera orientada a objetos
-if ($mysqli->connect_errno)
-    die("Falló la conexión: {$mysqli->connect_error}");
+        // Comprobar conexión de manera orientada a objetos
+        if ($mysqli->connect_errno)
+            die("Falló la conexión: {$mysqli->connect_error}");
 
-// Esto nos ayuda a poder usar cualquier caracter en nuestras consultas
-$setnames = $mysqli->prepare("SET NAMES 'utf8'");
-$setnames->execute();
+        // Esto nos ayuda a poder usar cualquier caracter en nuestras consultas
+        $setnames = $mysqli->prepare("SET NAMES 'utf8'");
+        $setnames->execute();
 
-//var_dump($setnames);
-//var_dump($mysqli);
+        //var_dump($setnames);
+        //var_dump($mysqli);
 
         // se asigna a la variable de clase, para no crear muchas conexiones
         $this->connection = $mysqli;
