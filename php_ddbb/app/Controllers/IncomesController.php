@@ -23,10 +23,23 @@ class IncomesController{
         );
         $stmt->execute();   // devuelve todas las filas de la base de datos
 
+        // bindColumn sirve para las columnas de seleccion
+        // ligamos las columnas de la DB a una variable
+        // bindColumn asigna la informacion, por lo que no genera error
+        // pese a que lo indica, porque las variables no estan definidas
+        // por cada fila que exista se define
+        $stmt->bindColumn("amount",$amount);
+        $stmt->bindColumn("description",$description);
+
         // mientras hayan filas por ser recorridas, devolvera esa fila
         // y si hay una siguiente fila, la cargara automaticamente
-        while($row = $stmt->fetch())
-            echo "Ganaste " . $row["amount"] . " USD en: " . $row["description"] . PHP_EOL;
+        // con bindColumn se puede eliminar $row
+        while ($row = $stmt->fetch()) {
+            // usamos un arreglo, pero se puede usar bindColumn
+            //echo "Ganaste " . $row["amount"] . " USD en: " . $row["description"] . PHP_EOL;
+            echo "Ganaste $amount USD por: $description" . PHP_EOL;
+
+        }
     }
 
     /**
