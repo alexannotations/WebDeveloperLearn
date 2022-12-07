@@ -49,5 +49,10 @@ $incomes_controller->store([
 // $withdrawal_controller->show($id);
 
 
+// $incomes_controller = new IncomesController();
+// $incomes_controller->index();
+
+
+// Metodo Destroy
 $incomes_controller = new IncomesController();
-$incomes_controller->index();
+$incomes_controller->destroy(4);

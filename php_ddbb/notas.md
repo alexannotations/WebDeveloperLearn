@@ -48,5 +48,9 @@ https://www.php.net/manual/es/pdo.prepare.php
 Para ligar valores podemos usar bindParam o bindValue
 - Con bindParam se vincula la variable al parámetro y en el momento de hacer el execute es cuando se asigna realmente el valor de la variable a ese parámetro. Es decir como todavia no se ejecuta, se puede ligar otro valor
 - Con bindValue se asigna el valor de la variable a ese parámetro justo en el momento de ejecutar la instrucción bindValue.
+- bindColumn
 
+
+## Transacciones
+Como revertir una consulta SQL con PHP con beginTransaction()
 

@@ -134,5 +134,33 @@ class IncomesController{
     /**
      * Elimina un recurso específico de la base de datos
      */
-    public function destroy() {}
+    public function destroy($id) {
+        // al ser una consulta riesgosa para que no se ejecuten las consultas instantaneamente
+        $this->connection->beginTransaction();
+
+        // Esto no funciona en MySQL, se ejecuta, sin importar si hay una transaction en proceso
+        // Hay ciertas consultas que no funcionan con beginTransaction
+        // $this->connection->beginTransaction();
+        // $this->connection->exec("DROP TABLE incomes_test");
+        // $this->pdo->rollBack();
+        // $this->pdo->commit();
+
+        $stmt = $this->connection->prepare(
+            "DELETE FROM incomes WHERE id = :id"
+        );
+        $stmt->execute([
+            ":id" => $id
+        ]);
+
+        $sure = readline("¿De verdad quieres eliminar este registro? ");
+
+        if (!$sure == "no") {
+            echo ("borrando");
+            $this->connection->rollBack(); // revertimos la transaction
+        } else {
+            echo ("deshacer");
+            $this->connection->commit(); // confirmamos la transaction
+        }
+
+    }
 }
