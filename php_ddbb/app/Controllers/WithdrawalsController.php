@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use DBC\PDO\Connection;
+
 class WithdrawalsController {
 
     /**
@@ -17,7 +19,23 @@ class WithdrawalsController {
     /**
      * Guarda un nuevo recurso en la base de datos
      */
-    public function store() {}
+    public function store($data) {
+        // preparo la conexion
+        $connection = Connection::getInstance()->get_database_instance();
+        
+        // ejecuta la consulta con $connection->exec, y devuelve el numero de filas afectadas
+        $affected_rows = $connection->exec("INSERT INTO 
+            withdrawals (payment_method, type, date, amount, description) 
+            VALUES (
+                {$data['payment_method']},
+                {$data['type']},
+                '{$data['date']}',
+                {$data['amount']},
+                '{$data['description']}'
+        )");
+
+        echo "Se han insertado $affected_rows filas en la base de datos.";
+    }
 
     /**
      * Muestra un único recurso especificado
