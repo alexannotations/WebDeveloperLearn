@@ -27,7 +27,7 @@ class IncomesController{
         // objetivo del patron singleton
         $connection = Connection::getInstance()->get_database_instance();
 
-        // esto es una consulta plana a la base de datos
+/*        // esto es una consulta plana a la base de datos (peligro de sql injection)
         // observe las comillas en date y description para pasarlo como string
         $connection->query("INSERT INTO 
             incomes (payment_method, type, date, amount, description) 
@@ -38,6 +38,30 @@ class IncomesController{
                     {$data['amount']},
                     '{$data['description']}'
         );");
+*/
+        // Para evitar el sqlinjection se prepara previamente la consulta 
+        //(observe que cambio el metodo query por prepare y se agregaron signos en lugar de valores para el filtrado
+        // el metodo devuelve un objeto que tiene un metodo llamado bind_param()
+        // usualmente la variable se llama $stmt
+        $stmt=$connection->prepare("INSERT INTO 
+        incomes (payment_method, type, date, amount, description) 
+            VALUES(?,?,?,?,?);");
+
+        // observe que no estan aun asignadas las variables, se asignan mas abajo
+        // el metodo depura los datos a insertar segun su tipo definido por una letra en el primer argumento
+        // mysqli_stmt_bind_param()
+        $stmt->bind_param("iisds",$payment_method, $type, $date, $amount, $description);
+        // aqui se asignan los valores
+        $payment_method = $data['payment_method'];
+        $type = $data['type'];
+        $date = $data['date'];
+        $amount = $data['amount'];
+        $description = $data['description'];
+
+        // ejecuta la consulta
+        $stmt->execute();
+
+        echo "Se han insertado {$stmt->affected_rows} filas en la base de datos";
     }
 
     /**

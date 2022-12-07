@@ -40,3 +40,8 @@ Un recurso suele seer cualquier cosa que queramos controlar.
 ## ENUMS
 Sirve para dar significado a un numero. Enumerations, or “Enums” allow a developer to define a custom type that is limited to one of a discrete number of possible values. 
 Estan disponibles a partir de PHP8.1
+
+## SQL injection con bindParam
+https://es.stackoverflow.com/questions/18232/c%C3%B3mo-evitar-la-inyecci%C3%B3n-sql-en-php
+
+
