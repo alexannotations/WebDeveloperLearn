@@ -24,8 +24,8 @@ class WithdrawalsController {
         $connection = Connection::getInstance()->get_database_instance();
 /*
         // ejecuta la consulta con $connection->exec, y devuelve el numero de filas afectadas
-        $affected_rows = $connection->exec("INSERT INTO 
-            withdrawals (payment_method, type, date, amount, description) 
+        $affected_rows = $connection->exec("INSERT INTO
+            withdrawals (payment_method, type, date, amount, description)
             VALUES (
                 {$data['payment_method']},
                 {$data['type']},
@@ -34,30 +34,46 @@ class WithdrawalsController {
                 '{$data['description']}'
         )");
 */
-        
+
         // Para evitar inyeccion SQL tambien preparamos la consulta
         // ahora devuelve un objeto prepared statement
         // aqui para los valores se utilizan placeholders que consisten en poner :nombre_de_variable
-        $stmt = $connection->prepare("INSERT INTO 
-            withdrawals (payment_method, type, date, amount, description) 
+        $stmt = $connection->prepare("INSERT INTO
+            withdrawals (payment_method, type, date, amount, description)
             VALUES (
-                :payment_method, 
-                :type, 
-                :date, 
-                :amount, 
+                :payment_method,
+                :type,
+                :date,
+                :amount,
                 :description
         )");
 
         // bindparams es una alternativa para ligas los datos que nos da el usuario con la consulta sql
-        // $stmt es la variable que mantiene la consulta preparada, 
+        // $stmt es la variable que mantiene la consulta preparada,
         // observe que el metodo se escribe diferente a mysqli bind_param
         // Recibe primero el nombre del placeholder y despues el valor
         // sin : porque desde el index se manda sin ellos
-        $stmt->bindParam(":payment_method", $data["payment_method"]);
+/*        $stmt->bindParam(":payment_method", $data["payment_method"]);
         $stmt->bindParam(":type", $data["type"]);
         $stmt->bindParam(":date", $data["date"]);
         $stmt->bindParam(":amount", $data["amount"]);
         $stmt->bindParam(":description", $data["description"]);
+
+        // con bindParam se puede sobreescribir el valor ligado, se esta cambiando la descripcion enviada por index
+        $data["description"]="Compre cosas para mi 💞";
+        $stmt->execute(); 
+*/
+        // con bind value
+        // $stmt->bindValue(":payment_method", $data["payment_method"]);
+        // $stmt->bindValue(":type", $data["type"]);
+        // $stmt->bindValue(":date", $data["date"]);
+        // $stmt->bindValue(":amount", $data["amount"]);
+        // $stmt->bindValue(":description", $data["description"]);
+
+        // con bindValue no se puede sobreescribir el valor ligado, pese a que se cambie
+        //$data["description"]="Compre cosas para mi 💕";
+        // con bindvalue() no se envia ningun parametro
+        //$stmt->execute();
 
         // ejecuta la consulta
         // Recibe un arreglo que cada llave corresponde a los placeholders en prepare VALUES
@@ -94,5 +110,5 @@ class WithdrawalsController {
      * Elimina un recurso específico de la base de datos
      */
     public function destroy() {}
-    
+
 }
