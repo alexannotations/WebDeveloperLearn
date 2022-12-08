@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# pasa un parametro via GET llamado slug
+RewriteRule ^(.*)$ index.php?slug=$1 [L]

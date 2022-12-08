@@ -54,3 +54,6 @@ Para ligar valores podemos usar bindParam o bindValue
 ## Transacciones
 Como revertir una consulta SQL con PHP con beginTransaction()
 
+
+## Router
+Nos permite ligar de las urls con algun metodo de los controladores. Los metodos pueden mandar llamar a las vistas con los datos de la DB.
