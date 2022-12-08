@@ -23,8 +23,7 @@ $id = $slug[1] ?? null;
 // incomes/1
 
 // Intancia del router
-
-//$router = new RouterHandler();
+$router = new RouterHandler();
 
 switch ($resource) {
 
@@ -34,11 +33,21 @@ switch ($resource) {
 
     case "incomes":
         echo "Incomes";
+        // si existe en el post la llave method colocala
+        // si no existe estamos trabajando con el metodo get
+        $method = $_POST["method"] ?? "get";
+        $router->set_method($method);
+        $router->set_data($_POST);  // la informacion que se recibe de un formulario
+        $router->route(IncomesController::class, $id); 
 
         break;
 
     case "withdrawals":
         echo "Withdrawals";
+        $method = $_POST["method"] ?? "get";
+        $router->set_method($method);
+        $router->set_data($_POST);
+        $router->route(WithdrawalsController::class, $id);
 
         break;
     
