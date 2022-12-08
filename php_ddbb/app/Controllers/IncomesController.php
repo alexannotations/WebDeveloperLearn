@@ -15,6 +15,7 @@ class IncomesController{
     /**
      * Muestra una lista de este 
      * hack: consultando varios datos usando fetch()
+     * localhost/webDeveloperLearn/php_ddbb/public/incomes
      */
     public function index() {
         
@@ -28,24 +29,31 @@ class IncomesController{
         // bindColumn asigna la informacion, por lo que no genera error
         // pese a que lo indica, porque las variables no estan definidas
         // por cada fila que exista se define
-        $stmt->bindColumn("amount",$amount);
-        $stmt->bindColumn("description",$description);
+        // $stmt->bindColumn("amount",$amount);
+        // $stmt->bindColumn("description",$description);
 
-        // mientras hayan filas por ser recorridas, devolvera esa fila
-        // y si hay una siguiente fila, la cargara automaticamente
-        // con bindColumn se puede eliminar $row
-        while ($row = $stmt->fetch()) {
-            // usamos un arreglo, pero se puede usar bindColumn
-            //echo "Ganaste " . $row["amount"] . " USD en: " . $row["description"] . PHP_EOL;
-            echo "Ganaste $amount USD por: $description" . PHP_EOL;
+        // // mientras hayan filas por ser recorridas, devolvera esa fila
+        // // y si hay una siguiente fila, la cargara automaticamente
+        // // con bindColumn se puede eliminar $row
+        // while ($row = $stmt->fetch()) {
+        //     // usamos un arreglo, pero se puede usar bindColumn
+        //     //echo "Ganaste " . $row["amount"] . " USD en: " . $row["description"] . PHP_EOL;
+        //     echo "Ganaste $amount USD por: $description" . PHP_EOL;
+        // }
+        $results = $stmt->fetchAll();
 
-        }
+        // Se manda llamar desde la carpeta public, por lo que de ahi toma la ruta
+        // requiriendose la vista de index.php, por lo que tenemos acceso a la variable $results
+        require("../resources/views/incomes/index.php");
     }
 
     /**
      * Muestra un formulario para crear un nuevo recurso
+     * localhost/webDeveloperLearn/php_ddbb/public/incomes/create
      */
-    public function create() {}
+    public function create() {
+        require("../resources/views/incomes/create.php");
+    }
 
     
     /**
@@ -113,6 +121,7 @@ class IncomesController{
 //         $stmt->execute();
 
 //         echo "Se han insertado {$stmt->affected_rows} filas en la base de datos";
+        header("location: incomes");
     }
 
 
