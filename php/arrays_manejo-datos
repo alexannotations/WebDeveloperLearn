@@ -71,7 +71,7 @@ var_dump(array_shift($courses));
 var_dump(array_pop($courses));
 
 // agrega un primer elemento
-var_dump(array_ushift($courses));
+var_dump(array_unshift($courses));
 
 // agrega un ultimo elemento
 var_dump(array_push($courses));

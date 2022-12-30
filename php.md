@@ -111,7 +111,9 @@ Los argumentos serán pasados a la variable dada como un array.
 ...
 data(...$_POST)
 ```
+```->``` operador de objetos
 ```:```
+```::``` operador de control de ambito, accede a las propiedades y metodos de un objeto
 ```@``` operador de control de errores, suprime los mensajes de error, y no son mostrados
 
 
