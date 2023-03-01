@@ -89,8 +89,9 @@ La variable ```$GLOBALS``` es una variable predefinida de un arreglo que tiene t
 ### Comparacion
  comprobación de identidad ```===``` (valor y tipo)
  comprobación de igualdad débil ```==``` (valor)
- ```<=>``` nave espacial
- ```??``` fusion de null (El primer operando de izquierda a derecha que exista y no sea null. null si no hay valores definidos y no son null.)
+ ```<=>``` operador nave espacial (php7)
+ ```??``` operador de fusión de null (El primer operando de izquierda a derecha que exista y no sea null. null si no hay valores definidos y no son null.) (php7)
+ ```?``` operador (ternario) shorthand, es un condicional equivalente de ```if else```. (>=7.1.0) los valores de retorno pueden ser marcados como anulables anteponiendo el prefijo nombre de tipo con un signo de interrogación (?). Esto significa que la función devuelve el tipo especificado o null.
 
 
 ### Aritmetica
@@ -111,9 +112,10 @@ Los argumentos serán pasados a la variable dada como un array.
 ...
 data(...$_POST)
 ```
+```&``` operador de referencia. Para devolver una referencia desde una función
 ```->``` operador de objetos
-```:```
-```::``` operador de control de ambito, accede a las propiedades y metodos de un objeto
+```:``` Declaración de Tipo de Retorno
+```::``` operador de resolución de ambito (Paamayim Nekudotayim), es un token que permite acceder a elementos estáticos, constantes, y sobrescribir propiedades o métodos de una clase.
 ```@``` operador de control de errores, suprime los mensajes de error, y no son mostrados
 
 
