@@ -15,11 +15,17 @@ $closure();
 
 ```php
 $jobs= Job::all();
-$limitMonths=15;
+int $limitMonths=15;
 
-$filterFunction = function ($job) use ($limitMonths){
+$filterFunction = function (array $job) use ($limitMonths){
     return $job['months'] >= $limitMonths;
 }
 
 $jobs= array_filter($jobs->toArray(),$filterFunction);
 ```
+
+
+# Type Hinting
+
+Type Hinting nos permite especificar el tipo de los parámetros que recibe una función y el tipo de los parámetros de retorno de esa función. Valido sólo desde la version php7.1, pudiéndose usar para clases, interfaces y tipos escalares.
+
