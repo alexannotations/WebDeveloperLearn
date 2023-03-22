@@ -1,5 +1,7 @@
 # php
 
+[Reference Guide: What does this symbol mean in PHP? (PHP Syntax stackoverflow)](https://stackoverflow.com/questions/3737139/reference-guide-what-does-this-symbol-mean-in-php-php-syntax)
+
 ## Sintaxis basica
 
 ### Comillas
