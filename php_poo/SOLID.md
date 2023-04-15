@@ -16,14 +16,14 @@ __Dependency inversion principle o inversión de dependencias__. Trata de desaco
 Cómo se aplica esto en PHP:
 Vamos a comenzar con un ejemplo de código que claramente rompe estos principios de programación y buscaremos la forma de repararlo:
 ```php
-<class Reporter {
+class Reporter {
 	public function getExpensesReport($idReport) {
 		$expenses = $this->queryDBToGetExpenses($idReport);
 		return $this->renderHTML($expenses);
 }
 
 … // El código de las funciones va aquí
-}>
+}
 ```
 En este ejemplo, aunque aparentemente el código no luce tan mal, en realidad estamos violando dos veces el principio de responsabilidad única. Imagina que queremos cambiar la forma en la que se realiza esta consulta a la DB (Data Base o Base de Datos), o queremos cambiar la forma en la que se muestra el HTML del reporte, el tener al menos dos razones tan diferentes para modificar esta clase, nos indica que realmente estamos violando este principio.
 Ahora cambiemos el código para ver cómo podríamos solucionar este problema:
@@ -123,3 +123,4 @@ class Reporter {
 De esta forma, ahora cuando queramos cambiar el formato de salida, lo único que tenemos que hacer es inyectar el formatter que queremos y nuestra aplicación funcionará de una forma mucho más clara y orientada a objetos.
 
 Esto es solo un ejemplo de cómo trabajar usando los principios SOLID recuerda que nunca debes considerar nada como simples reglas a seguir, siempre sigue practicando y trata de entender el porqué estos principios te pueden ayudar con tu código, es posible que al principio no sea tan clara la forma de implementarlos en tu código, pero te aseguro que si los tienes en mente y sigues practicando, con el tiempo serán conceptos que podrás implementar de una forma mucho más natural y sencilla.
+

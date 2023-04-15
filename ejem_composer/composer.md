@@ -115,3 +115,20 @@ Al utilizar un archivo _index.php_ debemos invocar al archivo de autocarga
 require __DIR__ . '/vendor/autoload.php';
 ```
 para darle la utilidad correcta a composer, que permite cargar las clases y configuración.
+
+
+## despliegue en producción
+
+. [stackoverflow](https://stackoverflow.com/questions/21721495/how-to-deploy-correctly-when-using-composers-develop-production-switch)
+. [Autoloader optimization](https://getcomposer.org/doc/articles/autoloader-optimization.md)
+. [deployer](https://deployer.org/)
+
+- Para desplegar en producción 
+``` composer install --no-dev ```
+omitira instalar los paquetes requeridos para desarrollo
+
+-Genera un mapa de clases que aumenta la velocidad de autocarga
+``` composer install --no-dev --optimize-autoloader ```
+
+- Depliegue automatizado
+``` composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader ```
