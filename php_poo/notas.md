@@ -33,7 +33,7 @@ class Casa{
 <?php
 require("./VecindarioA/Casa.php");
 
-%home=new VecindarioA\Casa();
+$home=new VecindarioA\Casa();
 ?>
 # -------------------------- || OR ||
 
@@ -44,8 +44,8 @@ require("./VecindarioB/Casa.php");
 use VecindarioA\Casa;
 use VecindarioB\Casa as CasaB;  // usar alias con nombres de clases iguales
 
-%home=new Casa();
-%house=new CasaB();
+$home=new Casa();
+$house=new CasaB();
 ?>
 
 ```
