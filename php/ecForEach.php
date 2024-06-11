@@ -27,4 +27,16 @@ foreach ($tienda_de_cafes as $cafe => $price){
 echo "\n";
 
 # tambien se pueden usar las palabras reservadas break y continue
+
+
+# Para recorrer el mismo array asociativo usando un ciclo FOR normal
+// Obtenemos las claves del array asociativo
+$keys = array_keys($tienda_de_cafes);
+
+// Recorremos el array asociativo usando un bucle for
+for ($i = 0; $i < count($keys); $i++) {
+    $cafe = $keys[$i];        // clave
+    $price = $tienda_de_cafes[$cafe];    // valor
+    echo "El café $cafe cuesta $$price USD \n";
+}
 ?>
