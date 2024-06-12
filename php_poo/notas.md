@@ -1,8 +1,8 @@
 
 ## Inclusion de archivos
 
-```include``` permite incluir un archivo dentro de otro. Genera un warning que permite continuar en caso de no encontrarlo.
-```require``` incluye un archivo dentro de otro excepto que en caso de fallo producirá un error fatal, no permitirá continuar con el proceso.
+```include``` permite incluir un archivo dentro de otro. Genera un warning que permite continuar en caso de no encontrar el archivo.
+```require``` incluye un archivo obligatoriamente dentro de otro excepto que en caso de fallo producirá un error fatal, no permitirá continuar con el proceso.
 ```require_once``` idéntica a require excepto que PHP verificará si el archivo ya ha sido incluido y si es así, no se incluye.
 ```include_once``` Tiene un comportamiento similar al de la sentencia include, siendo la única diferencia de que si el código del fichero ya ha sido incluido, no se volverá a incluir, e include_once devolverá TRUE. Como su nombre indica, el fichero será incluido solamente una vez.
 Considere que debe tomarse en cuenta el orden de los archivos, llame primero a los archivos que no tienen dependencia de otros.

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- se crea el formulario que recibira los datos; se usa el metodo POST para enviar los datos
+y la etiqueta input para generar cuatro cajas de texto, que seran las que recibiran los datos -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="validar.js"></script>
+</head>
+<body>
+    <center>
+    <div class="estilo_caja">
+        <p class="estilo_titulo">Escribe tus datos</p>
+        <form action="proces.php" method="post" name="form">
+            <table>
+                <tr>
+                    <td><p class="s">Nombres:</p></td>
+                    <td><input type="text" name="nombre"></td>
+                </tr>
+                <tr>
+                    <td><p class="s">Primer apellido:</p></td>
+                    <td><input type="text" name="apellidop"></td>
+                </tr>
+                <tr>
+                    <td><p class="s">Segundo apellido:</p></td>
+                    <td><input type="text" name="apellidom"></td>
+                </tr>
+                <tr>
+                    <td><p class="s">Ciudad:</p></td>
+                    <td><input type="text" name="ciudad_natal"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="button" id="boton" name="btn_enviar" value="Enviar"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    </center>
+    
+</body>
+</html>

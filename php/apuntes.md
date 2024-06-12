@@ -69,3 +69,10 @@ La mayoria de estas constantes inician con doble guion bajo:
 - \_\_FILE__
 - \_\_DIR__
 - ClassName::class
+
+
+### Ejecutar PHP en la linea de comandos
+Para ejecutar php en la linea de comandos
+```sh
+php -r "phpinfo();"
+```

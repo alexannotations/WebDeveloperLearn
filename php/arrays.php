@@ -3,6 +3,9 @@
 https://www.php.net/manual/es/language.types.array.php
 https://www.php.net/manual/es/ref.array.php
 
+En el array indexado a cada elemento le corresponde un número.
+En un array asociativo cada elemento se compone de un valor y una clave.
+
 El operador => indica la relación asociativa entre una clave y un valor.
 La clave nos permite acceder a los valores almacenados en el arreglo.
 */

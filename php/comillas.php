@@ -69,4 +69,14 @@ foreach($variables as $variable) {
 	echo $$variable . "<br>";
 }
 
+
+/** # Delimitadores de codigo
+ * Eqtiquetas posibles, aunque puede ser necesario activarlas en el archivo php.ini
+ *  <?php ... ?>
+ *  <? ... ?>
+ *  <% ... %>
+ *  <script language="php"> ''' </script>
+ * 
+ * * */
+
 ?>
