@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hola AJAX</title>
+
+    <script type="text/javascript">
+        /** *** MEJORA
+         * El resultado del servidor puede corresponder a cinco estados específicos.
+         * Podemos ampliar la función que procesa el resultado convirtiendola en una función global.
+         * */
+        var READY_STATE_UNINITIALIZED = 0;
+        var READY_STATE_LOADING = 1;
+        var READY_STATE_LOADED = 2;
+        var READY_STATE_INTERACTIVE = 3;
+        var READY_STATE_COMPLETE = 4;
+        var peticion_http;
+
+
+        /** 
+         * El objeto XMLHttpRequest permite realizar la comunicación con el servidor en segundo plano, por esta razón,
+         * en todos los proyectos donde trabajemos con AJAX, será necesario instanciar el objeto XMLHttpRequest.
+         * Necesitamos incluir códico para navegadores basados en estandares y tambien para navegadores obsoletos.
+         * */ 
+        if(window.XMLHttpRequest){
+            peticion_http = new XMLHttpRequest();
+        }
+        else if (window.ActiveXObject) {
+            peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+
+        /**
+         * Con la instancia del objeto XMLHttpRequest preparada, es necesario trabajar en la funcion adecuada para procesar 
+         * los resultados provenientes del servidor. El objeto XMLHttpRequest posee la propiedad onreadystatechange, adecuada
+         * para acceder directamente a esta función, utilizando el código peticion_http.onreadystatechange = muestraContenido.
+         * En esencia, esto preparará la función de resultado.
+         * El nombre de la funcion se indica sin parentesis, para no ejecutarla en este momento.
+         * */
+        peticion_http.onreadystatechange = holaMundo2;  //    *** MEJORA
+
+
+         /**
+          * Creamos la petición para el servidor, sin parametros de tipo GET.
+          * Para crearla usamos el metodo open(), indicamos el tipo de petición, la URL y true
+          * */
+         peticion_http.open('GET','http://localhost/WebDeveloperLearn/asincronia/hola-mundo.txt', true);
+         peticion_http.send(null);
+
+
+         /**
+          * La funcion holaMundo() se encargara de comprobar que se ha recibido el resultado del servidor y que dicha funcion sea valida;
+          * luego la muestra por pantalla.
+          * */
+         function holaMundo(){
+            if (peticion_http.readyState == 4) {
+                if (peticion_http.status == 200) {
+                    alert(peticion_http.responseText);
+                }
+            }
+         }
+
+
+         /**  *** MEJORA
+          * Se modifico la funcion original para usar los estados especificos.
+          * Sera necesario contar con funciones para encapsular la creacion del objeto XMLHttpRequest y además considerar el uso
+          * de las variables globales.
+          * */
+          function holaMundo2(){
+            if (peticion_http.readyState == READY_STATE_COMPLETE) {
+                if (peticion_http.status == 200) {
+                    alert(peticion_http.responseText);
+                }
+            }
+         }
+
+
+         /** *** MEJORA
+          * Una función generica de carga de contenidos utilizando AJAX
+          * */
+         function contenido(url, metodo, funcion){
+            peticion_http = inicia_x();
+
+            if (peticion_http) {
+                peticion_http.onreadystatechange = funcion;
+                peticion_http.open(metodo, url, true);
+                peticion_http.send(null);
+            }
+         }
+
+    </script>
+
+</head>
+<body>
+    <p>
+        Tenemos el codigo necesario para instanciar el objeto XMLHttpRequest y tambien preparar la función resultado.
+        Al recibir el resultado del servidor, se debe ejecutar la funcion indicada en "peticion_http.onreadystatechange" 
+        HolaMundo u HolaMundo2.
+        
+    </p>
+</body>
+</html>
