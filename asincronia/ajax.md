@@ -26,19 +26,14 @@ Los scripts se  ubicaran en la seccion ```<head>```
 - Efectuar la petición que necesitamos al servidor.
 - Ejecutar la función de resultado.
 
+Con __Xajax__ podemos utilizar en conjunto PHP y AJAX.
+Para trabajar con AJAX se requieren algunas librerias como JQuery.
 
 
-
-# [XMLHttpRequest](https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest)
-
-
-# [Fetch]
 
 
 # [JQuery.Ajax]
-
-
-# [Axios]
+Libreria externa
 
 
 

@@ -25,6 +25,7 @@
             peticion_http = new XMLHttpRequest();
         }
         else if (window.ActiveXObject) {
+            // (deprecated)
             peticion_http = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
@@ -95,6 +96,9 @@
         Tenemos el codigo necesario para instanciar el objeto XMLHttpRequest y tambien preparar la función resultado.
         Al recibir el resultado del servidor, se debe ejecutar la funcion indicada en "peticion_http.onreadystatechange" 
         HolaMundo u HolaMundo2.
+        
+        <br><br>
+        Recuerda que esta pagina debe funcionar por medio de un host
         
     </p>
 </body>
