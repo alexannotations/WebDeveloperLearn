@@ -24,7 +24,45 @@
  * 
  * Actualizar un libro
  * ``` curl -X "PUT" http://localhost:8000/books/1 -d "{ \"titulo\":\"Nuevo Libro\",\"id_autor\": 1,\"id_genero\": 2}" ```
+ * 
+ * Eliminar un libro
+ * ``` curl -X "DELETE" http://localhost:8000/books/1 ```
+ * 
+ * 
  */
+
+# Autenticación HMAC
+# para utilizar la autenticación HMAC se debe enviar un hash en los encabezados de la petición
+# ``` curl http://localhost:8000/books -H "X-HASH: <hash del script generate_hash.php>" -H "X-UID: <uid>" -H "X-TIMESTAMP: <timestamp del script generate_hash.php>" ```
+# ``` curl http://localhost:8000/books -H "X-HASH: 24002c925bb88a0b9dd48eec262bdd5805ec5dd" -H "X-UID: 1" -H "X-TIMESTAMP: 1742411690" ```
+if (
+    # verifica que existan los encabezados no estandard
+    !array_key_exists('HTTP_X_HASH', $_SERVER) ||   /* hash recibido */
+    !array_key_exists('HTTP_X_TIMESTAMP', $_SERVER) ||
+    !array_key_exists('HTTP_X_UID', $_SERVER)
+) {
+    die;
+}
+    list($hash, $uid, $timestamp) = [
+        $_SERVER['HTTP_X_HASH'],
+        $_SERVER['HTTP_X_UID'],
+        $_SERVER['HTTP_X_TIMESTAMP'],
+    ];
+
+    // clave que solo conoce el servidor del cliente
+    $secret = 'No se lo cuentes a nadie!';
+
+    $newHash = sha1($uid.$timestamp.$secret);   // generamos el hash
+
+    // comparamos el hash recibido con el generado
+    if ($newHash !== $hash) {
+        die;    // no se puede autenticar
+    }
+
+
+
+
+
 
 $allowedResourceTypes = [
     'books',
@@ -95,8 +133,8 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
         // Actualizar un registro
         // validamos que el recurso buscado exista
         if (!empty($resourceId) && array_key_exists($resourceId, $books)) {
-            $json = file_get_contents('php://input');
-            $books[$resourceId] = json_decode($json, true);
+            $json = file_get_contents('php://input');   // tomamos entrada del usuario cruda
+            $books[$resourceId] = json_decode($json, true); // recurso a remplazar
             echo json_encode($books[$resourceId]);
             echo json_encode($books); 
         }
@@ -104,6 +142,10 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
 
     case 'DELETE':
         // Eliminar un registro
+        if ( !empty($resourceId) && array_key_exists( $resourceId, $books ) ) {
+			unset( $books[ $resourceId ] );
+		}
+        echo json_encode($books);
         break;
 
     default:
