@@ -16,33 +16,40 @@
  * 
  * https://auth0.com/docs/secure/tokens/access-tokens
  * 
- * Se levantan dos servidores.
+ * Se levantan dos servidores:
+ * - Servidor de autenticación
  * ``` php -S localhost:8001 auth_server.php ```
- * Considere el require en server.php
- * ``` php -S localhost:8000 router.php ```
  * 
- * Solicitamos un token valido
- * ``` curl http://localhost:8001 -X 'POST' -H 'X-Client-Id: 1' -H 'X-Secret:Esto es secreto' ```
+ * - Servidor de recursos
+ * ``` php -S localhost:8000 router.php ```		Considere el require en server.php
+ * 
+ * 
+ * Solicitamos un (recurso) token valido al servidor de autenticación:
+ * ``` curl http://localhost:8001 -X "POST" -H "X-Client-Id: <UID>" -H "X-Secret: <Frase a generar hash>" ```
+ * ``` curl http://localhost:8001 -X "POST" -H "X-Client-Id: 1" -H "X-Secret: SuperSecreto!" ```
  * 
  * Pedido al servidor de recursos:
- * ``` curl http://localhost:8000/books -H 'X-Token: 5d0937455b6744.68357201' ```
+ * ``` curl http://localhost:8000/books -H "X-Token: <hash de la frase>" ```
+ * ``` curl http://localhost:8000/books -H "X-Token: 312667e52e9e39a69495b1b3522489901c22617" ```
  * 
  */
 
 
- // validamos que exista el token recibido del cliente
-if ( !array_key_exists( 'HTTP_X_TOKEN', $_SERVER ) ) {
+echo 'Autenticación Access Token ';
+ // validamos que el servidor reciba un token del cliente
+if ( !array_key_exists( 'HTTP_X_TOKEN', $_SERVER ) )
+{
+	echo 'El cliente no envió el token';
 	die;
 }
 
 // Hacemos una petición al servidor de autenticación para verificar que el token sea válido
-// En este caso, el servidor de autenticación es el mismo servidor de la API
-// $url = 'http://'.$_SERVER['HTTP_HOST'].'/auth_server.php';
 $url = 'http://localhost:8001';
 
 // llamada via CURL al servidor de autenticación para validar el token
 $ch = curl_init( $url );
 // informamos que vamos a enviar un header personalizado (el token)
+// en la linea de comandos se hace con el modificador -H
 curl_setopt( 
     $ch, 
     CURLOPT_HTTPHEADER, 
@@ -50,18 +57,23 @@ curl_setopt(
 	    "X-Token: {$_SERVER['HTTP_X_TOKEN']}",
     ]
 );
-// informamos que queremos recibir una respuesta
+// informamos que queremos recibir una respuesta (obtenemos el resultado de la petición)
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+# el servidor al que estamos llamando esta haciendo otro llamado al servidor de autenticación
 // ejecutamos la petición
 $ret = curl_exec( $ch );
 
 // verificamos si hubo un error en la petición
-// if($ret !== 'true')
-if ( curl_errno($ch) != 0 ) {
+if ( curl_errno($ch) != 0 )
+{
+	echo 'Error: '.curl_error($ch);
+	http_response_code( 500 );
 	die ( curl_error($ch) );
 }
 
-if ( $ret !== 'true' ) {
+if ( $ret !== 'true' ) 
+{
+	echo 'El usuario no ha sido correctamente autenticado';
 	http_response_code( 403 );
 	die;
 }

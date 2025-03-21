@@ -10,4 +10,4 @@
  */
 
 $time = time();
-echo "UID: {$argv[1]}".PHP_EOL."Time: $time".PHP_EOL."Hash: ".sha1($argv[1].$time.'No se lo cuentes a nadie!').PHP_EOL;
+echo "UID: {$argv[1]}".PHP_EOL."Time: $time".PHP_EOL."Hash: ".sha1($argv[1].$time.'No se lo cuentes a nadie').PHP_EOL;

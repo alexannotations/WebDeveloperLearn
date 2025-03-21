@@ -6,6 +6,7 @@
  * Para iniciar el servidor integrado para el ejemplo, con URL funcional
  * ``` php -S localhost:8000 server.php ```
  * 
+ * Estos ejemplos no pasan por el router
  * Para ver la respuesta enviando la peticion GET (colección)
  * ``` curl http://localhost:8000?resource_type=books | jq ```
  * 
@@ -15,7 +16,8 @@
  * ``` > /dev/null```
  * 
  * Para ver la respuesta enviando la peticion GET (individual)
- * ```curl "http://localhost:8000?resource_type=books&resource_id=1" | jq```
+ * ``` curl "http://localhost:8000?resource_type=books&resource_id=1" | jq ```
+ * ``` curl "http://localhost:8000/books/1" | jq ```
  * 
  * Agregar un nuevo libro
  * ``` curl -X "POST" http://localhost:8000/books -d "{ \"titulo\":\"Nuevo Libro\",\"id_autor\": 1,\"id_genero\": 2}" ```
@@ -31,13 +33,15 @@
  * 
  */
 
-header( 'Content-Type: application/json' );
+header( 'Content-Type: application/json' );     // Se indica al cliente que lo que recibirá es un json
+
+// Aqui va la autenticación (only one)
+// require 'auth_HTTP.php';
+// require 'auth_HMAC.php';
+// require 'auth_TokenAccess.php';
 
 
-// Aqui va la autenticación 
-// require 'auth_*.php';
-require 'auth_TokenAccess.php';
-
+echo '{"status": "OK. Resources Server"}';
 
 $allowedResourceTypes = [
     'books',
@@ -51,7 +55,6 @@ $resourceType = $_GET['resource_type'];
 // validamos que un recurso permitido fue solicitado (dentro del array)
 if (!in_array($resourceType, $allowedResourceTypes)) {
     http_response_code(400);
-    
     die;
 }
 
@@ -75,9 +78,6 @@ $books = [
 ];
 
 
-// Se indica al cliente que lo que recibirá es un json
-header('Content-Type: application/json');
-
 // Verifica si existe el recurso individual
 $resourceId = array_key_exists('resource_id', $_GET) ? $_GET['resource_id'] : '';
 
@@ -90,6 +90,8 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
         } else {
             if (array_key_exists($resourceId, $books)) {
                 echo json_encode($books[$resourceId]); // libro solicitado
+            } else {
+                http_response_code(404);    // no encontrado
             }
         }
         

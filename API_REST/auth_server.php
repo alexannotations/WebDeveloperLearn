@@ -1,6 +1,8 @@
 <?php
 /**
+ * SERVER RESTFUL
  * Para trabajar en conjunto con el auth_TokenAccess.php
+ * Solicitudes de validación del token
  * 
  * ``` php -S localhost:8001 auth_server.php ```
  * 
@@ -9,10 +11,11 @@
 
 $method = strtoupper( $_SERVER['REQUEST_METHOD'] );
 
-// $token = sha1('Esto es secreto');
-$token = "5d0937455b6744.68357201";
+// el token deberia ser almacenado en una base de datos y con una caducidad en el tiempo
+$token = sha1('SuperSecreto!');     // "312667e52e9e39a69495b1b3522489901c22617"
 
 if ( $method === 'POST' ) {
+
     if ( !array_key_exists( 'HTTP_X_CLIENT_ID', $_SERVER ) || !array_key_exists( 'HTTP_X_SECRET', $_SERVER ) ) {
         http_response_code( 400 );
 
@@ -29,7 +32,9 @@ if ( $method === 'POST' ) {
     }
 
     echo "$token";
+
 } elseif ( $method === 'GET' ) {
+
     if ( !array_key_exists( 'HTTP_X_TOKEN', $_SERVER ) ) {
         http_response_code( 400 );
 
@@ -41,6 +46,8 @@ if ( $method === 'POST' ) {
     } else {
         echo 'false';
     }
+
 } else {
-    echo 'false';
+
+    echo 'false [METHOD]';
 }

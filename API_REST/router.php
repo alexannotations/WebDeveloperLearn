@@ -1,17 +1,19 @@
 <?php
 /**
  * <iniciar el servidor integrado para el ejemplo>
- * ```php -S localhost:8000 router.php```
+ * ``` php -S localhost:8000 router.php ```
  * 
  * <ver la respuesta enviando la peticion GET (colección)>
- * ```curl http://localhost:8000/books```
+ * ``` curl http://localhost:8000/books ```
  * 
  * <ver la respuesta enviando la peticion GET (individual)>
- * ```curl http://localhost:8000/books/1```
+ * ``` curl http://localhost:8000/books/1 ```
  * 
  */
 
 $matches=[];
+
+// echo json_encode( $_SERVER);
 
 if(preg_match('/\/([^\/]+)\/([^\/]+)/',$_SERVER["REQUEST_URI"],$matches)){
     
@@ -21,7 +23,7 @@ if(preg_match('/\/([^\/]+)\/([^\/]+)/',$_SERVER["REQUEST_URI"],$matches)){
     require 'server.php';
 }
 else if(preg_match('/\/([^\/]+)\/?/',$_SERVER["REQUEST_URI"],$matches)){
-    // pedido para todos los recuroso
+    // pedido para todos los recursos
     $_GET['resource_type']=$matches[1];        
     error_log(print_r($matches,1));
     require 'server.php';

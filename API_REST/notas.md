@@ -39,13 +39,24 @@ Restringir accesos a la API, las credenciales se envian en cada request, la aute
 __user:password@URL__
 
 
-## HMAC
+## Autenticación HMAC
 Codigo de Autorización Basado en Hash de Mensajes
 Metodo de autenticación { ID + HASH }
     - _Función Hash_: Difícil de romper, que sea conocida por el cliente y servidor.
     - _Clave secreta_: Solamente la pueden saber el cliente y el servidor, será utilizada para corroborar el hash.
     - _UID_: El id del usuario, será utilizado dentro de la función hash junto con la clave secreta y un timestamp.
 
+
+## Autenticación Access Tokens
+Vea los archivos auth_server.php y auth_TokenAccess.php
+
+
+## Manejo de errores en un servicio REST
+https://www.restapitutorial.com/httpstatuscodes
+HTTP Response Code
+400 Bad Request: indica que el servidor no puede o no procesa la petición debido a algo que es percibido como un error del cliente
+404 Not Found: el servidor no encuentra el recurso solicitado.
+500 Internal Server Error: la petición no pudo procesarse por un error del servidor.
 
 
 ## Fuentes
