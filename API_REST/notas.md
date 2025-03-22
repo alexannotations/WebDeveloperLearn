@@ -2,6 +2,12 @@
 Uso en servicios web
 
 
+Para levantar un servidor php, considerando que existe un _index.html_ ``` php -S localhost:8000 ``` aunque para el ejemplo se ingresa desde el _router.php_
+
+__deploy__
+https://vercel.com/docs/functions/runtimes#advanced-usage/community-runtimes
+
+
 ## REST
  REpresentational State Transfer
 - Recurso

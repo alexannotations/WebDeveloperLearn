@@ -35,6 +35,14 @@
 
 header( 'Content-Type: application/json' );     // Se indica al cliente que lo que recibirá es un json
 
+# https://www.w3.org/wiki/CORS_Enabled#What_is_CORS_about.3F
+header(&quot;Access-Control-Allow-Origin: *&quot;);
+header(&quot;Access-Control-Allow-Credentials: true&quot;);
+header(&quot;Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding&quot;);
+header(&quot;Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE&quot;);
+
+
+
 // Aqui va la autenticación (only one)
 // require 'auth_HTTP.php';
 // require 'auth_HMAC.php';
