@@ -30,6 +30,6 @@ Para trabajar con AJAX se requieren algunas librerias como JQuery.
 
 # [JQuery.Ajax]
 Libreria externa
-
+https://api.jquery.com/category/ajax/
 
 

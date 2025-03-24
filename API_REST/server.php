@@ -33,14 +33,14 @@
  * 
  */
 
-header( 'Content-Type: application/json' );     // Se indica al cliente que lo que recibirá es un json
+
 
 # https://www.w3.org/wiki/CORS_Enabled#What_is_CORS_about.3F
-header(&quot;Access-Control-Allow-Origin: *&quot;);
-header(&quot;Access-Control-Allow-Credentials: true&quot;);
-header(&quot;Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding&quot;);
-header(&quot;Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE&quot;);
-
+header("Access-Control-Allow-Origin: *");   // Permite que cualquier origen (dominio) acceda a los recursos.
+header("Access-Control-Allow-Credentials: true");   // Permite el uso de credenciales (como cookies) en las solicitudes
+header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");  // Especifica qué encabezados HTTP pueden ser utilizados durante la solicitud.
+header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");    // Especifica los métodos HTTP permitidos (PUT, POST, GET, OPTIONS, DELETE).
+header("Content-Type: application/json");     // Se indica al cliente que lo que recibirá es un json
 
 
 // Aqui va la autenticación (only one)
@@ -49,7 +49,7 @@ header(&quot;Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE&quot;
 // require 'auth_TokenAccess.php';
 
 
-echo '{"status": "OK. Resources Server"}';
+// echo '{"status": "OK. Resources Server"}';
 
 $allowedResourceTypes = [
     'books',
@@ -63,34 +63,56 @@ $resourceType = $_GET['resource_type'];
 // validamos que un recurso permitido fue solicitado (dentro del array)
 if (!in_array($resourceType, $allowedResourceTypes)) {
     http_response_code(400);
+    header( 'Status-Code: 400' );
+    echo json_encode(['error' => "$resourceType is un unkown",]);
     die;
 }
 
-// Defino los recursos
-$books = [
-    1 => [
-        'titulo' => 'Lo que el viento se llevo',
-        'id_autor' => 2,
-        'id_genero' => 2,
-    ],
-    2 => [
-        'titulo' => 'La Iliada',
-        'id_autor' => 1,
-        'id_genero' => 1,
-    ],
-    3 => [
-        'titulo' => 'La Odisea',
-        'id_autor' => 1,
-        'id_genero' => 1,
-    ],
-];
+// Función para leer los datos del archivo JSON
+function readData($filename) {
+    if (!file_exists($filename)) {
+        return [];
+    }
+    $json = file_get_contents($filename);
+    return json_decode($json, true);
+}
+
+// Función para escribir los datos en el archivo JSON
+function writeData($filename, $data) {
+    $json = json_encode($data, JSON_PRETTY_PRINT);
+    file_put_contents($filename, $json);
+}
+
+
+// // Defino los recursos
+$filename = 'books.json';
+$books = readData($filename);
+// $books = [
+//     1 => [
+//         'titulo' => 'Lo que el viento se llevo',
+//         'id_autor' => 2,
+//         'id_genero' => 2,
+//     ],
+//     2 => [
+//         'titulo' => 'La Iliada',
+//         'id_autor' => 1,
+//         'id_genero' => 1,
+//     ],
+//     3 => [
+//         'titulo' => 'La Odisea',
+//         'id_autor' => 1,
+//         'id_genero' => 1,
+//     ],
+// ];
+
 
 
 // Verifica si existe el recurso individual
 $resourceId = array_key_exists('resource_id', $_GET) ? $_GET['resource_id'] : '';
+$method = $_SERVER['REQUEST_METHOD'];
 
 // generamos la respuesta asumiendo que la petición es correcta
-switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
+switch(strtoupper($method)) {
     case 'GET':
         // Obtener datos
         if (empty($resourceId)) {
@@ -100,6 +122,9 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
                 echo json_encode($books[$resourceId]); // libro solicitado
             } else {
                 http_response_code(404);    // no encontrado
+                header( 'Status-Code: 404' );
+                echo json_encode(['error' => $resourceType.' not yet implemented',]);
+                die;
             }
         }
         
@@ -108,9 +133,11 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
     case 'POST':
         // Crear un nuevo registro
         $json = file_get_contents('php://input');   // proporciona el contenido completo del cuerpo de la petición en crudo
-        $books[] = json_decode($json, true);    // se decodifica el json y se agrega al array
-        // array_push($books, json_decode($json, true));    // otra forma de agregar al array
-        echo array_keys($books)[count($books)-1];    // se devuelve el id del libro creado
+        $newBook = json_decode($json, true);    // se decodifica el json
+        $books[] = $newBook;    // se agrega al array
+        writeData($filename, $books);   // se guarda en el archivo JSON
+        // array_push($books, $newBook);    // otra forma de agregar al array
+        // echo array_keys($books)[count($books)-1];    // se devuelve el id del libro creado
         echo json_encode($books);   // se devuelve la colección completa
         break;
 
@@ -120,6 +147,7 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
         if (!empty($resourceId) && array_key_exists($resourceId, $books)) {
             $json = file_get_contents('php://input');   // tomamos entrada del usuario cruda
             $books[$resourceId] = json_decode($json, true); // recurso a remplazar
+            writeData($filename, $books);   // se guarda en el archivo JSON
             echo json_encode($books[$resourceId]);
             echo json_encode($books); 
         }
@@ -129,6 +157,7 @@ switch(strtoupper($_SERVER['REQUEST_METHOD'])) {
         // Eliminar un registro
         if ( !empty($resourceId) && array_key_exists( $resourceId, $books ) ) {
 			unset( $books[ $resourceId ] );
+            writeData($filename, $books);   // se guarda en el archivo JSON
 		}
         echo json_encode($books);
         break;

@@ -1,5 +1,22 @@
 {
-    "Titulo": "Libro Nuevo",
-    "id_autor": 1,
-    "id_genero": 2
+    "1": {
+        "titulo": "Lo que el viento se llevo",
+        "id_autor": 2,
+        "id_genero": 2
+    },
+    "2": {
+        "titulo": "La Iliada",
+        "id_autor": 1,
+        "id_genero": 1
+    },
+    "3": {
+        "titulo": "La Odisea",
+        "id_autor": 1,
+        "id_genero": 1
+    },
+    "4": {
+        "titulo": "Libro Nuevo",
+        "id_autor": 1,
+        "id_genero": 2
+    }
 }

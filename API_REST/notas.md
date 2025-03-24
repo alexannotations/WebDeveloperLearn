@@ -19,6 +19,16 @@ __Petición REST__
 - Verbo HTTP (GET, POST, PUT, DELETE)
 
 
+### Buenas practicas
+Siempre utiliza sustantivos para nombrar tus recursos. (casas, autos, etc.)
+Añade los nombres en plural para las urls.
+Las modificaciones a recursos deben hacerse con su verbo HTTP correspondiente: POST, PUT o DELETE.
+Para devolver recursos asociados a otro recurso utiliza url que incorporen subrecursos: (/Autos/1/Choferes).
+Navegabilidad vía vínculos.
+Cuando devuelvas colecciones deben ser filtrables, ordenables y paginables.
+Versiona tu API, añade el número de versión en la url: (/v1/Autos).
+
+
 ## SOAP
 Simple Object Access Protocol
 
